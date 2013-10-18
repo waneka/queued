@@ -40,7 +40,7 @@ describe("adding song to queue", function(){
 
   describe("at search query action", function(){
     it("search button click event should fetch search results", function(){
-      spy = spyOn(App, "fetchSearchResults")
+      spy = spyOn(Controller, "fetchSearchResults")
       $(searchSubmitButton).trigger('click')
       expect(spy).toHaveBeenCalled()
     })
@@ -48,8 +48,12 @@ describe("adding song to queue", function(){
 
 // Currently defered to adding search bar
   describe("after successful search query", function(){
+    beforeEach(function(){
+      Controller.displaySearchResults(query_response)
+    })
+
     it("should display search results", function(){
-      expect($(resultsList).children().length).toBeGreaterThan(0)
+      expect($(resultsList).children().length).toEqual(25)
     })
   })
 })
