@@ -15,12 +15,12 @@ beforeEach(function(){
   searchSubmitButton = appendToDom('button', 'search-submit', searchContainer)
 
   resultsContainer = appendToDom('div', 'results-container', mainContainer)
-  resultsList = appendToDom('ul', 'results-list', resultsContainer)
+  resultsTable = appendToDom('table', 'results-table', resultsContainer)
 })
 
-afterEach(function(){
-  document.body.removeChild(mainContainer)
-})
+// afterEach(function(){
+//   document.body.removeChild(mainContainer)
+// })
 
 describe("searching for a song", function(){
 
@@ -34,11 +34,11 @@ describe("searching for a song", function(){
     })
 
     it("should have a container to display search results", function(){
-      expect(resultsList).toBeDefined()
+      expect(resultsTable).toBeDefined()
     })
 
     it("should not display any search results", function(){
-      expect($(resultsList).children().length).toEqual(0)
+      expect($(resultsTable).children().length).toEqual(0)
     })
   })
 
@@ -54,17 +54,18 @@ describe("searching for a song", function(){
   describe("after successful search query", function(){
     beforeEach(function(){
       Controller.displaySearchResults(query_response)
-      first_result = $(resultsList).children().first()
+      search_results_table_rows = $(resultsTable).find('tr')
+      search_results_first_row = search_results_table_rows.first()
     })
 
     it("should display search results", function(){
-      expect($(resultsList).children().length).toEqual(25)
+      expect(search_results_table_rows.length).toEqual(25)
     })
     it("should display correct text", function(){
-      expect(first_result.text()).toContain("Who Let The Dogs Out")
+      expect(search_results_first_row.text()).toContain("Who Let The Dogs Out")
     })
     it("each result should have an add button", function(){
-      expect(first_result.html()).toContain ('button' && 'add-result')
+      expect(search_results_first_row.html()).toContain ('button' && 'add-to-queue-submit')
     })
   })
 })

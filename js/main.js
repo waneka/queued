@@ -12,18 +12,28 @@ var Controller = {
   },
 
   displaySearchResults: function(data){
-    $('.results-list').empty()
+    $('.results-table').empty()
     $.each(data.result.results, function(i, result){
-      $('.results-list').append(Views.songQuery(result))
+      $('.results-table').append(Views.songQuery(result))
     })
   }
 }
 
 var Views = {
   songQuery: function(data){
-    return $('<li>', { class: 'result'})
-    .text(data.name+" - "+data.artist+" ("+data.album+")")
-    .append($('<button>', {class: 'add-result'}).text('+'))
+    return row = $('<tr>', { class: 'result-row'} )
+    .append(
+      $('<td>', { class: 'result-song'} ).text(data.name),
+      $('<td>', { class: 'result-artist'} ).text(data.artist),
+      $('<td>', { class: 'result-album'} ).text(data.album),
+      $('<td>', { class: 'result-duration'} ).text(data.duration),
+      $('<td>', { class: 'result-add'} )
+      .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
+    )
+
+    // return $('<li>', { class: 'result'})
+    // .text(data.name+" - "+data.artist+" ("+data.album+")")
+    // .append($('<button>', {class: 'add-result'}).text('+'))
   }
 }
 
