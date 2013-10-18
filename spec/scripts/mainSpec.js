@@ -19,11 +19,13 @@ describe("search results", function(){
     })
 
     it("should not display any search results", function(){
-      expect($('.search-results').children().length).toEqual(0)
+      expect($(searchResultsContainer).children().length).toEqual(0)
     })
   })
 
   describe("after successful search query", function(){
-
+    it("should display search results", function(){
+      expect($(searchResultsContainer).children().length).toBeGreaterThan(0)
+    })
   })
 })
