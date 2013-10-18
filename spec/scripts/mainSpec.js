@@ -10,10 +10,16 @@ describe("search results", function(){
   }
 
   beforeEach(function(){
-    searchResultsContainer = appendToDom('ul', 'search-results')
+    searchContainer = appendToDom('div', 'search-container')
+    searchTermField = appendToDom('input', 'search-input-term', searchContainer)
+    searchResultsContainer = appendToDom('ul', 'search-results', searchContainer)
   })
 
   describe("before search query", function(){
+    it("should have a field to input search terms", function(){
+      expect(searchTermField).toBeDefined()
+    })
+
     it("should have a container to display search results", function(){
       expect(searchResultsContainer).toBeDefined()
     })
@@ -23,6 +29,8 @@ describe("search results", function(){
     })
   })
 
+
+// Currently defered to adding search bar
   describe("after successful search query", function(){
     it("should display search results", function(){
       expect($(searchResultsContainer).children().length).toBeGreaterThan(0)
