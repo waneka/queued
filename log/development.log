@@ -1,0 +1,57 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:09:30 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 54ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:12:36 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:12:37 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:12:37 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:12:38 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:12:38 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 12:13:13 -0700
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 635ms (Views: 633.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 12:13:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 12:13:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 12:13:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 12:13:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 12:13:14 -0700
