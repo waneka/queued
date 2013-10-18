@@ -737,3 +737,30 @@ Started POST "/search" for 127.0.0.1 at 2013-10-18 14:46:44 -0700
 Processing by SearchController#create as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"dgc5hJBQ1XjB+qprpH1f/1/nspMeGV9QfiU7NKpCnQ4=", "song"=>"sdfds", "commit"=>"Search"}
 Completed 200 OK in 126ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 15:19:20 -0700
+Processing by SearchController#new as HTML
+  Rendered search/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 83ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
