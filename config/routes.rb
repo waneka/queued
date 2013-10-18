@@ -1,5 +1,6 @@
 Qd::Application.routes.draw do
-  root to: 'static_pages#index'
+  root to: 'search#new'
+  resource :search, only: [:create, :new], controller: 'search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
