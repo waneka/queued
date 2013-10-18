@@ -30,10 +30,6 @@ var Views = {
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
     )
-
-    // return $('<li>', { class: 'result'})
-    // .text(data.name+" - "+data.artist+" ("+data.album+")")
-    // .append($('<button>', {class: 'add-result'}).text('+'))
   }
 }
 

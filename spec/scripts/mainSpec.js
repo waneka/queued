@@ -16,6 +16,9 @@ beforeEach(function(){
 
   resultsContainer = appendToDom('div', 'results-container', mainContainer)
   resultsTable = appendToDom('table', 'results-table', resultsContainer)
+
+  queueContainer = appendToDom('div', 'queue-container', mainContainer)
+  queueTable = appendToDom('table', 'queue-table', queueContainer)
 })
 
 // afterEach(function(){
@@ -71,5 +74,11 @@ describe("searching for a song", function(){
 })
 
 describe("adding a song from search query to queue", function(){
+  it("add button event should append class of result row")
+})
 
+describe("queue", function(){
+  it("should have a table to contain table row", function(){
+    expect($('.queue-table')).toExist()
+  })
 })
