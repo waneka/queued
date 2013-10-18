@@ -55,5 +55,8 @@ describe("adding song to queue", function(){
     it("should display search results", function(){
       expect($(resultsList).children().length).toEqual(25)
     })
+    it("should display correct text", function(){
+      expect($(resultsList).children().text()).toContain("Who Let The Dogs Out")
+    })
   })
 })
