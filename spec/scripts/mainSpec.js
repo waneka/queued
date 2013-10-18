@@ -21,33 +21,33 @@ beforeEach(function(){
   queueTable = appendToDom('table', 'queue-table', queueContainer)
 })
 
-// afterEach(function(){
-//   document.body.removeChild(mainContainer)
-// })
+afterEach(function(){
+  document.body.removeChild(mainContainer)
+})
 
 describe("searching for a song", function(){
 
   describe("before search query", function(){
     it("should have a field to input search terms", function(){
-      expect(searchTermField).toBeDefined()
+      expect($('.search-input-term')).toExist()
     })
 
     it("should have a submit button", function(){
-      expect(searchSubmitButton).toBeDefined()
+      expect($('.search-submit')).toExist()
     })
 
     it("should have a container to display search results", function(){
-      expect(resultsTable).toBeDefined()
+      expect($('.results-table')).toExist()
     })
 
     it("should not display any search results", function(){
-      expect($(resultsTable).children().length).toEqual(0)
+      expect($('.results-table')).toBeEmpty()
     })
   })
 
   describe("at search query action", function(){
     it("search button click event should fetch search results", function(){
-      spy = spyOn(Controller, "fetchSearchResults")
+      var spy = spyOn(Controller, "fetchSearchResults")
       $(searchSubmitButton).trigger('click')
       expect(spy).toHaveBeenCalled()
     })
@@ -62,23 +62,24 @@ describe("searching for a song", function(){
     })
 
     it("should display search results", function(){
-      expect(search_results_table_rows.length).toEqual(25)
+      expect($(resultsTable).find('tr')).toHaveLength(25)
     })
-    it("should display correct text", function(){
-      expect(search_results_first_row.text()).toContain("Who Let The Dogs Out")
+    it("each result should have song title", function(){
+      expect($(resultsTable).find('tr').first().text()).toContain("Who Let The Dogs Out")
     })
     it("each result should have an add button", function(){
-      expect(search_results_first_row.html()).toContain ('button' && 'add-to-queue-submit')
+      expect($(resultsTable).find('tr').first()).toContain($('button'))
     })
   })
-})
-
-describe("adding a song from search query to queue", function(){
-  it("add button event should append class of result row")
 })
 
 describe("queue", function(){
   it("should have a table to contain table row", function(){
     expect($('.queue-table')).toExist()
+  })
+})
+
+describe("adding a song from search query to queue", function(){
+  it("add button event should append class of result row", function(){
   })
 })
