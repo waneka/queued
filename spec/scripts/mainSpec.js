@@ -1,28 +1,28 @@
-describe("adding song to queue", function(){
+function appendToDom(element, id, parent){
+  parent = parent || document.body
+  var element = document.createElement(element)
+  element.className = id
+  parent.appendChild(element)
 
-  function appendToDom(element, id, parent){
-    parent = parent || document.body
-    var element = document.createElement(element)
-    element.className = id
-    parent.appendChild(element)
+  return element;
+}
 
-    return element;
-  }
+beforeEach(function(){
+  mainContainer = appendToDom('div', 'container')
 
-  beforeEach(function(){
-    mainContainer = appendToDom('div', 'container')
+  searchContainer = appendToDom('div', 'search-container', mainContainer)
+  searchTermField = appendToDom('input', 'search-input-term', searchContainer)
+  searchSubmitButton = appendToDom('button', 'search-submit', searchContainer)
 
-    searchContainer = appendToDom('div', 'search-container', mainContainer)
-    searchTermField = appendToDom('input', 'search-input-term', searchContainer)
-    searchSubmitButton = appendToDom('button', 'search-submit', searchContainer)
+  resultsContainer = appendToDom('div', 'results-container', mainContainer)
+  resultsList = appendToDom('ul', 'results-list', resultsContainer)
+})
 
-    resultsContainer = appendToDom('div', 'results-container', mainContainer)
-    resultsList = appendToDom('ul', 'results-list', resultsContainer)
-  })
+afterEach(function(){
+  document.body.removeChild(mainContainer)
+})
 
-  afterEach(function(){
-    document.body.removeChild(mainContainer)
-  })
+describe("searching for a song", function(){
 
   describe("before search query", function(){
     it("should have a field to input search terms", function(){
@@ -67,4 +67,8 @@ describe("adding song to queue", function(){
       expect(first_result.html()).toContain ('button' && 'add-result')
     })
   })
+})
+
+describe("adding a song from search query to queue", function(){
+
 })
