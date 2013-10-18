@@ -27,7 +27,8 @@ var Controller = {
   },
 
   moveSongToQueue: function($elem){
-    $('.queue-table').append($elem.clone())
+    $('.queue-table').append($elem.clone()).find('.result-add').remove()
+
   },
 
   disableAddToQueueButton: function($elem){
