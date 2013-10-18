@@ -1,5 +1,5 @@
 var Controller = {
-  listenForSubmitClick: function(button){
+  listenForSearchSubmitClick: function(){
     var self = this
     $(document).on('click', '.search-submit', function(e){
       self.fetchSearchResults()
@@ -16,6 +16,22 @@ var Controller = {
     $.each(data.result.results, function(i, result){
       $('.results-table').append(Views.songQuery(result))
     })
+  },
+
+  listenForAddToQueueSubmitClick: function(){
+    var self = this
+    $(document).on('click', '.add-to-queue-submit', function(e){
+      self.moveSongToQueue($(e.target).closest('tr'))
+      self.disableAddToQueueButton($(e.target))
+    })
+  },
+
+  moveSongToQueue: function($elem){
+    $('.queue-table').append($elem.clone())
+  },
+
+  disableAddToQueueButton: function($elem){
+    $elem.attr('disabled', true)
   }
 }
 
@@ -34,5 +50,6 @@ var Views = {
 }
 
 $(document).ready(function(){
-  Controller.listenForSubmitClick()
+  Controller.listenForSearchSubmitClick()
+  Controller.listenForAddToQueueSubmitClick()
 })
