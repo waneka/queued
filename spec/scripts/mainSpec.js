@@ -20,6 +20,10 @@ describe("adding song to queue", function(){
     resultsList = appendToDom('ul', 'results-list', resultsContainer)
   })
 
+  afterEach(function(){
+    document.body.removeChild(mainContainer)
+  })
+
   describe("before search query", function(){
     it("should have a field to input search terms", function(){
       expect(searchTermField).toBeDefined()
@@ -50,13 +54,17 @@ describe("adding song to queue", function(){
   describe("after successful search query", function(){
     beforeEach(function(){
       Controller.displaySearchResults(query_response)
+      first_result = $(resultsList).children().first()
     })
 
     it("should display search results", function(){
       expect($(resultsList).children().length).toEqual(25)
     })
     it("should display correct text", function(){
-      expect($(resultsList).children().text()).toContain("Who Let The Dogs Out")
+      expect(first_result.text()).toContain("Who Let The Dogs Out")
+    })
+    it("each result should have an add button", function(){
+      expect(first_result.html()).toContain ('button' && 'add-result')
     })
   })
 })

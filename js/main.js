@@ -21,8 +21,9 @@ var Controller = {
 
 var Views = {
   songItem: function(data){
-    var songTitle = data.name; var artistName = data.artist; var albumTitle = data.album;
-    $elem = $('<li>').text(songTitle+" - "+artistName+" ("+albumTitle+")")
+    $elem = $('<li>', { class: 'result'})
+    .text(data.name+" - "+data.artist+" ("+data.album+")")
+    .append($('<button>', {class: 'add-result'}).text('+'))
     return $elem
   }
 }
