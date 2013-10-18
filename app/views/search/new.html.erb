@@ -1,4 +1,43 @@
 
+
+    <h1>Rdio Playback API simple example</h1>
+    <div id="apiswf"></div>
+    <dl>
+      <dt>playState</dt>
+      <dd id="playState"></dd>
+
+      <dt>track</dt>
+      <dd id="track"></dd>
+      <dt>album</dt>
+      <dd id="album"></dd>
+      <dt>artist</dt>
+      <dd id="artist"></dd>
+      <dt>art</dt>
+      <dd><img src="" id="art"></dd>
+      <dt>position</dt>
+      <dd id="position"></dd>
+    </dl>
+
+    <input id="play_key" value="a997982"><button id="play">Play</button><br>
+    <button id="stop">Stop</button>
+    <button id="pause">Pause</button>
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+
+    <div id="freq">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+
 <%= form_tag search_path do %>
   <%= label_tag(:song, "Search for:") %>
   <%= text_field_tag(:song) %>
