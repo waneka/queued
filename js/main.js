@@ -38,7 +38,7 @@ var Controller = {
 
 var Views = {
   songQuery: function(data){
-    return row = $('<tr>', { class: 'result-row'} )
+    return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
       $('<td>', { class: 'result-song'} ).text(data.name),
       $('<td>', { class: 'result-artist'} ).text(data.artist),

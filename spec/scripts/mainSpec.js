@@ -64,11 +64,15 @@ describe("searching for a song", function(){
     })
 
     it("each result should have song title", function(){
-      expect($(resultsTable).find('tr').first().text()).toContain("Who Let The Dogs Out")
+      expect($(resultsTable).find('tr').first().text()).toContain(query_response.result.results[0].name)
     })
 
     it("each result should have an add button", function(){
       expect($(resultsTable).find('tr').first()).toContain($('button'))
+    })
+
+    it("each result should store the song key as data-songkey", function(){
+      expect($(resultsTable).find('tr').first().data('songkey')).toContain(query_response.result.results[0].key)
     })
 
     it("click event should be tracked", function(){
