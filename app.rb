@@ -11,9 +11,11 @@ get '/' do
 end
 
 post '/query' do
+  SONG_KEYS = %w{t12t1259537 t1259409 t1259319 t1259449 t1259361}
   song_search = params[:song_name]
   response = Rdio.query(song_search)
   "#{JSON.parse(response)['result']['results']}"
   # "#{JSON.parse(response)['result']['results'].first['key']}"
   # erb :layout
 end
+
