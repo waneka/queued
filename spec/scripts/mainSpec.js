@@ -10,9 +10,14 @@ describe("search results", function(){
   }
 
   beforeEach(function(){
-    searchContainer = appendToDom('div', 'search-container')
+    mainContainer = appendToDom('div', 'container')
+
+    searchContainer = appendToDom('div', 'search-container', mainContainer)
     searchTermField = appendToDom('input', 'search-input-term', searchContainer)
-    searchResultsContainer = appendToDom('ul', 'search-results', searchContainer)
+    searchSubmitButton = appendToDom('submit', 'search-submit', searchContainer)
+
+    resultsContainer = appendToDom('div', 'results-container', mainContainer)
+    resultsList = appendToDom('ul', 'results-list', resultsContainer)
   })
 
   describe("before search query", function(){
@@ -20,12 +25,15 @@ describe("search results", function(){
       expect(searchTermField).toBeDefined()
     })
 
+    it("should have a submit button", function(){
+    })
+
     it("should have a container to display search results", function(){
-      expect(searchResultsContainer).toBeDefined()
+      expect(resultsList).toBeDefined()
     })
 
     it("should not display any search results", function(){
-      expect($(searchResultsContainer).children().length).toEqual(0)
+      expect($(resultsList).children().length).toEqual(0)
     })
   })
 
@@ -33,7 +41,7 @@ describe("search results", function(){
 // Currently defered to adding search bar
   describe("after successful search query", function(){
     it("should display search results", function(){
-      expect($(searchResultsContainer).children().length).toBeGreaterThan(0)
+      expect($(resultsList).children().length).toBeGreaterThan(0)
     })
   })
 })
