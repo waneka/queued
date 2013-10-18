@@ -1,9 +1,9 @@
-describe("search results", function(){
+describe("adding song to queue", function(){
 
   function appendToDom(element, id, parent){
     parent = parent || document.body
     var element = document.createElement(element)
-    element.class = id
+    element.className = id
     parent.appendChild(element)
 
     return element;
@@ -14,7 +14,7 @@ describe("search results", function(){
 
     searchContainer = appendToDom('div', 'search-container', mainContainer)
     searchTermField = appendToDom('input', 'search-input-term', searchContainer)
-    searchSubmitButton = appendToDom('submit', 'search-submit', searchContainer)
+    searchSubmitButton = appendToDom('button', 'search-submit', searchContainer)
 
     resultsContainer = appendToDom('div', 'results-container', mainContainer)
     resultsList = appendToDom('ul', 'results-list', resultsContainer)
@@ -26,6 +26,7 @@ describe("search results", function(){
     })
 
     it("should have a submit button", function(){
+      expect(searchSubmitButton).toBeDefined()
     })
 
     it("should have a container to display search results", function(){
@@ -37,6 +38,13 @@ describe("search results", function(){
     })
   })
 
+  describe("at search query action", function(){
+    it("search button click event should fetch search results", function(){
+      spy = spyOn(App, "fetchSearchResults")
+      $(searchSubmitButton).trigger('click')
+      expect(spy).toHaveBeenCalled()
+    })
+  })
 
 // Currently defered to adding search bar
   describe("after successful search query", function(){
