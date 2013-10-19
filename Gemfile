@@ -35,6 +35,7 @@ end
 gem 'dotenv-rails'
 
 gem "oauth"
+gem 'omniauth-rdio'
 
 
 # Use ActiveModel has_secure_password
