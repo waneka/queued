@@ -1,12 +1,15 @@
 <div class='container'>
-    <%= button_to('Sign in with Rdio Yo!', '/auth/rdio') %>
-    <div class='queue-container'>
-        <table class='queue-table'></table>
-    </div>
+    <% if signed_in? %>
+      <div class='queue-container'>
+          <table class='queue-table'></table>
+      </div>
 
-    <div class='search-container'>
-        <input class='search-input-term'>
-        <button class='search-submit'></button>
-        <table class='results-table'></table>
-    </div>
+      <div class='search-container'>
+          <input class='search-input-term'>
+          <button class='search-submit'></button>
+          <table class='results-table'></table>
+      </div>
+    <% else %>
+      <%= button_to('Sign in with Rdio Yo!', '/auth/rdio') %>
+    <% end %>
 </div>
