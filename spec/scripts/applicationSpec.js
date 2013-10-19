@@ -1,3 +1,5 @@
+//depends on the mock query response
+
 function appendToDom(element, id, parent){
   parent = parent || document.body
   var element = document.createElement(element)
@@ -8,6 +10,7 @@ function appendToDom(element, id, parent){
 }
 
 beforeEach(function(){
+  //make these not global
   mainContainer = appendToDom('div', 'container')
 
   searchContainer = appendToDom('div', 'search-container', mainContainer)
@@ -19,6 +22,10 @@ beforeEach(function(){
 
   queueContainer = appendToDom('div', 'queue-container', mainContainer)
   queueTable = appendToDom('table', 'queue-table', queueContainer)
+
+  // $('<table class=queue-table>').appendTo(mainContainer)
+
+  // $('<div id=foo class=search-container disabled>').appendTo(mainContainer)
 })
 
 afterEach(function(){
@@ -28,6 +35,7 @@ afterEach(function(){
 describe("searching for a song", function(){
 
   describe("before search query", function(){
+    //these are not necessary - appending to dom and then checking that we appended to dom
     it("should have a field to input search terms", function(){
       expect($('.search-input-term')).toExist()
     })
@@ -56,10 +64,12 @@ describe("searching for a song", function(){
   // Currently defered to adding search bar
   describe("after successful search query", function(){
     beforeEach(function(){
+      // call it mock query response, do not use _
       Controller.displaySearchResults(query_response)
     })
 
     it("should display search results", function(){
+      // do we need to hard code 25?
       expect($(resultsTable).find('tr')).toHaveLength(25)
     })
 

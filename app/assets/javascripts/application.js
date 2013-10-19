@@ -16,16 +16,24 @@
 //= require_tree .
 
 var Controller = {
-  listenForSearchSubmitClick: function(){
+
+  init: function() {
+    this.el = $('.container')
+    // listen()
+    this.el.on('click', '.search-submit', this.fetchSearchResults.bind(this))
+
     var self = this
-    $(document).on('click', '.search-submit', function(e){
-      self.fetchSearchResults()
+    this.el.on('click', '.add-to-queue-submit', function(e){
+      self.addCloneToQueue($(e.target).closest('tr'))
+      self.respondToBeingAdded($(e.target))
     })
+
   },
 
   fetchSearchResults: function(){
     //AJAX CALL TO GET SEARCH RESULTS
     //done -> displaySearchResults(results)
+
   },
 
   displaySearchResults: function(data){
@@ -36,19 +44,15 @@ var Controller = {
   },
 
   listenForAddToQueueSubmitClick: function(){
-    var self = this
-    $(document).on('click', '.add-to-queue-submit', function(e){
-      self.addCloneToQueue($(e.target).closest('tr'))
-      self.respondToBeingAdded($(e.target))
-    })
   },
 
   addCloneToQueue: function($elem){
-    $('.queue-table').append($elem.clone()).find('.result-add').remove()
+    this.el.find('.queue-table').append($elem.clone()).find('.result-add').remove()
   },
 
   respondToBeingAdded: function($elem){
-    $elem.attr('disabled', true)
+    //prop?
+    $elem.prop('disabled', true)
   }
 }
 
@@ -70,3 +74,9 @@ $(document).ready(function(){
   Controller.listenForSearchSubmitClick()
   Controller.listenForAddToQueueSubmitClick()
 })
+
+
+
+// var myTemplate = $('[data-template-foo]').text()
+
+// Mustache.render(myTemplate, data) // => html
