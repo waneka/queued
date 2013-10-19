@@ -76,7 +76,7 @@ describe("searching for a song", function(){
     })
 
     it("click event should be tracked", function(){
-      var spy = spyOn(Controller, "moveSongToQueue")
+      var spy = spyOn(Controller, "addCloneToQueue")
       $('.add-to-queue-submit').trigger('click')
       expect(spy).toHaveBeenCalled()
     })

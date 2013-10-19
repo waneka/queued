@@ -21,17 +21,16 @@ var Controller = {
   listenForAddToQueueSubmitClick: function(){
     var self = this
     $(document).on('click', '.add-to-queue-submit', function(e){
-      self.moveSongToQueue($(e.target).closest('tr'))
-      self.disableAddToQueueButton($(e.target))
+      self.addCloneToQueue($(e.target).closest('tr'))
+      self.respondToBeingAdded($(e.target))
     })
   },
 
-  moveSongToQueue: function($elem){
+  addCloneToQueue: function($elem){
     $('.queue-table').append($elem.clone()).find('.result-add').remove()
-
   },
 
-  disableAddToQueueButton: function($elem){
+  respondToBeingAdded: function($elem){
     $elem.attr('disabled', true)
   }
 }
