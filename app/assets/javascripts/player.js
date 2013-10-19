@@ -1,6 +1,10 @@
-// var nick_queue = {
-//   songs: ["t12t1259537", "t1259409", "t1259319", "t1259449", "t1259361"]
-// }
+var nick_queue = {
+  songs: ["t12t1259537", "t1259409", "t1259319", "t1259449", "t1259361"]
+}
+
+$('position').change(function(){
+  console.log(parseInt($('#position').text()))
+})
 
 
 $(document).ready(function() {
@@ -21,25 +25,28 @@ $(document).ready(function() {
   );
 
 
+
 });
 
 var rdioPlayerElementId = 'rdio-player';
 
 // the global callback object
 var rdioCallbacks = {};
-
+var rdioPlayerElement = null;
 // called once the flash player has dowloaded, then connected to rdio
 rdioCallbacks.ready = function ready(user) {
   // Called once the API SWF has loaded and is ready to accept method calls.
 
   // find the embed/object element - i.e. the flash song player
   // var apiswf = $('#apiswf').get(0);
-  var rdioPlayerElement = document.getElementById(rdioPlayerElementId);
+  rdioPlayerElement = document.getElementById(rdioPlayerElementId);
 
-  rdioPlayerElement.rdio_play($('#play_key').val());
+  rdioPlayerElement.rdio_play(nick_queue.songs.pop());
+
+
 
   // set up the controls
-
+  console.log(this.position)
   $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });
   $('#pause').click(function() { rdioPlayerElement.rdio_pause(); });
   $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
@@ -72,6 +79,7 @@ rdioCallbacks.ready = function ready(user) {
 
   //   console.log(user);
 }
+
 
 rdioCallbacks.freeRemainingChanged = function freeRemainingChanged(remaining) {
   $('#remaining').text(remaining);
@@ -111,6 +119,18 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
   //The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
   $('#position').text(position);
+
+  aboutToEnd(position)
+
+}
+
+function aboutToEnd(position){
+  if ((position * 1000) > ((5000) - 100)) {
+    rdioPlayerElement.rdio_play(nick_queue.songs.pop());
+    // console.log(rdioPlayerElement);
+  } else {
+    console.log("false")
+  }
 }
 
 rdioCallbacks.queueChanged = function queueChanged(newQueue) {
