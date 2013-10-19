@@ -1,4 +1,4 @@
-var query_response = {
+var mockQueryResponse = {
  "status": "ok",
  "result": {
   "number_results": 200,
