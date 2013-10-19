@@ -15,6 +15,45 @@
 //= require turbolinks
 //= require_tree .
 
+function QueueSync(){
+  var queueDataRef = new Firebase("https://queued.firebaseIO.com")
+
+  queueDataRef.on('child_added', function(snapshot){
+    $('.queue-table').empty()
+    SyncData.loadqueue()
+  })
+
+}
+
+
+
+var SyncData = {
+
+  handleSongAdded: function($elem){
+    $('.queue-table').empty()
+    queueDataRef.push(this.compileDataForFirebase($elem))
+  },
+
+  compileDataForFirebase: function($data){
+    return {
+      songName: $data.find('.result-song').text(),
+      artistName: $data.find('.result-artist').text(),
+      albumName: $data.find('.result-album').text(),
+      songDuration: $data.find('.result-duration').text(),
+      songKey: $data.data('songkey')
+    }
+  },
+
+  loadQueue: function(){
+    queueDataRef.on('value', function(snapshot){
+      $.each(snapshot.val(), function(i, queueItem){
+        console.log(queueItem)
+        $('.queue-table').append(ViewController.buildQueueRow(queueItem))
+      })
+    })
+  }
+}
+
 var ViewController = {
 
   init: function() {
@@ -28,6 +67,8 @@ var ViewController = {
       self.addCloneToQueue($(e.target).closest('tr'))
       self.respondToBeingAdded($(e.target))
     })
+
+    SyncData.loadQueue()
   },
 
   fetchSearchResults: function(){
@@ -52,7 +93,12 @@ var ViewController = {
   },
 
   addCloneToQueue: function($elem){
-    $(document).find('.queue-table').append($elem.clone()).find('.result-add').remove()
+    // var $row = $elem.clone()
+    // $row.find('.result-add').remove()
+    // $row.data($elem.data())
+    // $(document).find('.queue-table').append($row)
+    // SyncData.handleSongAdded($row)
+    SyncData.handleSongAdded($elem)
   },
 
   respondToBeingAdded: function($elem){
@@ -68,6 +114,17 @@ var ViewController = {
       $('<td>', { class: 'result-duration'} ).text(data.duration),
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
+    )
+  },
+
+  buildQueueRow: function(data){
+    console.log(data.albumName)
+    return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
+    .append(
+      $('<td>', {class: 'queue-song'}).text(data.songName),
+      $('<td>', {class: 'queue-artist'}).text(data.artistName),
+      $('<td>', {class: 'queue-album'}).text(data.albumName),
+      $('<td>', {class: 'queue-duration'}).text(data.songDuration)
     )
   }
 }
