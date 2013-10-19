@@ -1,5 +1,9 @@
 <div class='container'>
     <% if signed_in? %>
+      <%= current_user.first_name %>
+      <%= image_tag(current_user.profile_pic_url) %>
+      <%= button_to 'Log out', logout_path, method: :get %>
+
       <div class='queue-container'>
           <table class='queue-table'></table>
       </div>
@@ -10,6 +14,6 @@
           <table class='results-table'></table>
       </div>
     <% else %>
-      <%= button_to('Sign in with Rdio Yo!', '/auth/rdio') %>
+      <%= button_to 'Sign in with Rdio Yo!', '/auth/rdio'  %>
     <% end %>
 </div>
