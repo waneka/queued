@@ -21,9 +21,9 @@ beforeEach(function(){
   queueTable = appendToDom('table', 'queue-table', queueContainer)
 })
 
-// afterEach(function(){
-//   document.body.removeChild(mainContainer)
-// })
+afterEach(function(){
+  document.body.removeChild(mainContainer)
+})
 
 describe("searching for a song", function(){
 
