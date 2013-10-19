@@ -15,49 +15,51 @@
 //= require turbolinks
 //= require_tree .
 
-var Controller = {
+var ViewController = {
 
   init: function() {
-    this.el = $('.container')
-    // listen()
-    this.el.on('click', '.search-submit', this.fetchSearchResults.bind(this))
+    // this.elem = $('.container') ---> in place of $(document)
 
     var self = this
-    this.el.on('click', '.add-to-queue-submit', function(e){
+    $(document).on('click', '.search-submit', function(e){
+      self.fetchSearchResults()
+    })
+    $(document).on('click', '.add-to-queue-submit', function(e){
       self.addCloneToQueue($(e.target).closest('tr'))
       self.respondToBeingAdded($(e.target))
     })
-
   },
 
   fetchSearchResults: function(){
-    //AJAX CALL TO GET SEARCH RESULTS
-    //done -> displaySearchResults(results)
-
-  },
-
-  displaySearchResults: function(data){
-    $('.results-table').empty()
-    $.each(data.result.results, function(i, result){
-      $('.results-table').append(Views.songQuery(result))
+    var term = $('.search-input-term').val()
+    var self = this
+    $.ajax({
+      url: 'search',
+      type: 'post',
+      data: {song: term}
+    })
+    .done(function(response){
+      self.displaySearchResults(JSON.parse(response))
     })
   },
 
-  listenForAddToQueueSubmitClick: function(){
+  displaySearchResults: function(data){
+    var self = this
+    $('.results-table').empty()
+    $.each(data.result.results, function(i, result){
+      $('.results-table').append(self.buildResultRow(result))
+    })
   },
 
   addCloneToQueue: function($elem){
-    this.el.find('.queue-table').append($elem.clone()).find('.result-add').remove()
+    $(document).find('.queue-table').append($elem.clone()).find('.result-add').remove()
   },
 
   respondToBeingAdded: function($elem){
-    //prop?
     $elem.prop('disabled', true)
-  }
-}
+  },
 
-var Views = {
-  songQuery: function(data){
+  buildResultRow: function(data){
     return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
       $('<td>', { class: 'result-song'} ).text(data.name),
@@ -71,12 +73,5 @@ var Views = {
 }
 
 $(document).ready(function(){
-  Controller.listenForSearchSubmitClick()
-  Controller.listenForAddToQueueSubmitClick()
+  ViewController.init()
 })
-
-
-
-// var myTemplate = $('[data-template-foo]').text()
-
-// Mustache.render(myTemplate, data) // => html

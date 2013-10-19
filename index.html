@@ -1,47 +1,29 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
+        <script src="vendor/assets/javascripts/jquery-1.10.1.min.js"></script>
+        <script src='app/assets/javascripts/application.js'></script>
+<!--
         <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/main.css"> -->
     </head>
     <body>
+        <div class='container'>
+            <div class='queue-container'>
+                <table class='queue-table'></table>
+            </div>
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <nav>
-                </nav>
-            </header>
+            <div class='search-container'>
+                <input class='search-input-term'>
+                <button class='search-submit'></button>
+                <table class='results-table'></table>
+            </div>
         </div>
-
-
-
-
-        <div class="footer-container">
-            <footer class="wrapper">
-
-            </footer>
-        </div>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <script data-template-foo type="text/mustache">
-            <tr>
-                <td>{{foo}}</td>
-            </tr>
-        </script>
-
 
     </body>
 </html>

@@ -764,3 +764,1013 @@ Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
 
 
 Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 15:19:21 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:35:39 -0700
+Processing by SearchController#new as HTML
+  Rendered search/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 236ms (Views: 206.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:35:40 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:36:26 -0700
+
+ArgumentError (controller name should not start with a slash):
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.1ms)
+
+
+Started GET "/index.html" for 127.0.0.1 at 2013-10-18 23:36:40 -0700
+
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (24.8ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (60.9ms)
+
+
+Started GET "/index.html" for 127.0.0.1 at 2013-10-18 23:37:54 -0700
+
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/index.html" for 127.0.0.1 at 2013-10-18 23:37:57 -0700
+
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:38:09 -0700
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:39:19 -0700
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:40:56 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:41:16 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:41:25 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"jay z"}
+Completed 200 OK in 1624ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:42:02 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:42:10 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"justin timberlake"}
+Completed 200 OK in 933ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:05 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:43:12 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"matisyahu"}
+Completed 200 OK in 428ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:43:55 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:44:13 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"tenacious d"}
+Completed 200 OK in 3682ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:44:56 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:45:03 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"matisyahu"}
+Completed 200 OK in 384ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:46:53 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"gorillaz"}
+Completed 200 OK in 392ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:01 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:47:06 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"gorillaz"}
+Completed 200 OK in 470ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:12 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:47:21 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"the dodos"}
+Completed 200 OK in 304ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:47:34 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:47:34 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:34 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:34 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:35 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:47:35 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:47:39 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"the dodos"}
+Completed 200 OK in 782ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:48:33 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:48:37 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"jay"}
+Completed 200 OK in 588ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 49ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:49:00 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:49:03 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"jay"}
+Completed 200 OK in 641ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:07 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:50:09 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"jay"}
+Completed 200 OK in 868ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:50:21 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:50:24 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"jay"}
+Completed 200 OK in 713ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:51:50 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:51:53 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"rage"}
+Completed 200 OK in 462ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:19 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:29 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:52:55 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:52:59 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"michael botlon"}
+Completed 200 OK in 729ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:53:42 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:53:46 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"lionel"}
+Completed 200 OK in 870ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:54:23 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"britney spears"}
+Completed 200 OK in 385ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:54:37 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"tyler waneka"}
+Completed 200 OK in 651ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:55:01 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"pink"}
+Completed 200 OK in 20732ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:55:21 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"pink"}
+Completed 200 OK in 682ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:55:22 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"pink"}
+Completed 200 OK in 2638ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:55:25 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:55:34 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"pink"}
+Completed 200 OK in 618ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:56:29 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"californication"}
+Completed 200 OK in 569ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-18 23:57:20 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"get real get right"}
+Completed 200 OK in 818ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search/new" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+Processing by SearchController#new as HTML
+  Rendered search/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:30 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-18 23:59:45 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-19 00:22:40 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"raoraO"}
+Completed 200 OK in 530ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-19 00:22:54 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 131ms (Views: 130.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-19 00:22:55 -0700
+
+
+Started POST "/search" for 127.0.0.1 at 2013-10-19 00:22:59 -0700
+Processing by SearchController#create as */*
+  Parameters: {"song"=>"RAO"}
+Completed 200 OK in 492ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/create/new" for 127.0.0.1 at 2013-10-19 00:23:30 -0700
+
+ActionController::RoutingError (No route matches [GET] "/create/new"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/apprentice/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.4ms)
+
+
+Started GET "/search/new" for 127.0.0.1 at 2013-10-19 00:23:38 -0700
+Processing by SearchController#new as HTML
+  Rendered search/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/player.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/token.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-19 00:23:39 -0700
