@@ -3,7 +3,7 @@ module Rdio
   extend self
 
   def new
-    consumer = OAuth::Consumer.new('5vksezmfkbg434a8rdzyn5kn', 'M7FQUUnemf', {
+    consumer = OAuth::Consumer.new(ENV['RDIO_CONSUMER_KEY'], ENV['RDIO_CONSUMER_SECRET'], {
       :site   => 'http://api.rdio.com',
       :scheme => :header
       })
