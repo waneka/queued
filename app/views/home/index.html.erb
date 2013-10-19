@@ -1,11 +1,19 @@
 <div class='container'>
-    <div class='queue-container'>
-        <table class='queue-table'></table>
-    </div>
+    <% if signed_in? %>
+      <%= current_user.first_name %>
+      <%= image_tag(current_user.profile_pic_url) %>
+      <%= button_to 'Log out', logout_path, method: :get %>
 
-    <div class='search-container'>
-        <input class='search-input-term'>
-        <button class='search-submit'></button>
-        <table class='results-table'></table>
-    </div>
+      <div class='queue-container'>
+          <table class='queue-table'></table>
+      </div>
+
+      <div class='search-container'>
+          <input class='search-input-term'>
+          <button class='search-submit'></button>
+          <table class='results-table'></table>
+      </div>
+    <% else %>
+      <%= button_to 'Sign in with Rdio Yo!', '/auth/rdio'  %>
+    <% end %>
 </div>
