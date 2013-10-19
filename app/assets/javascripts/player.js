@@ -2,9 +2,6 @@ var nick_queue = {
   songs: ["t12t1259537", "t1259409", "t1259319", "t1259449", "t1259361"]
 }
 
-$('position').change(function(){
-  console.log(parseInt($('#position').text()))
-})
 
 
 $(document).ready(function() {
@@ -46,7 +43,6 @@ rdioCallbacks.ready = function ready(user) {
 
 
   // set up the controls
-  console.log(this.position)
   $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });
   $('#pause').click(function() { rdioPlayerElement.rdio_pause(); });
   $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
@@ -77,7 +73,6 @@ rdioCallbacks.ready = function ready(user) {
   //     $('#nobody').show();
   //   }
 
-  //   console.log(user);
 }
 
 
@@ -94,6 +89,7 @@ rdioCallbacks.playStateChanged = function playStateChanged(playState) {
 rdioCallbacks.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
   // The currently playing track has changed.
   // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
+  this.currentSongDuration = playingTrack.duration
   if (playingTrack != null) {
     $('#track').text(playingTrack['name']);
     $('#album').text(playingTrack['album']);
@@ -125,10 +121,10 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
 }
 
 function aboutToEnd(position){
-  if ((position * 1000) > ((5000) - 100)) {
+  if ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100)) {
     rdioPlayerElement.rdio_play(nick_queue.songs.pop());
-    // console.log(rdioPlayerElement);
   } else {
+  console.log(rdioCallbacks.currentSongDuration * 1000)
     console.log("false")
   }
 }
