@@ -1,5 +1,5 @@
 Qd::Application.routes.draw do
-  root to: 'search#new'
+  root to: 'home#index'
   resource :search, only: [:create, :new], controller: 'search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
