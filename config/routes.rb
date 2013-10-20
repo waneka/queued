@@ -1,6 +1,7 @@
 Qd::Application.routes.draw do
   root to: 'home#index'
   resource :search, only: [:create, :new], controller: 'search'
+  resources :parties, only: [:create, :index]
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
