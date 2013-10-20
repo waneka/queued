@@ -2,7 +2,7 @@ Qd::Application.routes.draw do
   root to: 'home#index'
   resource :search, only: [:create, :new], controller: 'search'
   get '/auth/:provider/callback', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
