@@ -12,3 +12,6 @@
  *= require_tree .
  */
 
+.container {
+  width: 2000px;
+}
