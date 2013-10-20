@@ -7,27 +7,27 @@
   <div class='search-container'>
 
 
-      <input type='text' class='search-input-term' placeholder='Search' />
-      <button type='submit' class='search-submit btn'>Search</button>
+    <input type='text' class='search-input-term' placeholder='Search' />
+    <button type='submit' class='search-submit btn'>Search</button>
 
-</div>
+  </div>
 
-    <% if signed_in? %>
-      <%= current_user.first_name %>
-      <%= image_tag(current_user.profile_pic_url) %>
-      <%= button_to 'Log out', logout_path, method: :get %>
+  <% if signed_in? %>
+   
+    <%= render 'player' %>
 
-      <div class='queue-container'>
-          <table class='queue-table'></table>
-      </div>
+    <div class='queue-container'>
+      <table class='queue-table'></table>
+    </div>
 
-      <div class='search-container'>
-          <input class='search-input-term'>
-          <button class='search-submit'></button>
-          <table class='results-table'></table>
-      </div>
-    <% else %>
-      <%= button_to 'Sign in with Rdio Yo!', '/auth/rdio'  %>
-    <% end %>
+    <div class='search-container'>
+      <input class='search-input-term'>
+      <button class='search-submit'></button>
+      <table class='results-table'></table>
+    </div>
+  <% else %>
+    <%= button_to 'Create a new party!', '/auth/rdio'  %>
+    <%= button_to 'Join a party', parties_path, method: :get %>
+  <% end %>
 </div>
 

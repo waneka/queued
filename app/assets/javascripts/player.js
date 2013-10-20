@@ -13,8 +13,8 @@ $(document).ready(function() {
     1, 1, '9.0.0', 'expressInstall.swf',
     // variables that will be made available to the flashplayer
     {
-      'playbackToken': "GBJSYx6a_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnFkZm0uaGVyb2t1YXBwLmNvbRfpDHKhoRPXY6ouG0vhV6g=",
-      'domain': "qdfm.herokuapp.com",
+      'playbackToken': playback_token,
+      'domain': domain,
       'listener': 'rdioCallbacks'  // A global that the player can see and will call functions on
     },
     // allow the player to access js variables

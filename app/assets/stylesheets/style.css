@@ -1,0 +1,104 @@
+#navbar {
+  position: relative;
+  height: 3.5em;
+  line-height: 2.5em;
+
+}
+
+#logo{
+  height: 100%;
+  line-height: 3em;
+}
+
+.pure-menu ul {
+  float: right;
+  margin-top: .2em;
+  line-height: 5em;
+
+}
+
+.pure-menu li {
+  line-height: 3em;
+}
+
+
+#profile-image {
+  height: 3em;
+  border-radius: 50%;
+
+}
+
+#logout-button {
+  margin-bottom: 1em;
+  height: 1.5em;
+  margin-left: .5em;
+  margin-right: 1em;
+}
+
+#player{
+  position: fixed;
+  height: 5.5em;
+  bottom: 0%;
+  /*background-image: url("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg");*/
+  background: rgba(0, 0, 0, .8);
+  color: white;
+  /*background-size: cover;*/
+  /*-webkit-filter: blur(2.5px);*/
+}
+
+#controls{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  height: 100%;
+}
+
+#controls #previous {
+  position: fixed;
+  left: 2em;
+  bottom: 2em;
+
+}
+
+#controls #play {
+  position: fixed;
+  left: 7em;
+  bottom: 2em;
+
+}
+#controls #next {
+  position: fixed;
+  left: 12em;
+  bottom: 2em;
+
+}
+
+#player-center{
+  display: inline-block;
+  position: fixed;
+  height: 100%;
+  width: 60%;
+  text-align: center;
+
+}
+
+#song-info{
+  line-height: 3em;
+
+}
+
+#album-art-container{
+  display: inline-block;
+  float: right;
+  height: 100%;
+  width: 20%;
+  text-align: center;
+}
+
+#album-art {
+  width: 2em;
+  position: fixed;
+  bottom: 1.7em;
+  right: 2em;
+}
+
