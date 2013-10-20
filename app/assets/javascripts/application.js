@@ -72,12 +72,10 @@
 var Search = {
   init: function(){
     this.elem = $(document).find('.search-container')
-    this.term = this.elem.find('.search-input-term').val()
     this.submit = this.elem.find('.search-submit')
     this.table = this.elem.find('.results-table')
 
     var self = this
-    // Search submit
     this.submit.click(function(){
       self.fetchSearchResults()
     })
@@ -87,11 +85,13 @@ var Search = {
     // })
   },
   fetchSearchResults: function(){
+    this.term = this.elem.find('.search-input-term').val()
+
     var self = this
     $.ajax({
       url: 'search',
       type: 'post',
-      data: {song:this.term}
+      data: {song: this.term}
     })
     .done(function(response){
       self.displaySearchResults(JSON.parse(response))
@@ -99,9 +99,8 @@ var Search = {
   },
   displaySearchResults: function(data){
     var self = this
-    console.log(data.result)
     $.each(data.result.results, function(i, result){
-      this.table.append(self.buildResultRow(result))
+      self.table.append(self.buildResultRow(result))
     })
   },
   buildResultRow: function(data){
