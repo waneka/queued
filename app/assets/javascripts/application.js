@@ -15,50 +15,93 @@
 //= require turbolinks
 //= require_tree .
 
-var ViewController = {
+var queueDataRef = new Firebase('https://queued.firebaseIO.com')
 
-  init: function() {
-    // this.elem = $('.container') ---> in place of $(document)
+queueDataRef.on('value', function(snapshot){
+  Sync.loadQueue(snapshot)
+})
+
+var Sync = {
+  addSongToQueue: function($elem){
+    queueDataRef.push(this.compileDataForFirebase($elem))
+  },
+  compileDataForFirebase: function($data){
+    return {
+      songName: $data.find('.result-song').text(),
+      artistName: $data.find('.result-artist').text(),
+      albumName: $data.find('.result-album').text(),
+      songDuration: $data.find('.result-duration').text(),
+      songKey: $data.data('songkey')
+    }
+  },
+  loadQueue: function(data){
+    $.each(data.val(), function(i, song){
+      Queue.addSongFromServer(song)
+    })
+  }
+}
+
+var Queue = {
+  init: function(){
+    this.elem = $(document).find('.queue-table')
+  },
+  addSongFromServer: function(data){
+    this.elem.append(this.buildQueueRow(data))
+  },
+  buildQueueRow: function(data){
+    return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
+    .append(
+      $('<td>', {class: 'queue-song'}).text(data.songName),
+      $('<td>', {class: 'queue-artist'}).text(data.artistName),
+      $('<td>', {class: 'queue-album'}).text(data.albumName),
+      $('<td>', {class: 'queue-duration'}).text(data.songDuration)
+      )
+  },
+  addSongFromSearch: function($row){
+    this.elem.append($row.clone().find('.result-add').remove())
+  },
+  nextSong: function(){
+    return nextSong = this.elem.find('tr').first().data('songkey')
+  }
+}
+
+var Search = {
+  init: function(){
+    this.elem = $(document).find('.search-container')
+    this.submit = this.elem.find('.search-submit')
+    this.table = this.elem.find('.results-table')
 
     var self = this
-    $(document).on('click', '.search-submit', function(e){
+    this.submit.click(function(){
       self.fetchSearchResults()
     })
-    $(document).on('click', '.add-to-queue-submit', function(e){
-      self.addCloneToQueue($(e.target).closest('tr'))
+    this.elem.on('click', '.add-to-queue-submit', function(e){
+      Sync.addSongToQueue($(e.target).closest('tr'))
       self.respondToBeingAdded($(e.target))
     })
   },
-
   fetchSearchResults: function(){
-    var term = $('.search-input-term').val()
+    this.term = this.elem.find('.search-input-term').val()
+
     var self = this
     $.ajax({
       url: 'search',
       type: 'post',
-      data: {song: term}
+      data: {song: this.term}
     })
     .done(function(response){
       self.displaySearchResults(JSON.parse(response))
     })
   },
-
   displaySearchResults: function(data){
     var self = this
-    $('.results-table').empty()
     $.each(data.result.results, function(i, result){
-      $('.results-table').append(self.buildResultRow(result))
+      self.table.append(self.buildResultRow(result))
     })
   },
-
-  addCloneToQueue: function($elem){
-    $(document).find('.queue-table').append($elem.clone()).find('.result-add').remove()
-  },
-
   respondToBeingAdded: function($elem){
     $elem.prop('disabled', true)
   },
-
   buildResultRow: function(data){
     return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
@@ -68,7 +111,7 @@ var ViewController = {
       $('<td>', { class: 'result-duration'} ).text(data.duration),
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
-    )
+      )
   }
 
   secondsToHMS: function(sec){
@@ -81,5 +124,6 @@ var ViewController = {
 }
 
 $(document).ready(function(){
-  ViewController.init()
+  Search.init()
+  Queue.init()
 })
