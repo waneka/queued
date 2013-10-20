@@ -5,60 +5,45 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Brand</a>
+  <div class="header">
+    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
+      <a class="pure-menu-heading" href="", id="logo">qd.fm</a>
+
+      <ul >
+        <% if signed_in? %>
+        <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
+        <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+  <%= yield %>
+
+  <div class="pure-menu pure-menu-open pure-menu-horizontal", id="player">
+    <div id="controls">
+      <i class="icon-backward icon-large" id="previous"></i> 
+      <i class="icon-play icon-large" id="play"></i> 
+      <i class="icon-forward icon-large" id="next"></i> 
+    </div>
+
+    <div id="player-center">
+      <div id="song-info">
+        <span id="track"> Song </span> -- <span id="artist"> Artist</span>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-<%= yield %>
-
+      <div >
+        <i class="icon-play icon-large"></i> 
+      </div>
+    </div>
+    <div id="album-art-container">
+        <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'album-art') %>
+    </div>
+  </div>
 </body>
 </html>

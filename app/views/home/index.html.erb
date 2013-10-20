@@ -13,9 +13,7 @@
   </div>
 
   <% if signed_in? %>
-    <%= current_user.first_name %>
-    <%= image_tag(current_user.profile_pic_url) %>
-    <%= button_to 'Log out', logout_path, method: :get %>
+   
     <%= render 'player' %>
 
     <div class='queue-container'>
