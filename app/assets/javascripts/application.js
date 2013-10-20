@@ -35,7 +35,8 @@ var Sync = {
       artistName: $data.find('.result-artist').text(),
       albumName: $data.find('.result-album').text(),
       songDuration: $data.find('.result-duration').text(),
-      songKey: $data.data('songkey')
+      songKey: $data.data('songkey'),
+      voteCount: 0
     }
   },
   loadQueue: function(data){
@@ -49,6 +50,10 @@ var Sync = {
 var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-table')
+
+    this.elem.on('click', '.upvote-submit', function(e){
+      Queue.upVote($(e.target).closest('tr'))
+    })
   },
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
@@ -56,11 +61,27 @@ var Queue = {
   buildQueueRow: function(data){
     return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
     .append(
+      $('<td>', {class: 'queue-vote-count'}).text(data.voteCount),
       $('<td>', {class: 'queue-song'}).text(data.songName),
       $('<td>', {class: 'queue-artist'}).text(data.artistName),
       $('<td>', {class: 'queue-album'}).text(data.albumName),
-      $('<td>', {class: 'queue-duration'}).text(data.songDuration)
+      $('<td>', {class: 'queue-duration'}).text(data.songDuration),
+      $('<td>', {class: 'queue-upvote'}).append($('<button>', {class: 'upvote-submit'}).text('+1'))
       )
+  },
+  upVote: function($song){
+    var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
+    voteSong = $song.data('songkey')
+
+    queueDataRef.once('value', function(snapshot){
+      allSongs = snapshot.val()
+      $.each(allSongs, function(key, value){
+        if (value.songKey == voteSong) {
+          songToChange = key
+        }
+      })
+      queueDataRef.child(songToChange).child('voteCount').set(newVote)
+    })
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
