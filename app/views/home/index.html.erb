@@ -1,4 +1,5 @@
 <div class='container'>
+
   <div class='queue-container'>
     <table class='queue-table' class="table table-bordered"></table>
   </div>
@@ -9,37 +10,24 @@
       <input type='text' class='search-input-term' placeholder='Search' />
       <button type='submit' class='search-submit btn'>Search</button>
 
-
-
-
-    <table class='results-table table table-bordered'>
-      <tr class="result-row">
-        <td class="result-song">Who Let The Dogs Out</td>
-        <td class="result-artist">Baha Men</td>
-        <td class="result-album">Who Let The Dogs Out</td>
-        <td class="result-duration">198</td>
-        <td class="result-add">
-          <button class="add-to-queue-submit btn" disabled="">+</button>
-        </td>
-      </tr>
-      <tr class="result-row">
-        <td class="result-song">Impossible Soul</td>
-        <td class="result-artist">Sufjan Stevens</td>
-        <td class="result-album">The Age of Adz</td>
-        <td class="result-duration">1535</td>
-        <td class="result-add">
-          <button class="add-to-queue-submit btn" disabled="">+</button>
-        </td>
-      </tr>
-      <tr class="result-row">
-        <td class="result-song">Thinkin Bout You</td>
-        <td class="result-artist">Frank Ocean</td>
-        <td class="result-album">channel ORANGE</td>
-        <td class="result-duration">263</td>
-        <td class="result-add">
-          <button class="add-to-queue-submit btn" disabled="">+</button>
-        </td>
-      </tr>
-    </table>
-  </div>
 </div>
+
+    <% if signed_in? %>
+      <%= current_user.first_name %>
+      <%= image_tag(current_user.profile_pic_url) %>
+      <%= button_to 'Log out', logout_path, method: :get %>
+
+      <div class='queue-container'>
+          <table class='queue-table'></table>
+      </div>
+
+      <div class='search-container'>
+          <input class='search-input-term'>
+          <button class='search-submit'></button>
+          <table class='results-table'></table>
+      </div>
+    <% else %>
+      <%= button_to 'Sign in with Rdio Yo!', '/auth/rdio'  %>
+    <% end %>
+</div>
+

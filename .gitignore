@@ -22,3 +22,5 @@
 
 # Ignore precompiled assets
 /public/assets/*
+
+Gemfile.lock
