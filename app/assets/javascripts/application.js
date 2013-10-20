@@ -21,9 +21,13 @@ queueDataRef.on('value', function(snapshot){
   Sync.loadQueue(snapshot)
 })
 
+queueDataRef.on('child_removed', function(snapshot){
+  Sync.loadQueue(snapshot)
+})
+
 var Sync = {
   addSongToQueue: function($elem){
-    queueDataRef.push(this.compileDataForFirebase($elem))
+    var newSong = queueDataRef.push(this.compileDataForFirebase($elem))
   },
   compileDataForFirebase: function($data){
     return {
@@ -35,6 +39,7 @@ var Sync = {
     }
   },
   loadQueue: function(data){
+    Queue.elem.empty()
     $.each(data.val(), function(i, song){
       Queue.addSongFromServer(song)
     })
@@ -61,7 +66,15 @@ var Queue = {
     this.elem.append($row.clone().find('.result-add').remove())
   },
   nextSong: function(){
-    return nextSong = this.elem.find('tr').first().data('songkey')
+    queueDataRef.startAt().limit(1).once('value', function(snapshot){
+      console.log(mememe = snapshot.val())
+      $.each(mememe, function(key){
+        fuckyouverymuch = key
+      })
+    })
+    var thefword = this.elem.find('tr').first().data('songkey')
+    queueDataRef.child(fuckyouverymuch).remove()
+    return thefword
   }
 }
 
