@@ -15,47 +15,39 @@
 //= require turbolinks
 //= require_tree .
 
-// var Sync = function(firebaseRef){
-//   this.queueDataRef = new Firebase(firebaseRef)
+var queueDataRef = new Firebase('https://queued.firebaseIO.com')
 
-//   this.queueDataRef.on('child_added', function(snapshot){
-//     $('.queue-table').empty()
-//     SyncData.loadqueue()
-//   })
-// }
+queueDataRef.on('child_added', function(snapshot){
+    $('.queue-table').empty()
+    Sync.loadQueue(snapshot)
+})
 
-// var SyncData = {
-
-//   handleSongAdded: function($elem){
-//     $('.queue-table').empty()
-//     queueDataRef.push(this.compileDataForFirebase($elem))
-//   },
-
-//   compileDataForFirebase: function($data){
-//     return {
-//       songName: $data.find('.result-song').text(),
-//       artistName: $data.find('.result-artist').text(),
-//       albumName: $data.find('.result-album').text(),
-//       songDuration: $data.find('.result-duration').text(),
-//       songKey: $data.data('songkey')
-//     }
-//   },
-
-//   loadQueue: function(){
-//     queueDataRef.on('value', function(snapshot){
-//       $.each(snapshot.val(), function(i, queueItem){
-//         console.log(queueItem)
-//         $('.queue-table').append(ViewController.buildQueueRow(queueItem))
-//       })
-//     })
-//   }
-// }
+var Sync = {
+  addSongToQueue: function($elem){
+    queueDataRef.push(this.compileDataForFirebase($elem))
+  },
+  compileDataForFirebase: function($data){
+    return {
+      songName: $data.find('.result-song').text(),
+      artistName: $data.find('.result-artist').text(),
+      albumName: $data.find('.result-album').text(),
+      songDuration: $data.find('.result-duration').text(),
+      songKey: $data.data('songkey')
+    }
+  }
+  // ,
+  // loadQueue: function(snapshot){
+  //   $.each(snapshot.val(), function(i, queueItem){
+  //     Queue.addSongFromServer(queueItem)
+  //   })
+  // }
+}
 
 // var Queue = {
 //   init: function(){
-//     this.elem = $('.queue-table')
+//     this.elem = $(document).find('.queue-table')
 //   },
-//   addSong: function(data){
+//   addSongFromServer: function(data){
 //     this.elem.append(this.buildQueueRow(data))
 //   },
 //   buildQueueRow: function(data){
@@ -66,6 +58,9 @@
 //       $('<td>', {class: 'queue-album'}).text(data.albumName),
 //       $('<td>', {class: 'queue-duration'}).text(data.songDuration)
 //     )
+//   },
+//   addSongFromSearch: function($row){
+//     this.elem.append($row.clone().find('.result-add').remove())
 //   }
 // }
 
@@ -79,10 +74,10 @@ var Search = {
     this.submit.click(function(){
       self.fetchSearchResults()
     })
-    // $(document).on('click', '.add-to-queue-submit', function(e){
-    //   self.addCloneToQueue($(e.target).closest('tr'))
-    //   self.respondToBeingAdded($(e.target))
-    // })
+    this.elem.on('click', '.add-to-queue-submit', function(e){
+      Sync.addSongToQueue($(e.target).closest('tr'))
+      self.respondToBeingAdded($(e.target))
+    })
   },
   fetchSearchResults: function(){
     this.term = this.elem.find('.search-input-term').val()
@@ -103,6 +98,9 @@ var Search = {
       self.table.append(self.buildResultRow(result))
     })
   },
+  respondToBeingAdded: function($elem){
+    $elem.prop('disabled', true)
+  },
   buildResultRow: function(data){
     return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
@@ -115,7 +113,6 @@ var Search = {
     )
   }
 }
-
 
 // var ViewController = {
 
@@ -131,11 +128,9 @@ var Search = {
 //     // SyncData.handleSongAdded($row)
 //     SyncData.handleSongAdded($elem)
 //   },
-//   respondToBeingAdded: function($elem){
-//     $elem.prop('disabled', true)
-//   }
 // }
 
 $(document).ready(function(){
   Search.init()
+  Queue.init()
 })
