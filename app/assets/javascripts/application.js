@@ -17,9 +17,8 @@
 
 var queueDataRef = new Firebase('https://queued.firebaseIO.com')
 
-queueDataRef.on('child_added', function(snapshot){
-    $('.queue-table').empty()
-    Sync.loadQueue(snapshot)
+queueDataRef.on('value', function(snapshot){
+  Sync.loadQueue(snapshot)
 })
 
 var Sync = {
@@ -34,35 +33,37 @@ var Sync = {
       songDuration: $data.find('.result-duration').text(),
       songKey: $data.data('songkey')
     }
+  },
+  loadQueue: function(data){
+    $.each(data.val(), function(i, song){
+      Queue.addSongFromServer(song)
+    })
   }
-  // ,
-  // loadQueue: function(snapshot){
-  //   $.each(snapshot.val(), function(i, queueItem){
-  //     Queue.addSongFromServer(queueItem)
-  //   })
-  // }
 }
 
-// var Queue = {
-//   init: function(){
-//     this.elem = $(document).find('.queue-table')
-//   },
-//   addSongFromServer: function(data){
-//     this.elem.append(this.buildQueueRow(data))
-//   },
-//   buildQueueRow: function(data){
-//     return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
-//     .append(
-//       $('<td>', {class: 'queue-song'}).text(data.songName),
-//       $('<td>', {class: 'queue-artist'}).text(data.artistName),
-//       $('<td>', {class: 'queue-album'}).text(data.albumName),
-//       $('<td>', {class: 'queue-duration'}).text(data.songDuration)
-//     )
-//   },
-//   addSongFromSearch: function($row){
-//     this.elem.append($row.clone().find('.result-add').remove())
-//   }
-// }
+var Queue = {
+  init: function(){
+    this.elem = $(document).find('.queue-table')
+  },
+  addSongFromServer: function(data){
+    this.elem.append(this.buildQueueRow(data))
+  },
+  buildQueueRow: function(data){
+    return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
+    .append(
+      $('<td>', {class: 'queue-song'}).text(data.songName),
+      $('<td>', {class: 'queue-artist'}).text(data.artistName),
+      $('<td>', {class: 'queue-album'}).text(data.albumName),
+      $('<td>', {class: 'queue-duration'}).text(data.songDuration)
+      )
+  },
+  addSongFromSearch: function($row){
+    this.elem.append($row.clone().find('.result-add').remove())
+  },
+  nextSong: function(){
+    return nextSong = this.elem.find('tr').first().data('songkey')
+  }
+}
 
 var Search = {
   init: function(){
@@ -110,25 +111,9 @@ var Search = {
       $('<td>', { class: 'result-duration'} ).text(data.duration),
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
-    )
+      )
   }
 }
-
-// var ViewController = {
-
-//   init: function() {
-//     // this.elem = $('.container') ---> in place of $(document)
-//     SyncData.loadQueue()
-//   },
-//   addCloneToQueue: function($elem){
-//     // var $row = $elem.clone()
-//     // $row.find('.result-add').remove()
-//     // $row.data($elem.data())
-//     // $(document).find('.queue-table').append($row)
-//     // SyncData.handleSongAdded($row)
-//     SyncData.handleSongAdded($elem)
-//   },
-// }
 
 $(document).ready(function(){
   Search.init()
