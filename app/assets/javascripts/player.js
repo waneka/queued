@@ -37,10 +37,11 @@ rdioCallbacks.ready = function ready(user) {
   // find the embed/object element - i.e. the flash song player
   // var apiswf = $('#apiswf').get(0);
   rdioPlayerElement = document.getElementById(rdioPlayerElementId);
+  console.log('im here')
+  // rdioPlayerElement.rdio_play();
 
-  rdioPlayerElement.rdio_play(nick_queue.songs.pop());
 
-
+ console.log(Queue.nextSong())
 
   // set up the controls
   $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });

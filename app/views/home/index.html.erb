@@ -1,33 +1,57 @@
+
+<% if signed_in? %>  
+<div class="header">
+  <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
+    <a class="pure-menu-heading" href="", id="logo">qd.fm</a>
+
+    <ul >
+      <% if signed_in? %>
+      <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
+      <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 <div class='container'>
 
+
+
+  <%= render 'player' %>
+
   <div class='queue-container'>
-    <table class='queue-table' class="table table-bordered"></table>
+    <table class='queue-table'></table>
   </div>
 
   <div class='search-container'>
-
-
-    <input type='text' class='search-input-term' placeholder='Search' />
-    <button type='submit' class='search-submit btn'>Search</button>
-
+    <input class='search-input-term'>
+    <button class='search-submit'></button>
+    <table class='results-table'></table>
   </div>
-
-  <% if signed_in? %>
-   
-    <%= render 'player' %>
-
-    <div class='queue-container'>
-      <table class='queue-table'></table>
-    </div>
-
-    <div class='search-container'>
-      <input class='search-input-term'>
-      <button class='search-submit'></button>
-      <table class='results-table'></table>
-    </div>
-  <% else %>
-    <%= button_to 'Create a new party!', '/auth/rdio'  %>
-    <%= button_to 'Join a party', parties_path, method: :get %>
-  <% end %>
 </div>
 
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal", id="player">
+  <div id="controls">
+    <i class="icon-backward icon-large" id="previous"></i> 
+    <i class="icon-play icon-large" id="play"></i> 
+    <i class="icon-forward icon-large" id="next"></i> 
+  </div>
+
+  <div id="player-center">
+    <div id="song-info">
+      <span id="track"> Song </span> -- <span id="artist"> Artist</span>
+    </div>
+    <div >
+      <span id="position"> Position yo! </span>
+    </div>
+  </div>
+  <div id="album-art-container">
+    <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'album-art') %>
+  </div>
+</div>
+
+<% else %>
+<%= button_to 'Create a new party!', '/auth/rdio'  %>
+<%= button_to 'Join a party', parties_path, method: :get %>
+<% end %>
