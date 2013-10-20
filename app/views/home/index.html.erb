@@ -1,4 +1,17 @@
 <div class='container'>
+
+  <div class='queue-container'>
+    <table class='queue-table' class="table table-bordered"></table>
+  </div>
+
+  <div class='search-container'>
+
+
+      <input type='text' class='search-input-term' placeholder='Search' />
+      <button type='submit' class='search-submit btn'>Search</button>
+
+</div>
+
     <% if signed_in? %>
       <%= current_user.first_name %>
       <%= image_tag(current_user.profile_pic_url) %>
@@ -19,3 +32,4 @@
       <%= button_to 'Join a party', parties_path, method: :get %>
     <% end %>
 </div>
+
