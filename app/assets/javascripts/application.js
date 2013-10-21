@@ -141,24 +141,26 @@ var Search = {
     $elem.prop('disabled', true)
   },
   buildResultRow: function(data){
+    var songDuration = this.secondsToHMS(data.duration)
     return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
       $('<td>', { class: 'result-song'} ).text(data.name),
       $('<td>', { class: 'result-artist'} ).text(data.artist),
       $('<td>', { class: 'result-album'} ).text(data.album),
-      $('<td>', { class: 'result-duration'} ).text(data.duration),
+      $('<td>', { class: 'result-duration'} ).text(songDuration),
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
       )
+  },
+  secondsToHMS: function(sec){
+    var sec = parseInt(sec)
+    var h = Math.floor(sec/3600)
+    sec -= h*3600
+    var m = Math.floor(sec/60)
+    sec -= m*60
+    result = ((h > 0 ? h+":" : "") + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
+    return result
   }
-
-  // secondsToHMS: function(sec){
-  //   var h = Math.floor(sec/3600)
-  //   sec -= h*3600
-  //   var m = Math.floor(sec/60)
-  //   sec -= m*60
-  //   return ((h+":" if h > 0) + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
-  // }
 }
 
 $(document).ready(function(){
