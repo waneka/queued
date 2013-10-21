@@ -123,7 +123,7 @@ var Search = {
 
     var self = this
     $.ajax({
-      url: 'search',
+      url: '/search',
       type: 'post',
       data: {song: this.term}
     })
