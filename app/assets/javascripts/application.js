@@ -15,8 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-var queueDataRef = new Firebase('https://queued.firebaseIO.com')
-
+var queueDataRef = new Firebase('https://queued.firebaseIO.com/testdb')
 queueDataRef.on('value', function(snapshot){
   Sync.loadQueue(snapshot)
 })
@@ -127,13 +126,13 @@ var Search = {
       )
   }
 
-  secondsToHMS: function(sec){
-    var h = Math.floor(sec/3600)
-    sec -= h*3600
-    var m = Math.floor(sec/60)
-    sec -= m*60
-    return (h+":" if h > 0) + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec)
-  }
+  // secondsToHMS: function(sec){
+  //   var h = Math.floor(sec/3600)
+  //   sec -= h*3600
+  //   var m = Math.floor(sec/60)
+  //   sec -= m*60
+  //   return (h+":" if h > 0) + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec)
+  // }
 }
 
 $(document).ready(function(){
