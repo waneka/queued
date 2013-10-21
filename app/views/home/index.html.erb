@@ -1,5 +1,5 @@
 
-<% if signed_in? %>  
+<% if signed_in? %>
 <div class="header">
   <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
     <a class="pure-menu-heading" href="", id="logo">qd.fm</a>
@@ -13,22 +13,30 @@
   </div>
 </div>
 
-<div class='container'>
+  <%= render 'player' %>
+<%= render 'search_container'%>
 
-
+<!-- <div class='container'>
 
   <%= render 'player' %>
+
 
   <div class='queue-container'>
     <table class='queue-table'></table>
   </div>
 
   <div class='search-container'>
-    <input class='search-input-term'>
-    <button class='search-submit'></button>
+    <div>
+      <input class='search-input-term'>
+      <button class='search-submit' >Search</button>
+    </div>
+
+
+
+
     <table class='results-table'></table>
   </div>
-</div>
+</div> -->
 
 
 

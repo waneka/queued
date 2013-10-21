@@ -166,5 +166,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('max')
+  Sync.init('maxipad')
 })
