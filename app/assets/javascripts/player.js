@@ -17,6 +17,19 @@ $(document).ready(function() {
     { 'allowScriptAccess': 'always' }
   );
 
+// player expander
+var playerExpanded = false;
+$('#art').click( function(event){
+ if( playerExpanded == true ){
+   $('#player').animate({height: '5.5em'}, 700);
+   playerExpanded = false
+ } else {
+    playerExpanded = true
+    console.log(playerExpanded)
+    $('#player').animate({height: '56em'}, 700);
+ }
+})
+
 
 
 });
@@ -53,13 +66,13 @@ function checkQueueLength() {
   // set up the controls
 
 
-  $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });
   $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
   $('#next').click(function() { rdioPlayerElement.rdio_next(); });
 
 
   $('#play').click(function() {
     $(this).toggleClass('icon-pause icon-large')
+    
     if (rdioCallbacks.playState === 1) {
       rdioPlayerElement.rdio_pause();
     } else {
@@ -67,18 +80,9 @@ function checkQueueLength() {
     }
   });
 
-  // if ( playOrPause === true ) {
-  //   $('#play').attr('class', 'icon-pause icon-large')
-  // } else {
-  //   $('#play').attr('class', 'icon-pplay icon-large')
-  // }
 
 
 }
-
-
-
-
 
 
 

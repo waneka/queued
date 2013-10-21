@@ -5,6 +5,7 @@
 
 }
 
+
 #logo{
   height: 100%;
   line-height: 3em;
@@ -46,6 +47,7 @@
   /*-webkit-filter: blur(2.5px);*/
 }
 
+
 #controls{
   display: inline-block;
   width: 20%;
@@ -60,7 +62,7 @@
 
 }
 
-#controls #play {
+#controls #playOrPause {
   position: fixed;
   left: 7em;
   bottom: 2em;
@@ -83,10 +85,19 @@
 }
 
 #song-info{
-  line-height: 3em;
-
+  position: fixed;
+  bottom: 3em;
+  left: 34em;
+  width: 40em;
 }
 
+#position {
+  position: fixed;
+  bottom: 1em;
+  width: 40em;
+  left: 34em;
+
+}
 #album-art-container{
   display: inline-block;
   float: right;
