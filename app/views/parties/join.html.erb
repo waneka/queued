@@ -1,0 +1,5 @@
+<%= form_tag('/party/search/', :method => :get) do %>
+  <%= label_tag(:password, "Enter Top Secret Password:") %></br>
+  <%= text_field_tag(:password) %>
+  <%= submit_tag("Let's Do This!") %>
+<% end %>

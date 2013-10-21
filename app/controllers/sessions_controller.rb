@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_or_create_from_auth_hash(auth_hash)
     session[:user_id] = @user.id
-    redirect_to hella_party_path(@user)
+    redirect_to new_party_path
   end
 
   def destroy

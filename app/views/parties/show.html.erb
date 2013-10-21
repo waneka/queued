@@ -1,1 +1,20 @@
-show page
+<div class='container'>
+
+  <%= @party.password %>
+
+  <% if @party.user == current_user %>
+  <%= render 'player' %>
+  <% end %>
+
+  <div class='queue-container'>
+    <table class='queue-table'></table>
+  </div>
+
+  <div class='search-container'>
+    <input class='search-input-term'>
+    <button class='search-submit'></button>
+    <table class='results-table'></table>
+  </div>
+</div>
+
+<%= render 'bottom_player' %>
