@@ -23,6 +23,7 @@ var Sync = {
     var self = this
     this.firebaseServer.on('value', function(snapshot){
       self.loadQueue(snapshot)
+      Queue.sortByVote()
     })
     this.firebaseServer.on('child_removed', function(snapshot){
       self.loadQueue(snapshot)
@@ -55,8 +56,9 @@ var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-table')
 
+    var self = this
     this.elem.on('click', '.upvote-submit', function(e){
-      Queue.upVote($(e.target).closest('tr'))
+      self.upVote($(e.target).closest('tr'))
     })
   },
   addSongFromServer: function(data){
@@ -77,6 +79,19 @@ var Queue = {
     var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
     var voteSong = $song.data('songkey')
     Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
+  },
+  sortByVote: function(){
+    var rows = this.elem.find('tr')
+
+    rows.sort(function(a,b){
+      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text()))
+    })
+
+    var self = this
+    $.each(rows, function(idx, itm){
+      self.elem.append(itm)
+    })
+
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
@@ -149,5 +164,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('party')
+  Sync.init('tyler')
 })
