@@ -17,7 +17,8 @@
 
 var Sync = {
   init: function(){
-    var party = $(location).attr('pathname')
+    // var party = $(location).attr('pathname')
+    var party = "max"
     this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
     this.firebaseServer = new Firebase(this.partyAddress)
 

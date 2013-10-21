@@ -3,7 +3,7 @@
   <%= @party.password %>
 
   <% if @party.user == current_user %>
-  <%= render 'player' %>
+  <%= render 'bottom_player' %>
   <% end %>
 
   <div class='queue-container'>
@@ -17,4 +17,3 @@
   </div>
 </div>
 
-<%= render 'bottom_player' %>
