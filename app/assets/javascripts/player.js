@@ -1,7 +1,3 @@
-var nick_queue = {
-  songs: ["t12t1259537", "t1259409", "t1259319", "t1259449", "t1259361"]
-}
-
 
 
 $(document).ready(function() {
@@ -46,49 +42,49 @@ checkInterval = setInterval(checkQueueLength,3000);
 
 
 function checkQueueLength() {
-  console.log("checking length")
+  console.log("before check")
   if (($('.queue-row').length) > 0) {
     rdioPlayerElement.rdio_play(Queue.nextSong())
     clearInterval(checkInterval)
   } else {
-    console.log("waiting for songs to be added")
+    console.log("waiting for songs to be added before")
   }
 }
   // set up the controls
 
 
   $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });
-  $('#pause').click(function() { rdioPlayerElement.rdio_pause(); });
   $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
   $('#next').click(function() { rdioPlayerElement.rdio_next(); });
 
 
-  // $('#play').click(function() {
-  //   rdioPlayerElement.rdio_play($('#play_key').val());
-  // });
+  $('#play').click(function() {
+    $(this).toggleClass('icon-pause icon-large')
+    if (rdioCallbacks.playState === 1) {
+      rdioPlayerElement.rdio_pause();
+    } else {
+      rdioPlayerElement.rdio_play();
+    }
+  });
 
+  // if ( playOrPause === true ) {
+  //   $('#play').attr('class', 'icon-pause icon-large')
+  // } else {
+  //   $('#play').attr('class', 'icon-pplay icon-large')
+  // }
 
-
-  // apiswf.rdio_startFrequencyAnalyzer({
-  //   frequencies: '10-band',
-  //   period: 100
-  // });
-
-  //   if (user == null) {
-  //     $('#nobody').show();
-  //   } else if (user.isSubscriber) {
-  //     $('#subscriber').show();
-  //   } else if (user.isTrial) {
-  //     $('#trial').show();
-  //   } else if (user.isFree) {
-  //     $('#remaining').text(user.freeRemaining);
-  //     $('#free').show();
-  //   } else {
-  //     $('#nobody').show();
-  //   }
 
 }
 
+
+
+
+
+
+
+
+
+// Callbacks
 
 rdioCallbacks.freeRemainingChanged = function freeRemainingChanged(remaining) {
   $('#remaining').text(remaining);
@@ -97,7 +93,8 @@ rdioCallbacks.freeRemainingChanged = function freeRemainingChanged(remaining) {
 rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
-  $('#playState').text(playState);
+  this.playState = playState
+  // $('#playState').text(playState);
 }
 
 rdioCallbacks.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
@@ -139,19 +136,19 @@ function aboutToEnd(position){
     if (($('.queue-row').length) > 0) {
       rdioPlayerElement.rdio_play(Queue.nextSong());
     } else {
-      checkInterval = setInterval(checkQueueLength,3000);
+      checkInterval = setInterval(checkQueueLength,10000);
       // console.log(checkInterval)
       function checkQueueLength() {
-        console.log("checking length")
+        console.log("after check")
         if (($('.queue-row').length) > 0) {
           rdioPlayerElement.rdio_play(Queue.nextSong())
           clearInterval(checkInterval)
         } else {
-          console.log("waiting for songs to be added")
+          console.log("waiting for songs to be added after")
         }
       }
     }
-  } 
+  }
 }
 
 rdioCallbacks.queueChanged = function queueChanged(newQueue) {
