@@ -44,6 +44,7 @@ rdioCallbacks.ready = function ready(user) {
 
 checkInterval = setInterval(checkQueueLength,3000);
 
+
 function checkQueueLength() {
   console.log("checking length")
   if (($('.queue-row').length) > 0) {
