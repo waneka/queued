@@ -15,20 +15,21 @@
 //= require turbolinks
 //= require_tree .
 
-var queueDataRef = new Firebase('https://queued.firebaseIO.com/beardy')
-var FIRESALE = 'https://queued.firebaseIO.com/beardy'
-
-queueDataRef.on('value', function(snapshot){
-  Sync.loadQueue(snapshot)
-})
-
-queueDataRef.on('child_removed', function(snapshot){
-  Sync.loadQueue(snapshot)
-})
-
 var Sync = {
+  init: function(party){
+    this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
+    this.firebaseServer = new Firebase(this.partyAddress)
+
+    var self = this
+    this.firebaseServer.on('value', function(snapshot){
+      self.loadQueue(snapshot)
+    })
+    this.firebaseServer.on('child_removed', function(snapshot){
+      self.loadQueue(snapshot)
+    })
+  },
   addSongToQueue: function($elem){
-    var songRef = new Firebase('https://queued.firebaseIO.com/beardy/'+$elem.data('songkey'))
+    var songRef = new Firebase(this.partyAddress+$elem.data('songkey'))
     var newSong = songRef.set(this.compileDataForFirebase($elem))
   },
   compileDataForFirebase: function($data){
@@ -42,6 +43,7 @@ var Sync = {
     }
   },
   loadQueue: function(data){
+    console.log('loading queue')
     Queue.elem.empty()
     $.each(data.val(), function(i, song){
       Queue.addSongFromServer(song)
@@ -73,31 +75,16 @@ var Queue = {
   },
   upVote: function($song){
     var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
-    voteSong = $song.data('songkey')
-
-    queueDataRef.once('value', function(snapshot){
-      allSongs = snapshot.val()
-      $.each(allSongs, function(key, value){
-        if (value.songKey == voteSong) {
-          songToChange = key
-        }
-      })
-      queueDataRef.child(songToChange).child('voteCount').setWithPriority(newVote, newVote)
-    })
+    var voteSong = $song.data('songkey')
+    Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
   },
   nextSong: function(){
-    queueDataRef.startAt().limit(1).once('value', function(snapshot){
-      mememe = snapshot.val()
-      $.each(mememe, function(key){
-        fuckyouverymuch = key
-      })
-    })
-    var thefword = this.elem.find('tr').first().data('songkey')
-    queueDataRef.child(fuckyouverymuch).remove()
-    return thefword
+    var nextSongKey = this.elem.find('tr').first().data('songkey')
+    Sync.firebaseServer.child(nextSongKey).remove()
+    return nextSongKey
   }
 }
 
@@ -162,4 +149,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
+  Sync.init('party')
 })
