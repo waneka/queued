@@ -15,8 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-var queueDataRef = new Firebase('https://queued.firebaseIO.com')
-
+var queueDataRef = new Firebase('https://queued.firebaseIO.com/testdb')
 queueDataRef.on('value', function(snapshot){
   Sync.loadQueue(snapshot)
 })
