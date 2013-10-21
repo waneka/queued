@@ -5,10 +5,8 @@
     <a class="pure-menu-heading" href="", id="logo">qd.fm</a>
 
     <ul >
-      <% if signed_in? %>
       <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
       <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
-      <% end %>
     </ul>
   </div>
 </div>
@@ -41,6 +39,7 @@
 
 
 <% else %>
-<%= button_to 'Create a new party!', '/auth/rdio'  %>
-<%= button_to 'Join a party', parties_path, method: :get %>
+<%= button_to 'Sign In', '/auth/rdio' %>
+<%= link_to 'Join a party', party_join_path %>
+
 <% end %>

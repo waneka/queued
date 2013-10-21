@@ -16,7 +16,8 @@
 //= require_tree .
 
 var Sync = {
-  init: function(party){
+  init: function(){
+    var party = $(location).attr('pathname')
     this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
     this.firebaseServer = new Firebase(this.partyAddress)
 
@@ -123,13 +124,17 @@ var Search = {
 
     var self = this
     $.ajax({
-      url: 'search',
+      url: '/search',
       type: 'post',
       data: {song: this.term}
     })
     .done(function(response){
+      self.resetSearchResults()
       self.displaySearchResults(JSON.parse(response))
     })
+  },
+  resetSearchResults: function(){
+    this.table.find('tr').remove()
   },
   displaySearchResults: function(data){
     var self = this
@@ -166,5 +171,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('maxipad')
+  Sync.init()
 })

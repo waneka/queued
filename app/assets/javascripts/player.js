@@ -42,7 +42,7 @@ var rdioCallbacks = {
 
     if ((($('.queue-row').length) > 0) && !Player.playing)  {
       rdioPlayerElement.rdio_play(Queue.nextSong())
-      // clearInterval(checkInterval)
+
     } else {
       console.log("waiting for songs to be added or player has song")
     }
@@ -87,7 +87,7 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
       if ( ($('.queue-row').length) > 0) {
         rdioPlayerElement.rdio_play(Queue.nextSong());
       } else {
-        // checkInterval = setInterval(rdioCallbacks.checkQueueLength,3000);
+
         return
       }
   }
