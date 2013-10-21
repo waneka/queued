@@ -61,7 +61,6 @@ var rdioCallbacks = {
     // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
     if (($('.queue-row').length) > 0) {
       rdioPlayerElement.rdio_play(Queue.nextSong())
-      clearInterval(checkInterval)
     } else {
       console.log("waiting for songs to be added")
     }
@@ -101,7 +100,7 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
       if ( ($('.queue-row').length) > 0) {
         this.rdio_play(Queue.nextSong());
       } else {
-        checkInterval = setInterval(rdioCallbacks.checkQueueLength,3000);
+        return
       }
   }
 }
