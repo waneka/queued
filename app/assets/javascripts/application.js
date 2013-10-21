@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require_tree .
 
-var queueDataRef = new Firebase('https://queued.firebaseIO.com')
+var queueDataRef = new Firebase('https://queued.firebaseIO.com/beardy')
+var FIRESALE = 'https://queued.firebaseIO.com/beardy'
 
 queueDataRef.on('value', function(snapshot){
   Sync.loadQueue(snapshot)
@@ -27,7 +28,8 @@ queueDataRef.on('child_removed', function(snapshot){
 
 var Sync = {
   addSongToQueue: function($elem){
-    var newSong = queueDataRef.push(this.compileDataForFirebase($elem))
+    var songRef = new Firebase('https://queued.firebaseIO.com/beardy/'+$elem.data('songkey'))
+    var newSong = songRef.set(this.compileDataForFirebase($elem))
   },
   compileDataForFirebase: function($data){
     return {
@@ -80,7 +82,7 @@ var Queue = {
           songToChange = key
         }
       })
-      queueDataRef.child(songToChange).child('voteCount').set(newVote)
+      queueDataRef.child(songToChange).child('voteCount').setWithPriority(newVote, newVote)
     })
   },
   addSongFromSearch: function($row){
