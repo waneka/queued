@@ -1,0 +1,21 @@
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal", id="player">
+  <div id="rdio-player"></div>
+  <div id="controls">
+    <i class="icon-backward icon-large" id="previous"></i> 
+    <i class="icon-play icon-large" id="playOrPause"></i> 
+    <i class="icon-forward icon-large" id="next"></i> 
+  </div>
+
+  <div id="player-center">
+    <div id="song-info">
+      <span id="track"> Song </span> -- <span id="artist"> Artist</span>
+    </div>
+    <div >
+      <span id="position"> Position yo! </span>
+    </div>
+  </div>
+  <div id="album-art-container">
+    <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>
+  </div>
+</div>

@@ -128,8 +128,12 @@ var Search = {
       data: {song: this.term}
     })
     .done(function(response){
+      self.resetSearchResults()
       self.displaySearchResults(JSON.parse(response))
     })
+  },
+  resetSearchResults: function(){
+    this.table.find('tr').remove()
   },
   displaySearchResults: function(data){
     var self = this
@@ -166,5 +170,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('tyler')
+  Sync.init('max')
 })
