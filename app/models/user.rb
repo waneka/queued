@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :parties
 
   def self.find_or_create_from_auth_hash(auth_hash)
     user = self.find_or_create_by(rdio_uid: auth_hash["uid"])
