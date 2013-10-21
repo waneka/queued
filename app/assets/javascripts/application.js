@@ -16,7 +16,8 @@
 //= require_tree .
 
 var Sync = {
-  init: function(party){
+  init: function(){
+    var party = $(location).attr('pathname')
     this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
     this.firebaseServer = new Firebase(this.partyAddress)
 
@@ -170,5 +171,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('max')
+  Sync.init()
 })
