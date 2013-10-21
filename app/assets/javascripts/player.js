@@ -27,9 +27,11 @@ $(document).ready(function() {
 
 var rdioPlayerElementId = 'rdio-player';
 
+
 // the global callback object
 var rdioCallbacks = {};
 var rdioPlayerElement = null;
+var checkInterval = null;
 // called once the flash player has dowloaded, then connected to rdio
 rdioCallbacks.ready = function ready(user) {
   // Called once the API SWF has loaded and is ready to accept method calls.
@@ -37,13 +39,24 @@ rdioCallbacks.ready = function ready(user) {
   // find the embed/object element - i.e. the flash song player
   // var apiswf = $('#apiswf').get(0);
   rdioPlayerElement = document.getElementById(rdioPlayerElementId);
-  console.log('im here')
-  // rdioPlayerElement.rdio_play();
+
+  // rdioPlayerElement.rdio_play(nick_queue.songs.pop());
+
+checkInterval = setInterval(checkQueueLength,3000);
 
 
- console.log(Queue.nextSong())
-
+function checkQueueLength() {
+  console.log("checking length")
+  if (($('.queue-row').length) > 0) {
+    rdioPlayerElement.rdio_play(Queue.nextSong())
+    clearInterval(checkInterval)
+  } else {
+    console.log("waiting for songs to be added")
+  }
+}
   // set up the controls
+
+
   $('#stop').click(function() { rdioPlayerElement.rdio_stop(); });
   $('#pause').click(function() { rdioPlayerElement.rdio_pause(); });
   $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
@@ -123,11 +136,22 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
 
 function aboutToEnd(position){
   if ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100)) {
-    rdioPlayerElement.rdio_play(nick_queue.songs.pop());
-  } else {
-  console.log(rdioCallbacks.currentSongDuration * 1000)
-    console.log("false")
-  }
+    if (($('.queue-row').length) > 0) {
+      rdioPlayerElement.rdio_play(Queue.nextSong());
+    } else {
+      checkInterval = setInterval(checkQueueLength,3000);
+      // console.log(checkInterval)
+      function checkQueueLength() {
+        console.log("checking length")
+        if (($('.queue-row').length) > 0) {
+          rdioPlayerElement.rdio_play(Queue.nextSong())
+          clearInterval(checkInterval)
+        } else {
+          console.log("waiting for songs to be added")
+        }
+      }
+    }
+  } 
 }
 
 rdioCallbacks.queueChanged = function queueChanged(newQueue) {
