@@ -1,6 +1,8 @@
 
+rdioPlayerElementId = 'rdio-player';
 
 $(document).ready(function() {
+
 
   swfobject.embedSWF(
     'http://www.rdio.com/api/swf/', // the location of the Rdio Playback API SWF
@@ -17,83 +19,60 @@ $(document).ready(function() {
     { 'allowScriptAccess': 'always' }
   );
 
-// player expander
-var playerExpanded = false;
-$('#art').click( function(event){
- if( playerExpanded == true ){
-   $('#player').animate({height: '5.5em'}, 700);
-   playerExpanded = false
- } else {
-    playerExpanded = true
-    console.log(playerExpanded)
-    $('#player').animate({height: '56em'}, 700);
- }
-})
+  // player expander
+  // var playerExpanded = false;
+  // $('#art').click( function(event){
+  //  if( playerExpanded == true ){
+  //    $('#player').animate({height: '5.5em'}, 700);
+  //    playerExpanded = false
+  //  } else {
+  //     playerExpanded = true
+  //     console.log(playerExpanded)
+  //     $('#player').animate({height: '56em'}, 700);
+  //  }
+  // })
 
+// player button controller
 
+  // $('#playOrPause').click(function() {
+  //   $(this).toggleClass('icon-pause icon-large')
+    
+  //   if (rdioCallbacks.playState === 1) {
+  //     this.rdioPlayerElement.rdio_pause();
+  //   } else {
+  //     this.rdioPlayerElement.rdio_play();
+  //   }
+  // });
 
 });
 
-var rdioPlayerElementId = 'rdio-player';
-
-
 // the global callback object
-var rdioCallbacks = {};
-var rdioPlayerElement = null;
-var checkInterval = null;
-// called once the flash player has dowloaded, then connected to rdio
-rdioCallbacks.ready = function ready(user) {
-  // Called once the API SWF has loaded and is ready to accept method calls.
+var rdioCallbacks = {
+  ready: function() {
+    // Called once the API SWF has loaded and is ready to accept method calls.
+    // find the embed/object element - i.e. the flash song player
+    rdioPlayerElement = document.getElementById(rdioPlayerElementId);
 
-  // find the embed/object element - i.e. the flash song player
-  // var apiswf = $('#apiswf').get(0);
-  rdioPlayerElement = document.getElementById(rdioPlayerElementId);
+    // interval function to check if queue has songs, runs every 3 seconds.
+    checkInterval = setInterval(this.checkQueueLength,3000);
+  },
 
-  // rdioPlayerElement.rdio_play(nick_queue.songs.pop());
-
-checkInterval = setInterval(checkQueueLength,3000);
-
-
-function checkQueueLength() {
-  console.log("before check")
-  if (($('.queue-row').length) > 0) {
-    rdioPlayerElement.rdio_play(Queue.nextSong())
-    clearInterval(checkInterval)
-  } else {
-    console.log("waiting for songs to be added before")
-  }
-}
-  // set up the controls
-
-
-  $('#previous').click(function() { rdioPlayerElement.rdio_previous(); });
-  $('#next').click(function() { rdioPlayerElement.rdio_next(); });
-
-
-  $('#play').click(function() {
-    $(this).toggleClass('icon-pause icon-large')
-    
-    if (rdioCallbacks.playState === 1) {
-      rdioPlayerElement.rdio_pause();
+  checkQueueLength: function() {
+    // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
+    if (($('.queue-row').length) > 0) {
+      rdioPlayerElement.rdio_play(Queue.nextSong())
+      clearInterval(checkInterval)
     } else {
-      rdioPlayerElement.rdio_play();
+      console.log("waiting for songs to be added")
     }
-  });
+  },
 
-
-
-}
-
-
-
-
+  isSongAboutToEnd: function(position) {
+    return ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100))
+  }
+};
 
 // Callbacks
-
-rdioCallbacks.freeRemainingChanged = function freeRemainingChanged(remaining) {
-  $('#remaining').text(remaining);
-}
-
 rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
@@ -113,75 +92,19 @@ rdioCallbacks.playingTrackChanged = function playingTrackChanged(playingTrack, s
   }
 }
 
-rdioCallbacks.playingSourceChanged = function playingSourceChanged(playingSource) {
-  // The currently playing source changed.
-  // The source metadata, including a track listing is inside playingSource.
-}
-
-rdioCallbacks.volumeChanged = function volumeChanged(volume) {
-  // The volume changed to volume, a number between 0 and 1.
-}
-
-rdioCallbacks.muteChanged = function muteChanged(mute) {
-  // Mute was changed. mute will either be true (for muting enabled) or false (for muting disabled).
-}
-
 rdioCallbacks.positionChanged = function positionChanged(position) {
   //The position within the track changed to position seconds.
   // This happens both in response to a seek and during playback.
   $('#position').text(position);
 
-  aboutToEnd(position)
-
-}
-
-function aboutToEnd(position){
-  if ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100)) {
-    if (($('.queue-row').length) > 0) {
-      rdioPlayerElement.rdio_play(Queue.nextSong());
-    } else {
-      checkInterval = setInterval(checkQueueLength,10000);
-      // console.log(checkInterval)
-      function checkQueueLength() {
-        console.log("after check")
-        if (($('.queue-row').length) > 0) {
-          rdioPlayerElement.rdio_play(Queue.nextSong())
-          clearInterval(checkInterval)
-        } else {
-          console.log("waiting for songs to be added after")
-        }
+  if (this.isSongAboutToEnd(position)) {
+      if ( ($('.queue-row').length) > 0) {
+        this.rdio_play(Queue.nextSong());
+      } else {
+        checkInterval = setInterval(rdioCallbacks.checkQueueLength,3000);
       }
-    }
   }
 }
 
-rdioCallbacks.queueChanged = function queueChanged(newQueue) {
-  // The queue has changed to newQueue.
-}
 
-rdioCallbacks.shuffleChanged = function shuffleChanged(shuffle) {
-  // The shuffle mode has changed.
-  // shuffle is a boolean, true for shuffle, false for normal playback order.
-}
-
-rdioCallbacks.repeatChanged = function repeatChanged(repeatMode) {
-  // The repeat mode change.
-  // repeatMode will be one of: 0: no-repeat, 1: track-repeat or 2: whole-source-repeat.
-}
-
-rdioCallbacks.playingSomewhereElse = function playingSomewhereElse() {
-  // An Rdio user can only play from one location at a time.
-  // If playback begins somewhere else then playback will stop and this callback will be called.
-}
-
-rdioCallbacks.updateFrequencyData = function updateFrequencyData(arrayAsString) {
-  // Called with frequency information after apiswf.rdio_startFrequencyAnalyzer(options) is called.
-  // arrayAsString is a list of comma separated floats.
-
-  var arr = arrayAsString.split(',');
-
-  $('#freq div').each(function(i) {
-    $(this).width(parseInt(parseFloat(arr[i])*500));
-  })
-}
 
