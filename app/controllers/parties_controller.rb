@@ -12,6 +12,7 @@ class PartiesController < ApplicationController
 
   def show
     @party = Party.find(params[:id])
+    @alert_fire = true
   end
 
   def new
@@ -23,7 +24,15 @@ class PartiesController < ApplicationController
 
   def search
     @party = Party.find_by_password(params[:password])
-    redirect_to party_path(@party)
+    if @party
+      redirect_to party_path(@party)
+    else
+      redirect_to :back
+    end
   end
 
 end
+
+
+
+
