@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   // $('#playOrPause').click(function() {
   //   $(this).toggleClass('icon-pause icon-large')
-    
+
   //   if (rdioCallbacks.playState === 1) {
   //     this.rdioPlayerElement.rdio_pause();
   //   } else {
@@ -99,7 +99,8 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
 
   if (this.isSongAboutToEnd(position)) {
       if ( ($('.queue-row').length) > 0) {
-        this.rdio_play(Queue.nextSong());
+        console.log(this)
+        rdioPlayerElement.rdio_play(Queue.nextSong());
       } else {
         checkInterval = setInterval(rdioCallbacks.checkQueueLength,3000);
       }

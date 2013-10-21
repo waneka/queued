@@ -1,3 +1,7 @@
+html * {
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
 #navbar {
   position: relative;
   height: 3.5em;
@@ -143,12 +147,16 @@
 .search-container {
   width: 100%;
   padding: 1em 1em;
+
 }
 
 .single-track {
   padding: .6em 0 .6em 1em;
 
 }
+
+
+
 
 .single-track span {
   font-size: .65em;
@@ -157,6 +165,25 @@
   /*text-align: center;*/
 }
 
+.single-track span:nth-child(2), span:nth-child(3) {
+  color: rgb(128, 128, 128);
+  font-weight: lighter;
+}
+
 .pure-g-r img {
   max-width: 95%;
+}
+
+.pure-g-r img:hover {
+  opacity: 0.5;
+}
+
+.image-heart-container{
+  position: relative;
+}
+
+.somediv {
+  position: absolute;
+  z-index: 5000;
+  margin: 0 auto;
 }
