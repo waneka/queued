@@ -170,5 +170,5 @@ var Search = {
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  Sync.init('tyler')
+  Sync.init('max')
 })
