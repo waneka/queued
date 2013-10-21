@@ -4,10 +4,11 @@ ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+  gem 'pg'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-  gem 'sqlite3'
+
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -36,7 +37,7 @@ group :doc do
 end
 
 group :production do
-  gem 'pg'
+
 end
 
 gem 'dotenv-rails'
