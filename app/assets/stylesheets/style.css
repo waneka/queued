@@ -76,20 +76,20 @@ html * {
   height: 100%;
 }
 
-#controls #previous {
+#pause {
   position: fixed;
   left: 2em;
   bottom: 2em;
 
 }
 
-#controls #playOrPause {
+#play {
   position: fixed;
   left: 7em;
   bottom: 2em;
 
 }
-#controls #next {
+#next {
   position: fixed;
   left: 12em;
   bottom: 2em;
