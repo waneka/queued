@@ -1,6 +1,10 @@
 
 rdioPlayerElementId = 'rdio-player';
 
+var Player = {
+  playing: false
+}
+
 $(document).ready(function() {
 
 
@@ -19,31 +23,6 @@ $(document).ready(function() {
     { 'allowScriptAccess': 'always' }
   );
 
-  // player expander
-  // var playerExpanded = false;
-  // $('#art').click( function(event){
-  //  if( playerExpanded == true ){
-  //    $('#player').animate({height: '5.5em'}, 700);
-  //    playerExpanded = false
-  //  } else {
-  //     playerExpanded = true
-  //     console.log(playerExpanded)
-  //     $('#player').animate({height: '56em'}, 700);
-  //  }
-  // })
-
-// player button controller
-
-  // $('#playOrPause').click(function() {
-  //   $(this).toggleClass('icon-pause icon-large')
-    
-  //   if (rdioCallbacks.playState === 1) {
-  //     this.rdioPlayerElement.rdio_pause();
-  //   } else {
-  //     this.rdioPlayerElement.rdio_play();
-  //   }
-  // });
-
 });
 
 // the global callback object
@@ -59,10 +38,13 @@ var rdioCallbacks = {
 
   checkQueueLength: function() {
     // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
-    if (($('.queue-row').length) > 0) {
+  console.log(Player.playing)
+
+    if ((($('.queue-row').length) > 0) && !Player.playing)  {
       rdioPlayerElement.rdio_play(Queue.nextSong())
+
     } else {
-      console.log("waiting for songs to be added")
+      console.log("waiting for songs to be added or player has song")
     }
   },
 
@@ -76,6 +58,11 @@ rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
   this.playState = playState
+  if ((playState == 1) || (playState == 0)) {
+    Player.playing = true
+  } else {
+    Player.playing = false
+  }
   // $('#playState').text(playState);
 }
 
@@ -98,8 +85,9 @@ rdioCallbacks.positionChanged = function positionChanged(position) {
 
   if (this.isSongAboutToEnd(position)) {
       if ( ($('.queue-row').length) > 0) {
-        this.rdio_play(Queue.nextSong());
+        rdioPlayerElement.rdio_play(Queue.nextSong());
       } else {
+
         return
       }
   }
