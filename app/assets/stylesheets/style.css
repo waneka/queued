@@ -1,3 +1,7 @@
+html * {
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
 #navbar {
   position: relative;
   height: 3.5em;
@@ -13,8 +17,8 @@
 
 .pure-menu ul {
   float: right;
-  margin-top: .2em;
-  line-height: 5em;
+  /*margin-top: .2em;*/
+  line-height: 4.5em;
 
 }
 
@@ -41,10 +45,27 @@
   height: 5.5em;
   bottom: 0%;
   /*background-image: url("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg");*/
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .7);
   color: white;
   /*background-size: cover;*/
   /*-webkit-filter: blur(2.5px);*/
+}
+
+#player-background{
+  overflow: hidden;
+  position: fixed;
+  height: 5.5em;
+  bottom: 0%;
+  background-image: url("http://rdio-b.cdn3.rdio.com/album/3/8/0/000000000009f083/square-200.jpg");
+  color: white;
+  z-index: 0;
+  background-size: cover;
+  /*filter: blur(5px);*/
+  -webkit-filter: blur(6px);
+  /*-moz-filter: blur(5px);*/
+     border: 1px solid black;
+
+   margin: 0 -5px -2px 0;
 }
 
 
@@ -87,15 +108,18 @@
 #song-info{
   position: fixed;
   bottom: 3em;
-  left: 34em;
-  width: 40em;
+  left: 38%;
+  right: 30%;
+  letter-spacing: 0;
 }
 
 #position {
   position: fixed;
   bottom: 1em;
-  width: 40em;
-  left: 34em;
+  right: 30%;
+  left: 38%;
+  letter-spacing: 0;
+
 
 }
 #album-art-container{
@@ -113,3 +137,53 @@
   right: 2em;
 }
 
+
+
+
+/*Search container */
+.pure-g-r {
+  z-index: -1;
+}
+.search-container {
+  width: 100%;
+  padding: 1em 1em;
+
+}
+
+.single-track {
+  padding: .6em 0 .6em 1em;
+
+}
+
+
+
+
+.single-track span {
+  font-size: .65em;
+  display: block;
+  padding-top: .1em;
+  /*text-align: center;*/
+}
+
+.single-track span:nth-child(2), span:nth-child(3) {
+  color: rgb(128, 128, 128);
+  font-weight: lighter;
+}
+
+.pure-g-r img {
+  max-width: 95%;
+}
+
+.pure-g-r img:hover {
+  opacity: 0.5;
+}
+
+.image-heart-container{
+  position: relative;
+}
+
+.somediv {
+  position: absolute;
+  z-index: 5000;
+  margin: 0 auto;
+}

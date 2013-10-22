@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.cookie
 
 var Sync = {
   init: function(){
@@ -23,11 +24,15 @@ var Sync = {
 
     var self = this
     this.firebaseServer.on('value', function(snapshot){
-      self.loadQueue(snapshot)
+      var val = snapshot.val()
+      if (!val) return
+      self.loadQueue(val)
       Queue.sortByVote()
     })
     this.firebaseServer.on('child_removed', function(snapshot){
-      self.loadQueue(snapshot)
+      var val = snapshot.val()
+      if (!val) return
+      self.loadQueue(val)
     })
   },
   addSongToQueue: function($elem){
@@ -44,12 +49,29 @@ var Sync = {
       voteCount: 0
     }
   },
-  loadQueue: function(data){
+  loadQueue: function(songList){
     console.log('loading queue')
     Queue.elem.empty()
-    $.each(data.val(), function(i, song){
+    $.each(songList, function(i, song){
       Queue.addSongFromServer(song)
     })
+  },
+  storeUserVote: function(songkey){
+    var songRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
+    songRef.set(1)
+  },
+  checkIfUserVoted: function(songkey){
+    var songRef = new Firebase(this.partyAddress + songkey + '/votes/')
+    var returnValue
+    songRef.child(User.key).once('value', function(snapshot){
+      if(snapshot.val() == 1){
+        returnValue = true
+      }
+      else{
+        returnValue = false
+      }
+    })
+    return returnValue
   }
 }
 
@@ -79,7 +101,10 @@ var Queue = {
   upVote: function($song){
     var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
     var voteSong = $song.data('songkey')
-    Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
+    if(!Sync.checkIfUserVoted(voteSong)){
+      Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
+      Sync.storeUserVote(voteSong)
+    }
   },
   sortByVote: function(){
     var rows = this.elem.find('tr')
@@ -168,8 +193,24 @@ var Search = {
   }
 }
 
+var User = {
+  init: function(){
+    if($.cookie('key')){
+      this.key = $.cookie('key')
+    }
+    else{
+      this.key = this.makeKey()
+      $.cookie('key', this.key)
+    }
+  },
+  makeKey: function(){
+    return Math.random().toString(36).substring(7)
+  }
+}
+
 $(document).ready(function(){
   Search.init()
   Queue.init()
+  User.init()
   Sync.init()
 })
