@@ -131,7 +131,8 @@ var Search = {
     this.table = this.elem.find('.results-table')
 
     var self = this
-    this.submit.click(function(){
+    this.submit.click(function(e){
+      e.preventDefault()
       self.fetchSearchResults()
     })
     this.elem.on('click', '.add-to-queue-submit', function(e){
@@ -141,6 +142,7 @@ var Search = {
   },
   fetchSearchResults: function(){
     this.term = this.elem.find('.search-input-term').val()
+    console.log(this.term)
 
     var self = this
     $.ajax({
@@ -149,6 +151,7 @@ var Search = {
       data: {song: this.term}
     })
     .done(function(response){
+      console.log(response)
       self.resetSearchResults()
       self.displaySearchResults(JSON.parse(response))
     })
