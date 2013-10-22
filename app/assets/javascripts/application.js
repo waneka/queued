@@ -207,4 +207,11 @@ $(document).ready(function(){
   Queue.init()
   User.init()
   Sync.init()
+  bindAddSong()
 })
+
+function bindAddSong () {
+  $('.icon-thumbs-up').click(function(){
+    $('this').closest('.single-track').find('img').eq(1).css('overlay', '0.5')
+  })
+}

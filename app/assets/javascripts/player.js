@@ -38,13 +38,13 @@ var rdioCallbacks = {
 
   checkQueueLength: function() {
     // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
-  console.log(Player.playing)
+  // console.log(Player.playing)
 
     if ((($('.queue-row').length) > 0) && !Player.playing)  {
       rdioPlayerElement.rdio_play(Queue.nextSong())
 
     } else {
-      console.log("waiting for songs to be added or player has song")
+      // console.log("waiting for songs to be added or player has song")
     }
   },
 
