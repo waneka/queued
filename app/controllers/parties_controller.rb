@@ -7,11 +7,12 @@ class PartiesController < ApplicationController
     @party.url = SecureRandom.urlsafe_base64
     @party.password = generatePassword
     @party.save
-    redirect_to party_path(@party)
+    redirect_to party_path(@party.url)
   end
 
   def show
-    @party = Party.find(params[:id])
+    @party = Party.find_by_url(params[:id])
+    puts @party
     @alert_fire = true
   end
 
@@ -25,7 +26,7 @@ class PartiesController < ApplicationController
   def search
     @party = Party.find_by_password(params[:password])
     if @party
-      redirect_to party_path(@party)
+      redirect_to party_path(@party.url)
     else
       redirect_to :back
     end

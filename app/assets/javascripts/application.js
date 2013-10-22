@@ -25,7 +25,6 @@ var Sync = {
     var self = this
     this.firebaseServer.on('value', function(snapshot){
       self.loadQueue(snapshot.val())
-      Queue.sortByVote()
     })
   },
   addSongToQueue: function($elem){
@@ -80,6 +79,7 @@ var Queue = {
   },
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
+    this.sortByVote()
   },
   buildQueueRow: function(data){
     return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
@@ -104,7 +104,7 @@ var Queue = {
     var rows = this.elem.find('tr')
 
     rows.sort(function(a,b){
-      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text()))
+      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
     })
 
     var self = this
@@ -115,6 +115,7 @@ var Queue = {
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
+    this.sortByVote()
   },
   nextSong: function(){
     var nextSongKey = this.elem.find('tr').first().data('songkey')

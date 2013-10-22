@@ -2,8 +2,17 @@
 rdioPlayerElementId = 'rdio-player';
 
 var Player = {
-  playing: false
-}
+  playing: false,
+  pause: function(){
+    rdioPlayerElement.rdio_pause();
+  },
+  play: function(){
+    rdioPlayerElement.rdio_play();
+  },
+  next: function() {
+    rdioPlayerElement.rdio_stop();
+  }
+};
 
 $(document).ready(function() {
 
@@ -34,6 +43,18 @@ var rdioCallbacks = {
 
     // interval function to check if queue has songs, runs every 3 seconds.
     checkInterval = setInterval(this.checkQueueLength,3000);
+    
+    $("#pause").click(function(){
+      Player.pause()
+    })
+
+    $('#play').click(function(){
+      Player.play()
+    })
+
+    $('#next').click(function(){
+      Player.next()
+    })
   },
 
   checkQueueLength: function() {
@@ -49,8 +70,9 @@ var rdioCallbacks = {
   },
 
   isSongAboutToEnd: function(position) {
-    return ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100))
-  }
+    return ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 1000))
+  },
+
 };
 
 // Callbacks
@@ -58,12 +80,11 @@ rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
   this.playState = playState
-  if ((playState == 1) || (playState == 0)) {
+  if ((playState == 1) || (playState == 0 || (playState == 4))) {
     Player.playing = true
   } else {
     Player.playing = false
   }
-  // $('#playState').text(playState);
 }
 
 rdioCallbacks.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
