@@ -104,7 +104,7 @@ var Queue = {
     var rows = this.elem.find('tr')
 
     rows.sort(function(a,b){
-      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text()))
+      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
     })
 
     var self = this
