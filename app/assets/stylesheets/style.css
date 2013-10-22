@@ -1,6 +1,7 @@
 html * {
   font-family: 'Source Sans Pro', sans-serif;
-
+  font-weight: lighter;
+  font-size: .98em;
 }
 #navbar {
   position: relative;
@@ -70,11 +71,23 @@ html * {
 }
 
 .player.expanded {
-  height: 94%;
+  height: 92.8%;
 }
 
 .player.background.expanded {
-  height: 94%;
+  height: 92.8%;
+}
+
+/*player expanded*/
+
+.current-track-info {
+  display: none;
+  margin: .5em;
+}
+
+.current-track-info div {
+  display: inline-block;
+  /*width: 40%;*/
 }
 
 #controls{
@@ -181,8 +194,24 @@ html * {
 
 }
 
+.single-track.expanded {
+  padding: 0;
+  margin: 1em;
+  width: 40%;
+  text-align: center;
+}
+
+.single-track.expanded img {
+  width: 80%;
+}
+
+.single-track.expanded div {
+  display: block;
+  text-align: center;
+}
+
 .single-track span {
-  font-size: .65em;
+  font-size: .763em;
   display: block;
   padding-top: .1em;
   /*text-align: center;*/
@@ -228,8 +257,9 @@ html * {
 /*queue container */
 
 .queue-container {
+  float: right;
   letter-spacing: 0;
-  width: 100%;
+  width: 50%;
   margin-left: 1em;
-  display: none;
+  /*display: none;*/
 }

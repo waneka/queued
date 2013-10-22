@@ -222,7 +222,9 @@ function bindToggleSwitch() {
   // $('queue-container').hide()
   var playerExpanded = false;
   $('#search-toggle').on('click', function(){
+
     $('.search-container').toggle();
+    $('.current-track-info').toggle();
     if (playerExpanded) {
       $('.player').toggleClass('expanded')
       playerExpanded = false
@@ -234,6 +236,7 @@ function bindToggleSwitch() {
 
   $('#queue-toggle').on('click', function(){
     $('.search-container').toggle();
+    $('.current-track-info').toggle();
     if (playerExpanded) {
       $('.player').toggleClass('expanded')
       playerExpanded = false
