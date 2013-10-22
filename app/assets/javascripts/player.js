@@ -2,8 +2,17 @@
 rdioPlayerElementId = 'rdio-player';
 
 var Player = {
-  playing: false
-}
+  playing: false,
+  pause: function(){
+    rdioPlayerElement.rdio_pause();
+  },
+  play: function(){
+    rdioPlayerElement.rdio_play();
+  },
+  next: function() {
+    rdioPlayerElement.rdio_stop();
+  }
+};
 
 $(document).ready(function() {
 
@@ -34,14 +43,17 @@ var rdioCallbacks = {
 
     // interval function to check if queue has songs, runs every 3 seconds.
     checkInterval = setInterval(this.checkQueueLength,3000);
+    
     $("#pause").click(function(){
-      rdioPlayerElement.rdio_pause()
-    });
-    $('#play').click(function(){
-      rdioPlayerElement.rdio_play()
+      Player.pause()
     })
+
+    $('#play').click(function(){
+      Player.play()
+    })
+
     $('#next').click(function(){
-      rdioPlayerElement.rdio_stop()
+      Player.next()
     })
   },
 
@@ -73,7 +85,6 @@ rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   } else {
     Player.playing = false
   }
-  // $('#playState').text(playState);
 }
 
 rdioCallbacks.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
