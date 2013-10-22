@@ -1,2 +1,6 @@
+<% if current_user %>
+<%= button_to 'Host Party', new_party_path %>
+<% else %>
 <%= button_to 'Sign In', '/auth/rdio' %>
+<% end %>
 <%= link_to 'Join a party', party_join_path %>
