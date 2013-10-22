@@ -14,19 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-var queueDataRef = new Firebase('https://queued.firebaseIO.com/testdb')
-queueDataRef.on('value', function(snapshot){
-  Sync.loadQueue(snapshot)
-})
-
-queueDataRef.on('child_removed', function(snapshot){
-  Sync.loadQueue(snapshot)
-})
+//= require jquery.cookie
 
 var Sync = {
+  init: function(){
+    var party = $(location).attr('pathname')
+    this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
+    this.firebaseServer = new Firebase(this.partyAddress)
+
+    var self = this
+    this.firebaseServer.on('value', function(snapshot){
+      self.loadQueue(snapshot.val())
+    })
+  },
   addSongToQueue: function($elem){
-    var newSong = queueDataRef.push(this.compileDataForFirebase($elem))
+    var songRef = new Firebase(this.partyAddress+$elem.data('songkey'))
+    var newSong = songRef.set(this.compileDataForFirebase($elem))
   },
   compileDataForFirebase: function($data){
     return {
@@ -34,46 +37,90 @@ var Sync = {
       artistName: $data.find('.result-artist').text(),
       albumName: $data.find('.result-album').text(),
       songDuration: $data.find('.result-duration').text(),
-      songKey: $data.data('songkey')
+      songKey: $data.data('songkey'),
+      voteCount: 0
     }
   },
-  loadQueue: function(data){
+  loadQueue: function(songList){
+    console.log('loading queue'+songList)
     Queue.elem.empty()
-    $.each(data.val(), function(i, song){
+    if(songList == null) return
+    $.each(songList, function(i, song){
       Queue.addSongFromServer(song)
     })
+  },
+  storeUserVote: function(songkey){
+    var songRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
+    songRef.set(1)
+  },
+  checkIfUserVoted: function(songkey){
+    var songRef = new Firebase(this.partyAddress + songkey + '/votes/')
+    var returnValue
+    songRef.child(User.key).once('value', function(snapshot){
+      if(snapshot.val() == 1){
+        returnValue = true
+      }
+      else{
+        returnValue = false
+      }
+    })
+    return returnValue
   }
 }
 
 var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-table')
+
+    var self = this
+    this.elem.on('click', '.upvote-submit', function(e){
+      self.upVote($(e.target).closest('tr'))
+    })
   },
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
+    this.sortByVote()
   },
   buildQueueRow: function(data){
     return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
     .append(
+      $('<td>', {class: 'queue-vote-count'}).text(data.voteCount),
       $('<td>', {class: 'queue-song'}).text(data.songName),
       $('<td>', {class: 'queue-artist'}).text(data.artistName),
       $('<td>', {class: 'queue-album'}).text(data.albumName),
-      $('<td>', {class: 'queue-duration'}).text(data.songDuration)
+      $('<td>', {class: 'queue-duration'}).text(data.songDuration),
+      $('<td>', {class: 'queue-upvote'}).append($('<button>', {class: 'upvote-submit'}).text('+1'))
       )
+  },
+  upVote: function($song){
+    var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
+    var voteSong = $song.data('songkey')
+    if(!Sync.checkIfUserVoted(voteSong)){
+      Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
+      Sync.storeUserVote(voteSong)
+    }
+  },
+  sortByVote: function(){
+    var rows = this.elem.find('tr')
+
+    rows.sort(function(a,b){
+      return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
+    })
+
+    var self = this
+    $.each(rows, function(idx, itm){
+      self.elem.append(itm)
+    })
+
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
+    this.sortByVote()
   },
   nextSong: function(){
-    queueDataRef.startAt().limit(1).once('value', function(snapshot){
-      mememe = snapshot.val()
-      $.each(mememe, function(key){
-        fuckyouverymuch = key
-      })
-    })
-    var thefword = this.elem.find('tr').first().data('songkey')
-    queueDataRef.child(fuckyouverymuch).remove()
-    return thefword
+    var nextSongKey = this.elem.find('tr').first().data('songkey')
+    Sync.firebaseServer.child(nextSongKey).remove()
+    return nextSongKey
   }
 }
 
@@ -97,13 +144,17 @@ var Search = {
 
     var self = this
     $.ajax({
-      url: 'search',
+      url: '/search',
       type: 'post',
       data: {song: this.term}
     })
     .done(function(response){
+      self.resetSearchResults()
       self.displaySearchResults(JSON.parse(response))
     })
+  },
+  resetSearchResults: function(){
+    this.table.find('tr').remove()
   },
   displaySearchResults: function(data){
     var self = this
@@ -115,27 +166,46 @@ var Search = {
     $elem.prop('disabled', true)
   },
   buildResultRow: function(data){
+    var songDuration = this.secondsToHMS(data.duration)
     return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
     .append(
       $('<td>', { class: 'result-song'} ).text(data.name),
       $('<td>', { class: 'result-artist'} ).text(data.artist),
       $('<td>', { class: 'result-album'} ).text(data.album),
-      $('<td>', { class: 'result-duration'} ).text(data.duration),
+      $('<td>', { class: 'result-duration'} ).text(songDuration),
       $('<td>', { class: 'result-add'} )
       .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
       )
+  },
+  secondsToHMS: function(sec){
+    var sec = parseInt(sec)
+    var h = Math.floor(sec/3600)
+    sec -= h*3600
+    var m = Math.floor(sec/60)
+    sec -= m*60
+    result = ((h > 0 ? h+":" : "") + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
+    return result
   }
+}
 
-  // secondsToHMS: function(sec){
-  //   var h = Math.floor(sec/3600)
-  //   sec -= h*3600
-  //   var m = Math.floor(sec/60)
-  //   sec -= m*60
-  //   return ((h+":" if h > 0) + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
-  // }
+var User = {
+  init: function(){
+    if($.cookie('key')){
+      this.key = $.cookie('key')
+    }
+    else{
+      this.key = this.makeKey()
+      $.cookie('key', this.key)
+    }
+  },
+  makeKey: function(){
+    return Math.random().toString(36).substring(7)
+  }
 }
 
 $(document).ready(function(){
   Search.init()
   Queue.init()
+  User.init()
+  Sync.init()
 })

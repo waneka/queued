@@ -1,0 +1,3 @@
+Bugs.txt
+
+player bar in search page covers and blocks songs from being chosen.

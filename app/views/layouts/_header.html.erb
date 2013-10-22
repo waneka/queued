@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
+    <% if @alert_fire == true %>
+    <a class="pure-menu-heading" href="/", data-confirm="Leave the party already?" id="logo">qd.fm</a>
+    <% else %>
+    <a class="pure-menu-heading" href="/", id="logo">qd.fm</a>
+    <% end %>
+
+    <ul >
+      <% if signed_in? %>
+      <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
+      <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
