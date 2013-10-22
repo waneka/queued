@@ -48,7 +48,6 @@ var Sync = {
     $.each(songList, function(i, song){
       Queue.addSongFromServer(song)
     })
-    Queue.sortByVote()
   },
   storeUserVote: function(songkey){
     var songRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
@@ -80,6 +79,7 @@ var Queue = {
   },
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
+    this.sortByVote()
   },
   buildQueueRow: function(data){
     return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
@@ -115,6 +115,7 @@ var Queue = {
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
+    this.sortByVote()
   },
   nextSong: function(){
     var nextSongKey = this.elem.find('tr').first().data('songkey')
