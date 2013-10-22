@@ -24,15 +24,8 @@ var Sync = {
 
     var self = this
     this.firebaseServer.on('value', function(snapshot){
-      var val = snapshot.val()
-      if (!val) return
-      self.loadQueue(val)
+      self.loadQueue(snapshot.val())
       Queue.sortByVote()
-    })
-    this.firebaseServer.on('child_removed', function(snapshot){
-      var val = snapshot.val()
-      if (!val) return
-      self.loadQueue(val)
     })
   },
   addSongToQueue: function($elem){
@@ -50,8 +43,9 @@ var Sync = {
     }
   },
   loadQueue: function(songList){
-    console.log('loading queue')
+    console.log('loading queue'+songList)
     Queue.elem.empty()
+    if(songList == null) return
     $.each(songList, function(i, song){
       Queue.addSongFromServer(song)
     })
