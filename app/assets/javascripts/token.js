@@ -3,5 +3,5 @@
 // var domain = "localhost";
 
 // HEROKU
-var playback_token = "GBJSYx6a_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnFkZm0uaGVyb2t1YXBwLmNvbRfpDHKhoRPXY6ouG0vhV6g=";
+var playback_token = "GBNSZedd_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnFkLWZtLmhlcm9rdWFwcC5jb21YnJBBV3ZySa16sHUcl4cv";
 var domain = "qd-fm.herokuapp.com";
