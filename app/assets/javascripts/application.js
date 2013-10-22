@@ -208,11 +208,27 @@ $(document).ready(function(){
   User.init()
   Sync.init()
   bindAddSong()
+  bindToggleSwitch()
 })
 
 function bindAddSong () {
   $('.icon-thumbs-up').click(function(){
     $(this).toggleClass('selected')
     $(this).closest('.single-track').find('img').eq(0).toggleClass('disabled')
+  })
+}
+
+function bindToggleSwitch() {
+  // $('queue-container').hide()
+  $('#search-toggle').on('click', function(){
+    console.log("click")
+    $('.search-container').toggle();
+    $('.queue-container').toggle();
+  })
+
+  $('#queue-toggle').on('click', function(){
+    console.log("click")
+    $('.search-container').toggle();
+    $('.queue-container').toggle();
   })
 }

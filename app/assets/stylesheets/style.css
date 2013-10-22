@@ -216,3 +216,12 @@ html * {
   margin: 0;
   width: 15em;
 }
+
+/*queue container */
+
+.queue-container {
+  letter-spacing: 0;
+  width: 100%;
+  margin-left: 1em;
+  display: none;
+}
