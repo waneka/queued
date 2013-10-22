@@ -25,9 +25,9 @@ var Sync = {
     var self = this
     this.firebaseServer.on('value', function(snapshot){
       var val = snapshot.val()
+      Queue.sortByVote()
       if (!val) return
       self.loadQueue(val)
-      Queue.sortByVote()
     })
     this.firebaseServer.on('child_removed', function(snapshot){
       var val = snapshot.val()
