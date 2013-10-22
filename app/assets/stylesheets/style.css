@@ -54,18 +54,18 @@ html * {
 #player-background{
   overflow: hidden;
   position: fixed;
-  height: 5.5em;
+  height: 5.75em;
   bottom: 0%;
   background-image: url("http://rdio-b.cdn3.rdio.com/album/3/8/0/000000000009f083/square-200.jpg");
   color: white;
-  z-index: 0;
+  z-index: 1;
   background-size: cover;
   /*filter: blur(5px);*/
-  -webkit-filter: blur(6px);
+  -webkit-filter: blur(4px);
   /*-moz-filter: blur(5px);*/
      border: 1px solid black;
 
-   margin: 0 -5px -2px 0;
+   margin: 10px -1px -5px 0;
 }
 
 
@@ -141,22 +141,26 @@ html * {
 
 
 /*Search container */
-.pure-g-r {
-  z-index: -1;
-}
 .search-container {
+  width: 100%;
+
+}
+
+.pure-g-r {
+  z-index: 0;
+}
+.search-form {
   width: 100%;
   padding: 1em 1em;
 
 }
 
+/*song block*/
+
 .single-track {
   padding: .6em 0 .6em 1em;
 
 }
-
-
-
 
 .single-track span {
   font-size: .65em;
@@ -174,16 +178,10 @@ html * {
   max-width: 95%;
 }
 
-.pure-g-r img:hover {
-  opacity: 0.5;
+.icon-thumbs-up {
+  margin-left: 2em;
 }
 
-.image-heart-container{
-  position: relative;
-}
-
-.somediv {
-  position: absolute;
-  z-index: 5000;
-  margin: 0 auto;
+.icon-thumbs-up:hover {
+  color: #27ae60;
 }
