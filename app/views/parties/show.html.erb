@@ -2,7 +2,7 @@
 
   <%= @party.password %>
 
-  <% if @party.user_id == current_user.id %>
+  <% if current_user && @party.user_id == current_user.id %>
     <%= render 'bottom_player' %>
   <% end %>
 
