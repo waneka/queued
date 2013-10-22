@@ -6,7 +6,7 @@ html * {
   position: relative;
   height: 3.5em;
   line-height: 2.5em;
-
+  z-index: 5;
 }
 
 
@@ -40,34 +40,42 @@ html * {
   margin-right: 1em;
 }
 
-#player{
+.player{
   position: fixed;
   height: 5.5em;
   bottom: 0%;
   /*background-image: url("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg");*/
   background: rgba(0, 0, 0, .7);
   color: white;
+  display: block;
+  width: 100%;
+  z-index: 4;
   /*background-size: cover;*/
   /*-webkit-filter: blur(2.5px);*/
 }
 
-#player-background{
+.player.background{
+
   overflow: hidden;
-  position: fixed;
   height: 5.75em;
-  bottom: 0%;
   background-image: url("http://rdio-b.cdn3.rdio.com/album/3/8/0/000000000009f083/square-200.jpg");
-  color: white;
   z-index: 1;
   background-size: cover;
   /*filter: blur(5px);*/
   -webkit-filter: blur(4px);
   /*-moz-filter: blur(5px);*/
-     border: 1px solid black;
+  border: 1px solid black;
 
    margin: 10px -1px -5px 0;
 }
 
+.player.expanded {
+  height: 94%;
+}
+
+.player.background.expanded {
+  height: 94%;
+}
 
 #controls{
   display: inline-block;
@@ -208,13 +216,13 @@ html * {
 
 .toggle-switch {
   letter-spacing: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  display: inline-block;
 }
 
 .switch-light {
   margin: 0;
-  width: 15em;
+  width: 12em;
 }
 
 /*queue container */
