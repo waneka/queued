@@ -34,6 +34,15 @@ var rdioCallbacks = {
 
     // interval function to check if queue has songs, runs every 3 seconds.
     checkInterval = setInterval(this.checkQueueLength,3000);
+    $("#pause").click(function(){
+      rdioPlayerElement.rdio_pause()
+    });
+    $('#play').click(function(){
+      rdioPlayerElement.rdio_play()
+    })
+    $('#next').click(function(){
+      rdioPlayerElement.rdio_stop()
+    })
   },
 
   checkQueueLength: function() {
@@ -58,7 +67,7 @@ rdioCallbacks.playStateChanged = function playStateChanged(playState) {
   // The playback state has changed.
   // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
   this.playState = playState
-  if ((playState == 1) || (playState == 0)) {
+  if ((playState == 1) || (playState == 0 || (playState == 4))) {
     Player.playing = true
   } else {
     Player.playing = false
