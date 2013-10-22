@@ -2,8 +2,8 @@
 
   <%= @party.password %>
 
-  <% if @party.user == current_user %>
-  <%= render 'bottom_player' %>
+  <% if current_user && @party.user_id == current_user.id %>
+    <%= render 'bottom_player' %>
   <%= render 'home/search_container' %>
   <% end %>
 

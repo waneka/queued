@@ -1,45 +1,6 @@
-
-<% if signed_in? %>
-<div class="header">
-  <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
-    <a class="pure-menu-heading" href="", id="logo">qd.fm</a>
-
-    <ul >
-      <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
-      <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
-    </ul>
-  </div>
-</div>
-
-
-
-<div class='container'>
-
-  <%= render 'player' %>
-
-
-  <div class='queue-container'>
-    <table class='queue-table'></table>
-  </div>
-
-  <div class='search-container'>
-    <div>
-      <input class='search-input-term'>
-      <button class='search-submit' >Search</button>
-    </div>
-
-
-
-
-    <table class='results-table'></table>
-  </div>
-</div>
-
-
-
-
+<% if current_user %>
+	<%= button_to 'Host Party', new_party_path %>
 <% else %>
-<%= button_to 'Sign In', '/auth/rdio' %>
-<%= link_to 'Join a party', party_join_path %>
-
+	<%= button_to 'Sign In', '/auth/rdio' %>
 <% end %>
+<%= link_to 'Join a party', party_join_path %>
