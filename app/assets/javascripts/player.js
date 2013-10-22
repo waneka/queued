@@ -58,8 +58,9 @@ var rdioCallbacks = {
   },
 
   isSongAboutToEnd: function(position) {
-    return ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 100))
-  }
+    return ((position * 1000) > ((rdioCallbacks.currentSongDuration * 1000) - 1000))
+  },
+
 };
 
 // Callbacks
