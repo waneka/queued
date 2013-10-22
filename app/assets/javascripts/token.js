@@ -4,4 +4,4 @@
 
 // HEROKU
 var playback_token = "GBJSYx6a_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbnFkZm0uaGVyb2t1YXBwLmNvbRfpDHKhoRPXY6ouG0vhV6g=";
-var domain = "qdfm.herokuapp.com";
+var domain = "qd-fm.herokuapp.com";
