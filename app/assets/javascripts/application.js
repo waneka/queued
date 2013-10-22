@@ -25,7 +25,6 @@ var Sync = {
     var self = this
     this.firebaseServer.on('value', function(snapshot){
       self.loadQueue(snapshot.val())
-      Queue.sortByVote()
     })
   },
   addSongToQueue: function($elem){
@@ -49,6 +48,7 @@ var Sync = {
     $.each(songList, function(i, song){
       Queue.addSongFromServer(song)
     })
+    Queue.sortByVote()
   },
   storeUserVote: function(songkey){
     var songRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
