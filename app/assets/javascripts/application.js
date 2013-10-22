@@ -142,7 +142,6 @@ var Search = {
   },
   fetchSearchResults: function(){
     this.term = this.elem.find('.search-input-term').val()
-    console.log(this.term)
 
     var self = this
     $.ajax({
@@ -213,6 +212,7 @@ $(document).ready(function(){
   Sync.init()
   bindAddSong()
   bindToggleSwitch()
+
 })
 
 function bindAddSong () {
