@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'faker'
 gem "random-word", "~> 1.3.0"
+gem 'nokogiri'
 
 # Use sqlite3 as the database for Active Record
 group :development do
