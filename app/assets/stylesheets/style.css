@@ -152,7 +152,18 @@ html * {
 .search-form {
   width: 100%;
   padding: 1em 1em;
+  text-align: center;
 
+}
+
+.search-input-term {
+  width: 35em;
+  margin-right: .8em;
+  margin-top: 2em;
+}
+.search-submit {
+  height: 1.6em;
+  line-height: .6em
 }
 
 /*song block*/
@@ -178,10 +189,30 @@ html * {
   max-width: 95%;
 }
 
+.pure-g-r img.disabled {
+  opacity: 0.5;
+}
+
 .icon-thumbs-up {
   margin-left: 2em;
 }
 
+.icon-thumbs-up.selected {
+  color: #27ae60;
+}
 .icon-thumbs-up:hover {
   color: #27ae60;
+}
+
+/*toggle switch*/
+
+.toggle-switch {
+  letter-spacing: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.switch-light {
+  margin: 0;
+  width: 15em;
 }

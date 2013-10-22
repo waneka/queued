@@ -212,6 +212,7 @@ $(document).ready(function(){
 
 function bindAddSong () {
   $('.icon-thumbs-up').click(function(){
-    $('this').closest('.single-track').find('img').eq(1).css('overlay', '0.5')
+    $(this).toggleClass('selected')
+    $(this).closest('.single-track').find('img').eq(0).toggleClass('disabled')
   })
 }
