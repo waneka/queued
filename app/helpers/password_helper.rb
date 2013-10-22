@@ -1,5 +1,5 @@
 module PasswordHelper
   def generatePassword
-    return ['beaver', 'donkey', 'rabbit', 'horse', 'emu', 'leopard', 'snail'].sample
+    return "poop"
   end
 end
