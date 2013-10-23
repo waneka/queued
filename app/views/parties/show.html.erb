@@ -4,23 +4,14 @@
     <p><%= @party.password %><p>
   </div>
 
+  <%= render 'home/search_container' %>
   <% if current_user && @party.user_id == current_user.id %>
     <%= render 'home/player' %>
-    <% else %>
-    <div class='queue-container'>
-      <ul class='queue-list'></ul>
-    </div>
+
   <% end %>
-  <%= render 'home/search_container' %>
 
 
-<!--    -->
 
-<!--   <div class='search-container'>
-    <input class='search-input-term'>
-    <button class='search-submit'></button>
-    <table class='results-table'></table>
-  </div> -->
   </div>
 </div>
 

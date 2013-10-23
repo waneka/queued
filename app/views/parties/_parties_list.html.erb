@@ -1,5 +1,8 @@
-<ul>
+<% if !@parties.empty? %>
+<span id="old-parties">...or shake the dust off of one of these old parties:</span>
+<ul id="old-parties-list">
   <% @parties.each do |party| %>
-    <li><%= link_to party.password, party_path(party.url) %></li>
+    <li class="old-parties"><%= link_to party.password, party_path(party.url) %></li>
   <% end %>
 </ul>
+<% end %>

@@ -1,3 +1,6 @@
+<div class="main">
+
+<br>
 <% if current_user %>
 	<h2>Name and Create Your Party</h2>
 	<%#= form_for @party do |f| %>
@@ -6,6 +9,17 @@
 	<%# end %>
 	<%= button_to 'Create Party!', parties_path %>
 <% else %>
-	<%= button_to 'Sign In', '/auth/rdio' %>
+  <%= link_to 'Sign-In with rdio', '/auth/rdio' %>
+  <p>to host a party</p>
 <% end %>
+
+<div id="line-separator">
+  <span id="spanne-separator-left"></span>
+  <span id="center-or">or</span>
+  <span id="spanne-separator-right"></span>
+</div>
+<br>
+
 <%= link_to 'Join a party', party_join_path %>
+
+</div>

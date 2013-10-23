@@ -15,29 +15,34 @@
     </div>
 
     <div class='queue-container'>
-      <ul class='queue-track-info top-list'></ul>
-<!--       <ul class="queue-track-info">
+
+      <!-- actual top container -->
+      <ul class='queue-track-info queue-top-list'></ul>
+
+      <!-- mock queue track info -->
+ <!--      <ul class="queue-track-info queue-top-list">
         <% 5.times do %>
              <li>
+
               <span> 8 </span>
               <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
-              <span>Track Name</span>
-              <span>Artist Name</span>
+              <div class ="queue-span-wrapper">Track Name</div>
+              <div class ="queue-span-wrapper">Artist Name</div>
             </li>
           <hr></hr>
         <% end %>
       </ul> -->
+
     </div>
   </div>
 
-  <!-- player controls  -->
+  <!-- player controls -->
 
     <div id="controls">
       <i class="icon-pause icon-large" id="pause"></i>
       <i class="icon-play icon-large" id="play"></i>
       <i class="icon-forward icon-large" id="next"></i>
     </div>
-
     <div id="player-center">
       <div id="song-info">
         <span id="track"> Song </span> -- <span id="artist"> Artist</span>
