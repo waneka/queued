@@ -1,39 +1,35 @@
 var Search = {
   init: function(){
     this.elem = $(document).find('.search-container')
-    this.submit = this.elem.find('.search-submit')
     this.table = this.elem.find('.results-table')
 
-    var self = this
-    this.submit.click(function(){
-      self.fetchSearchResults()
-    })
-    this.elem.on('click', '.add-to-queue-submit', function(e){
-      Sync.addSongToQueue($(e.target).closest('tr'))
-      self.respondToBeingAdded($(e.target))
-    })
+    this.elem.find('.search-submit').on('click', Search.fetchSearchResults)
+    this.elem.on('click', '.add-to-queue-submit', Search.addSongToQueue)
+  },
+  addSongToQueue: function(e) {
+    Sync.addSongToQueue($(e.target).closest('tr'))
+    Search.respondToBeingAdded($(e.target))
   },
   fetchSearchResults: function(){
-    this.term = this.elem.find('.search-input-term').val()
+    var term = Search.elem.find('.search-input-term').val()
 
-    var self = this
     $.ajax({
       url: '/search',
       type: 'post',
-      data: {song: this.term}
+      data: {song: term},
+      dataType: 'json'
     })
-    .done(function(response){
-      self.resetSearchResults()
-      self.displaySearchResults(JSON.parse(response))
-    })
+    .done(Search.displaySearchResults)
   },
   resetSearchResults: function(){
     this.table.find('tr').remove()
   },
-  displaySearchResults: function(data){
-    var self = this
+  displaySearchResults: function(response){
+    // TODO: why the FIZUCK doesn't dataType: json above in the ajax call work?
+    var data = JSON.parse(response)
+    Search.resetSearchResults()
     $.each(data.result.results, function(i, result){
-      self.table.append(self.buildResultRow(result))
+      Search.table.append(Search.buildResultRow(result))
     })
   },
   respondToBeingAdded: function($elem){
