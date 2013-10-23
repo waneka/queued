@@ -1,6 +1,7 @@
 var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-list')
+    this.topList = $(document).find('.queue-top-list')
 
     this.elem.on('click', '.upvote-submit', function(e){
       Queue.upVote($(e.target).closest('li'))
@@ -8,18 +9,22 @@ var Queue = {
   },
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
-    this.sortByVote()
+  },
+  //TODO: get this html code out of the js
+  buildVoteIcon: function(data){
+    var classToAdd = ' selected'
+    if(data.votes == null) return "<i class='icon-thumbs-up upvote-submit'></i>"
+    if(data.votes[User.key] == 1) return "<i class='icon-thumbs-up upvote-submit"+classToAdd+"'></i>"
   },
   buildQueueRow: function(data){
-    var icon = "<i class='icon-thumbs-up upvote-submit'></i>"
-    //TODO: add class to icon if somebody has already voted
+    var icon = this.buildVoteIcon(data)
     return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
       $('<img>', {src: data.albumURL, class: 'front-page-art queue-album-art'}),
-      $('<span>', {class: 'queue-song'}).text(data.songName),
-      $('<span>', {class: 'queue-artist'}).text(data.artistName),
-      $('<span>', {class: 'queue-upvote'}).html(icon),
+      $('<div>', {class: 'queue-span-wrapper queue-song'}).text(data.songName),
+      $('<div>', {class: 'queue-span-wrapper queue-artist'}).text(data.artistName),
+      $('<div>', {class: 'queue-span-wrapper icon queue-upvote'}).html(icon),
       $('<hr>', {class: 'queue-border'})
     )
   },
@@ -41,29 +46,29 @@ var Queue = {
     $.each(rows, function(idx, itm){
       Queue.elem.append(itm)
     })
-    // TopQueue.update()
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
-    this.sortByVote()
   },
   nextSong: function(){
     var nextSongKey = this.elem.find('li').first().data('songkey')
     Sync.firebaseServer.child(nextSongKey).remove()
     return nextSongKey
+  },
+  updateTopList: function(){
+    var topListLimit = 5
+    this.topList.empty()
+    $.each(Queue.elem.find('li'), function(idx, itm){
+      if(idx < topListLimit) {
+        Queue.topList.append(Queue.modifyForTopList(itm))
+      }
+    })
+  },
+  modifyForTopList: function(songItem){
+    var returnable = $(songItem).clone()
+    console.log(returnable)
+    returnable.find('.queue-upvote').remove()
+    returnable.find('hr').removeClass('queue-border')
+    return returnable
   }
 }
-
-// var TopQueue = {
-//   init: function(){
-//     this.elem = $(document).find('.top-list')
-//   },
-//   update: function(){
-//     var songs = Queue.elem.find('li')
-//     $.each(songs, function(idx, itm){
-//       if(idx <= 5){
-//         TopQueue.elem.clone().append(itm)
-//       }
-//     })
-//   }
-// }
