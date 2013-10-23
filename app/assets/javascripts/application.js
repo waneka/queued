@@ -131,7 +131,8 @@ var Search = {
     this.results = this.elem.find('.results-container')
 
     var self = this
-    this.submit.click(function(){
+    this.submit.click(function(e){
+      e.preventDefault()
       self.fetchSearchResults()
     })
     this.elem.on('click', '.add-to-queue-submit', function(e){
@@ -148,6 +149,7 @@ var Search = {
       data: {song: this.term}
     })
     .done(function(response){
+      console.log(response)
       self.resetSearchResults()
       self.displaySearchResults(JSON.parse(response))
     })
@@ -196,4 +198,43 @@ $(document).ready(function(){
   Queue.init()
   User.init()
   Sync.init()
+  bindAddSong()
+  bindToggleSwitch()
+
 })
+
+function bindAddSong () {
+  $('.icon-plus-sign').click(function(){
+    $(this).addClass('selected')
+    $(this).closest('.single-track').find('img').eq(0).addClass('disabled')
+  })
+}
+
+function bindToggleSwitch() {
+  // $('queue-container').hide()
+  var playerExpanded = false;
+  $('#search-toggle').on('click', function(){
+
+    $('.search-container').toggle();
+    $('.current-track-info').toggle();
+    if (playerExpanded) {
+      $('.player').toggleClass('expanded')
+      playerExpanded = false
+    } else {
+      $('.player').toggleClass('expanded')
+      playerExpanded = true
+    }
+  })
+
+  $('#queue-toggle').on('click', function(){
+    $('.search-container').toggle();
+    $('.current-track-info').toggle();
+    if (playerExpanded) {
+      $('.player').toggleClass('expanded')
+      playerExpanded = false
+    } else {
+      $('.player').toggleClass('expanded')
+      playerExpanded = true
+    }
+  })
+}
