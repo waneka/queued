@@ -342,3 +342,15 @@ hr {
 .party-name p {
   font-size: 2em;
 }
+
+
+.queue-span-wrapper {
+  display: inline-block;
+  width: 13em;
+  margin-left: 1em;
+}
+
+.queue-span-wrapper.icon {
+  width: 1em;
+
+}
