@@ -1,7 +1,7 @@
 $(document).ready(function(){
   Search.init()
   Queue.init()
-  TopQueue.init()
+  // TopQueue.init()
   User.init()
   Sync.init()
   bindAddSong()

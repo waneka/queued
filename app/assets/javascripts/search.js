@@ -32,8 +32,9 @@ var Search = {
       Search.container.append(Search.buildResultRow(result))
     })
   },
+  //TODO: STOP CHOPPING CHARACTERS
   limitCharacters: function(str){
-    var limit = 20
+    var limit = 30
     return str.substring(0,limit-1)
   },
   buildResultRow: function(data){
@@ -44,7 +45,7 @@ var Search = {
       $('<img>', {src: data.icon, class: 'front-page-art result-album-art'}),
       $('<div>', {class: 'result-song-details'})
       .append(
-        $('<span>', {class: 'result-album'} ).text(this.limitCharacters(data.album)),
+        $('<span>', {class: 'result-artist'} ).text(this.limitCharacters(data.artist)),
         $('<span>', {class: 'result-song'} ).text(this.limitCharacters(data.name)),
         $('<span>', {class: 'result-album'} ).html(this.limitCharacters(data.album)+icon)
       )

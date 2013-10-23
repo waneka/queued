@@ -7,6 +7,7 @@ var Queue = {
     })
   },
   addSongFromServer: function(data){
+    console.log(data)
     this.elem.append(this.buildQueueRow(data))
     this.sortByVote()
   },
@@ -19,7 +20,8 @@ var Queue = {
       $('<img>', {src: data.albumURL, class: 'front-page-art queue-album-art'}),
       $('<span>', {class: 'queue-song'}).text(data.songName),
       $('<span>', {class: 'queue-artist'}).text(data.artistName),
-      $('<span>', {class: 'queue-upvote'}).html(icon)
+      $('<span>', {class: 'queue-upvote'}).html(icon),
+      $('<hr>', {class: 'queue-border'})
     )
   },
   upVote: function($song){
@@ -40,7 +42,7 @@ var Queue = {
     $.each(rows, function(idx, itm){
       Queue.elem.append(itm)
     })
-    TopQueue.update()
+    // TopQueue.update()
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
@@ -53,17 +55,16 @@ var Queue = {
   }
 }
 
-var TopQueue = {
-  init: function(){
-    this.elem = $(document).find('.top-list')
-  },
-  update: function(){
-    var songs = Queue.elem.find('li')
-    $.each(songs, function(idx, itm){
-      if(idx <= 5){
-        console.log(itm)
-        TopQueue.elem.clone().append(itm)
-      }
-    })
-  }
-}
+// var TopQueue = {
+//   init: function(){
+//     this.elem = $(document).find('.top-list')
+//   },
+//   update: function(){
+//     var songs = Queue.elem.find('li')
+//     $.each(songs, function(idx, itm){
+//       if(idx <= 5){
+//         TopQueue.elem.clone().append(itm)
+//       }
+//     })
+//   }
+// }
