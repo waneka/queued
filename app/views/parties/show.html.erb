@@ -1,6 +1,8 @@
 <div class='container'>
 
-  <span><%= @party.password %></span>
+  <div class="party-name">
+    <p><%= @party.password %><p>
+  </div>
 
   <% if current_user && @party.user_id == current_user.id %>
     <%= render 'home/player' %>

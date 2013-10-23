@@ -89,12 +89,12 @@ body {
 
 /*player expanded*/
 
-.current-track-info {
+.player-expanded-view {
   display: none;
   margin: .5em;
 }
 
-.current-track-info div {
+.player-expanded-view div {
   display: inline-block;
   /*width: 40%;*/
 }
@@ -173,12 +173,12 @@ body {
 /*Search container */
 .search-container {
   width: 100%;
-  margin-bottom: 7em;
 
 }
 
 .pure-g-r {
   z-index: 0;
+  margin-bottom: 7em;
 }
 .search-form {
   width: 100%;
@@ -241,6 +241,8 @@ body {
   opacity: 0.5;
 }
 
+/*icons*/
+
 .icon-plus-sign {
   margin-left: 1.5em;
 }
@@ -252,6 +254,14 @@ body {
   color: #c0392b;
 }
 
+
+.icon-thumbs-up {
+  color: rgb(156, 156, 156);
+}
+
+.icon-thumbs-up:hover {
+  color: #c0392b;
+}
 /*toggle switch*/
 
 .toggle-switch {
@@ -282,22 +292,37 @@ body {
   float: right;
   letter-spacing: 0;
   width: 50%;
-  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
   /*display: none;*/
+}
+
+.queue-container.main {
+  display: none;
 }
 
 .queue-track-info {
   display: inline-block;
-  width: 45em;
+  width: 40em;
   padding-top: .3em;
+  list-style: none;
+
 /*  border-color: #666 transparent #000 transparent;
   border-width: 1px 0px;
   border-style: solid;*/
 }
 
+
+
 hr {
   border-width: 1px 0px;
   border-color: #666 transparent #474747 transparent;
+}
+.queue-border {
+  border-width: 1px 0px;
+  border-color: #FFF transparent #FFF transparent;
+
 }
 
 .queue-track-info span {
@@ -308,3 +333,12 @@ hr {
   max-height: 3.5em;
 }
 
+
+.party-name {
+  text-align: center;
+  margin: 2em 0 2em 0;
+}
+
+.party-name p {
+  font-size: 2em;
+}
