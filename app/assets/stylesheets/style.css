@@ -7,6 +7,12 @@ html * {
 body {
   background-color: #ecf0f1;
 }
+
+.main {
+  text-align: center;
+  font-size: 2em;
+}
+
 #navbar {
   position: relative;
   height: 4em;
@@ -272,3 +278,66 @@ body {
   margin-left: 1em;
   /*display: none;*/
 }
+
+/*button*/
+.button-large {
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 5em;
+}
+
+#button-container {
+  text-align: center;
+  padding: 20px;
+}
+
+#party-list-container {
+  text-align: center;
+}
+
+#old-parties-list {
+  width: 30em;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.5em;
+  padding-top: 10px;
+}
+
+#old-parties {
+  font-size: 2em;
+}
+
+/*line*/
+
+
+
+#line-separator {
+  height: 2%;
+  width: 85%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 3%;
+  position: relative;
+}
+
+#spanne-separator-left {
+  background: #c0392b;
+  height: 2px;
+  width: 45%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+#spanne-separator-right {
+  background-color: #c0392b;
+  height: 2px;
+  width: 45%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+
+
+
