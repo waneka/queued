@@ -6,6 +6,8 @@ var Sync = {
 
     this.firebaseServer.on('value', function(snapshot){
       Sync.loadQueue(snapshot.val())
+      Queue.sortByVote()
+      Queue.updateTopList()
     })
   },
   addSongToQueue: function($elem){
