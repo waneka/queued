@@ -257,9 +257,11 @@ body {
 }
 
 .switch-light {
+  cursor: pointer;
   margin: 0;
   width: 12em;
 }
+
 
 /*queue container */
 
