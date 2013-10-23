@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  Search.init()
-  Queue.init()
   User.init()
+  Queue.init()
   Sync.init()
+  Search.init()
   bindAddSong()
   bindToggleSwitch()
   bindPlayerExpander()
