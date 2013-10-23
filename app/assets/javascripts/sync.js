@@ -2,9 +2,9 @@ var Sync = {
   init: function(){
     var party = $(location).attr('pathname')
     this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
-    var firebaseServer = new Firebase(this.partyAddress)
+    this.firebaseServer = new Firebase(this.partyAddress)
 
-    firebaseServer.on('value', function(snapshot){
+    this.firebaseServer.on('value', function(snapshot){
       Sync.loadQueue(snapshot.val())
     })
   },
