@@ -1,13 +1,20 @@
 html * {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: lighter;
-  font-size: .98em;
+  font-size: .99em;
+}
+
+body {
+  background-color: #ecf0f1;
 }
 #navbar {
   position: relative;
-  height: 3.5em;
+  height: 4em;
   line-height: 2.5em;
   z-index: 5;
+  background-color: #2c3e50;
+  border-width: 0;
+
 }
 
 
@@ -230,14 +237,14 @@ html * {
   opacity: 0.5;
 }
 
-.icon-thumbs-up {
-  margin-left: 2em;
+.icon-plus-sign {
+  margin-left: 1.5em;
 }
 
-.icon-thumbs-up.selected {
+.icon-plus-sign.selected {
   color: #27ae60;
 }
-.icon-thumbs-up:hover {
+.icon-plus-sign:hover {
   color: #27ae60;
 }
 

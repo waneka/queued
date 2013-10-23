@@ -216,9 +216,9 @@ $(document).ready(function(){
 })
 
 function bindAddSong () {
-  $('.icon-thumbs-up').click(function(){
-    $(this).toggleClass('selected')
-    $(this).closest('.single-track').find('img').eq(0).toggleClass('disabled')
+  $('.icon-plus-sign').click(function(){
+    $(this).addClass('selected')
+    $(this).closest('.single-track').find('img').eq(0).addClass('disabled')
   })
 }
 
