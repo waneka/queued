@@ -40,7 +40,7 @@ var RdioCallbacks = {
     // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
   // console.log(Player.playing)
 
-    if ((($('.queue-row').length) > 0) && !Player.playing)  {
+    if ((($('.queue-item').length) > 0) && !Player.playing)  {
       rdioPlayerElement.rdio_play(Queue.nextSong())
 
     } else {
@@ -81,7 +81,7 @@ var RdioCallbacks = {
     $('#position').text(position);
 
     if (this.isSongAboutToEnd(position)) {
-      if ( ($('.queue-row').length) > 0) {
+      if ( ($('.queue-item').length) > 0) {
         rdioPlayerElement.rdio_play(Queue.nextSong());
       } else {
 
