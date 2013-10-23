@@ -13,7 +13,7 @@ var Queue = {
   //TODO: get this html code out of the js
   buildVoteIcon: function(data){
     var classToAdd = ' selected'
-    if(data.votes == null) return "<i class='icon-thumbs-up ßupvote-submit'></i>"
+    if(data.votes == null) return "<i class='icon-thumbs-up upvote-submit'></i>"
     if(data.votes[User.key] == 1) return "<i class='icon-thumbs-up upvote-submit"+classToAdd+"'></i>"
   },
   buildQueueRow: function(data){
