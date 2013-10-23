@@ -32,6 +32,10 @@ var Search = {
       Search.container.append(Search.buildResultRow(result))
     })
   },
+  limitCharacters: function(str){
+    var limit = 20
+    return str.substring(0,limit-1)
+  },
   buildResultRow: function(data){
     var icon = "<i class='icon-thumbs-up icon-2x add-to-queue-submit'></i>"
 
@@ -39,9 +43,9 @@ var Search = {
     .append(
       $('<img>', {src: data.icon, class: 'front-page-art'}),
       $('<div>', {class: 'result-song-details'}).append(
-        $('<span>', {class: 'result-album'} ).text(data.album),
-        $('<span>', {class: 'result-song'} ).text(data.name),
-        $('<span>', {class: 'result-album'} ).html(data.album+icon)
+        $('<span>', {class: 'result-album'} ).text(this.limitCharacters(data.album)),
+        $('<span>', {class: 'result-song'} ).text(this.limitCharacters(data.name)),
+        $('<span>', {class: 'result-album'} ).html(this.limitCharacters(data.album)+icon)
       )
     )
   }
