@@ -5,6 +5,7 @@ html * {
 }
 
 body {
+  color: #CCD9DA;
   background-color: #e0e0e0;
 }
 #navbar {
@@ -44,10 +45,16 @@ body {
 }
 
 #logout-button {
+  color: #95a5a6;
   margin-bottom: 1em;
   height: 1.5em;
   margin-left: .5em;
   margin-right: 1em;
+  background-color: #222D38;
+}
+
+#logout-button:hover {
+  background-color: #23313F;
 }
 
 .player{
@@ -56,7 +63,7 @@ body {
   bottom: 0%;
   /*background-image: url("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg");*/
   background: rgba(0, 0, 0, .7);
-  color: white;
+  color: #CCD9DA;
   display: block;
   width: 100%;
   z-index: 4;
@@ -189,12 +196,17 @@ body {
 
 .search-input-term {
   width: 35em;
+  height: 2em;
   margin-right: .8em;
   margin-top: 2em;
+  border-width: 0;
+  background-color: rgb(241, 241, 241);
 }
 .search-submit {
-  height: 1.6em;
-  line-height: .6em
+  height: 2em;
+  line-height: .6em;
+  background-color: #D5D5D8;
+
 }
 
 /*song block*/
@@ -277,6 +289,11 @@ body {
 
 .switch-candy a {
   background-color: #c0392b;
+  outline: none;
+}
+
+.switch-candy span {
+  color: #CCD9DA;
 }
 
 .switch-light {
@@ -291,7 +308,7 @@ body {
 .queue-container {
   float: right;
   letter-spacing: 0;
-  width: 50%;
+  width: 55%;
   margin-left: auto;
   margin-right: auto;
   display: none;
@@ -337,6 +354,7 @@ hr {
 .party-name {
   text-align: center;
   margin: 2em 0 2em 0;
+  color: #707077;
 }
 
 .party-name p {
