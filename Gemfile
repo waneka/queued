@@ -17,7 +17,10 @@ end
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'selenium-webdriver'
 	gem 'shoulda-matchers'
+	gem 'launchy'
+	gem 'puffing-billy'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
