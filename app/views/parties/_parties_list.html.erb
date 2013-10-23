@@ -1,5 +1,5 @@
 <ul>
   <% @parties.each do |party| %>
-    <li><%= link_to party.password, party_path(party.id) %></li>
+    <li><%= link_to party.password, party_path(party.url) %></li>
   <% end %>
 </ul>
