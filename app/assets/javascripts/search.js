@@ -3,15 +3,6 @@ var Search = {
     $(document).on('click', '.search-submit', Search.fetchSearchResults)
     $(document).on('click', '.add-to-queue-submit', Search.addSongToQueue)
   },
-
-  container: function() {
-    var container = $('.search-container')
-    if (!this.containerElem && container.length > 0) {
-      this.containerElem = container
-    }
-    return this.containerElem
-  },
-
   addSongToQueue: function(e) {
     Sync.addSongToQueue($(e.target).closest('div').parent())
   },
@@ -28,14 +19,14 @@ var Search = {
     .done(Search.displaySearchResults)
   },
   resetSearchResults: function(){
-    Search.container().find('.results-container').html('')
+    $('.search-container').find('.results-container').html('')
   },
   displaySearchResults: function(response){
     // TODO: why the FIZUCK doesn't dataType: json above in the ajax call work?
     var data = JSON.parse(response)
     Search.resetSearchResults()
     $.each(data.result.results, function(i, result){
-      Search.container().append(Search.buildResultRow(result))
+      $('.search-container').append(Search.buildResultRow(result))
     })
   },
   //TODO: STOP CHOPPING CHARACTERS
