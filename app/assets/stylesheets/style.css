@@ -113,6 +113,14 @@ body {
   height: 100%;
 }
 
+#controls i:hover {
+  color: #F5F8F8;
+}
+
+#controls i.selected {
+  color: #F5F8F8;
+}
+
 #pause {
   position: fixed;
   left: 2em;
@@ -255,6 +263,7 @@ body {
 
 /*icons*/
 
+
 .icon-plus-sign {
   margin-left: 1.5em;
 }
@@ -274,6 +283,10 @@ body {
 .icon-thumbs-up:hover {
   color: #c0392b;
 }
+
+
+
+
 /*toggle switch*/
 
 .toggle-switch {
@@ -291,6 +304,7 @@ body {
   background-color: #c0392b;
   outline: none;
 }
+
 
 .switch-candy span {
   color: #CCD9DA;
