@@ -28,15 +28,15 @@ var Sync = {
     })
   },
   addSongToQueue: function($elem){
+    console.log($elem.html())
     var songRef = new Firebase(this.partyAddress+$elem.data('songkey'))
-    var newSong = songRef.set(this.compileDataForFirebase($elem))
+    songRef.set(this.compileDataForFirebase($elem))
   },
   compileDataForFirebase: function($data){
     return {
       songName: $data.find('.result-song').text(),
       artistName: $data.find('.result-artist').text(),
       albumName: $data.find('.result-album').text(),
-      songDuration: $data.find('.result-duration').text(),
       songKey: $data.data('songkey'),
       voteCount: 0
     }
@@ -128,7 +128,7 @@ var Search = {
   init: function(){
     this.elem = $(document).find('.search-container')
     this.submit = this.elem.find('.search-submit')
-    this.table = this.elem.find('.results-table')
+    this.results = this.elem.find('.results-container')
 
     var self = this
     this.submit.click(function(e){
@@ -136,8 +136,7 @@ var Search = {
       self.fetchSearchResults()
     })
     this.elem.on('click', '.add-to-queue-submit', function(e){
-      Sync.addSongToQueue($(e.target).closest('tr'))
-      self.respondToBeingAdded($(e.target))
+      Sync.addSongToQueue($(e.target).closest('div').parent())
     })
   },
   fetchSearchResults: function(){
@@ -156,37 +155,26 @@ var Search = {
     })
   },
   resetSearchResults: function(){
-    this.table.find('tr').remove()
+    this.results.find('div').remove()
   },
   displaySearchResults: function(data){
     var self = this
     $.each(data.result.results, function(i, result){
-      self.table.append(self.buildResultRow(result))
+      self.results.append(self.buildResultDiv(result))
     })
   },
-  respondToBeingAdded: function($elem){
-    $elem.prop('disabled', true)
-  },
-  buildResultRow: function(data){
-    var songDuration = this.secondsToHMS(data.duration)
-    return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
+  buildResultDiv: function(data){
+    var icon = "<i class='icon-thumbs-up icon-2x add-to-queue-submit'></i>"
+
+    return result = $('<div>', {class: 'pure-u-1-8 single-track result'} ).data('songkey', data.key)
     .append(
-      $('<td>', { class: 'result-song'} ).text(data.name),
-      $('<td>', { class: 'result-artist'} ).text(data.artist),
-      $('<td>', { class: 'result-album'} ).text(data.album),
-      $('<td>', { class: 'result-duration'} ).text(songDuration),
-      $('<td>', { class: 'result-add'} )
-      .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
+      $('<img>', {src: data.icon, class: 'front-page-art'}),
+      $('<div>', {class: 'result-song-details'}).append(
+        $('<span>', {class: 'result-album'} ).text(data.album),
+        $('<span>', {class: 'result-song'} ).text(data.name),
+        $('<span>', {class: 'result-album'} ).html(data.album+icon)
       )
-  },
-  secondsToHMS: function(sec){
-    var sec = parseInt(sec)
-    var h = Math.floor(sec/3600)
-    sec -= h*3600
-    var m = Math.floor(sec/60)
-    sec -= m*60
-    result = ((h > 0 ? h+":" : "") + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
-    return result
+    )
   }
 }
 
