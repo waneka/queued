@@ -19,8 +19,10 @@ body {
 
 
 #logo{
-  height: 100%;
-  line-height: 3em;
+  position: absolute;
+  left: 1em;
+  max-width: 11em;
+  max-height: 3.7em;
 }
 
 .pure-menu ul {
@@ -231,6 +233,7 @@ body {
 
 .pure-g-r img {
   max-width: 95%;
+
 }
 
 .pure-g-r img.disabled {
@@ -251,9 +254,14 @@ body {
 /*toggle switch*/
 
 .toggle-switch {
+  position: absolute;
+  left: 43%;
+  right: 43%;
+  top: 1em;
   letter-spacing: 0;
   margin: 0;
   display: inline-block;
+
 }
 
 .switch-light {
