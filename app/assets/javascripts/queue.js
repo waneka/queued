@@ -1,9 +1,9 @@
 var Queue = {
   init: function(){
-    this.elem = $(document).find('.queue-table')
+    this.elem = $(document).find('.queue-list')
 
     this.elem.on('click', '.upvote-submit', function(e){
-      Queue.upVote($(e.target).closest('tr'))
+      Queue.upVote($(e.target).closest('li'))
     })
   },
   addSongFromServer: function(data){
@@ -11,15 +11,17 @@ var Queue = {
     this.sortByVote()
   },
   buildQueueRow: function(data){
-    return row = $('<tr>', {class: 'queue-row'}).data('songkey', data.songKey)
+    var icon = "<i class='icon-thumbs-up upvote-submit'></i>"
+    //TODO: add class to icon if somebody has already voted
+
+    return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
-      $('<td>', {class: 'queue-vote-count'}).text(data.voteCount),
-      $('<td>', {class: 'queue-song'}).text(data.songName),
-      $('<td>', {class: 'queue-artist'}).text(data.artistName),
-      $('<td>', {class: 'queue-album'}).text(data.albumName),
-      $('<td>', {class: 'queue-duration'}).text(data.songDuration),
-      $('<td>', {class: 'queue-upvote'}).append($('<button>', {class: 'upvote-submit'}).text('+1'))
-      )
+      $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
+      $('<img>', {src: data.albumURL, class: 'front-page-art queue-album-art'}),
+      $('<span>', {class: 'queue-song'}).text(data.songName),
+      $('<span>', {class: 'queue-artist'}).text(data.artistName),
+      $('<span>', {class: 'queue-upvote'}).html(icon)
+    )
   },
   upVote: function($song){
     var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
@@ -30,7 +32,7 @@ var Queue = {
     }
   },
   sortByVote: function(){
-    var rows = this.elem.find('tr')
+    var rows = this.elem.find('li')
 
     rows.sort(function(a,b){
       return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
@@ -46,7 +48,7 @@ var Queue = {
     this.sortByVote()
   },
   nextSong: function(){
-    var nextSongKey = this.elem.find('tr').first().data('songkey')
+    var nextSongKey = this.elem.find('li').first().data('songkey')
     Sync.firebaseServer.child(nextSongKey).remove()
     return nextSongKey
   }

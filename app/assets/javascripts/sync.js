@@ -17,6 +17,7 @@ var Sync = {
       songName: $data.find('.result-song').text(),
       artistName: $data.find('.result-artist').text(),
       albumName: $data.find('.result-album').text(),
+      albumURL: $data.find('result-album-art').attr('src')
       songKey: $data.data('songkey'),
       voteCount: 0
     }
