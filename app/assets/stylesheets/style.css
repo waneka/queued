@@ -5,7 +5,7 @@ html * {
 }
 
 body {
-  background-color: #ecf0f1;
+  background-color: #e0e0e0;
 }
 
 .main {
@@ -25,8 +25,10 @@ body {
 
 
 #logo{
-  height: 100%;
-  line-height: 3em;
+  position: absolute;
+  left: 1em;
+  max-width: 11em;
+  max-height: 3.7em;
 }
 
 .pure-menu ul {
@@ -93,12 +95,12 @@ body {
 
 /*player expanded*/
 
-.current-track-info {
+.player-expanded-view {
   display: none;
   margin: .5em;
 }
 
-.current-track-info div {
+.player-expanded-view div {
   display: inline-block;
   /*width: 40%;*/
 }
@@ -182,6 +184,7 @@ body {
 
 .pure-g-r {
   z-index: 0;
+  margin-bottom: 7em;
 }
 .search-form {
   width: 100%;
@@ -237,29 +240,49 @@ body {
 
 .pure-g-r img {
   max-width: 95%;
+
 }
 
 .pure-g-r img.disabled {
   opacity: 0.5;
 }
 
+/*icons*/
+
 .icon-plus-sign {
   margin-left: 1.5em;
 }
 
 .icon-plus-sign.selected {
-  color: #27ae60;
+  color: #c0392b;
 }
 .icon-plus-sign:hover {
-  color: #27ae60;
+  color: #c0392b;
 }
 
+
+.icon-thumbs-up {
+  color: rgb(156, 156, 156);
+}
+
+.icon-thumbs-up:hover {
+  color: #c0392b;
+}
 /*toggle switch*/
 
 .toggle-switch {
+  position: absolute;
+  left: 43%;
+  right: 43%;
+  top: 1em;
   letter-spacing: 0;
   margin: 0;
   display: inline-block;
+
+}
+
+.switch-candy a {
+  background-color: #c0392b;
 }
 
 .switch-light {
@@ -275,9 +298,54 @@ body {
   float: right;
   letter-spacing: 0;
   width: 50%;
-  margin-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
   /*display: none;*/
 }
+
+.queue-container.main {
+  display: none;
+}
+
+.queue-track-info {
+  display: inline-block;
+  width: 40em;
+  padding-top: .3em;
+  list-style: none;
+
+/*  border-color: #666 transparent #000 transparent;
+  border-width: 1px 0px;
+  border-style: solid;*/
+}
+
+hr {
+  border-width: 1px 0px;
+  border-color: #666 transparent #474747 transparent;
+}
+.queue-border {
+  border-width: 1px 0px;
+  border-color: #FFF transparent #FFF transparent;
+
+}
+
+.queue-track-info span {
+  margin: 2em;
+}
+
+.queue-track-info img {
+  max-height: 3.5em;
+}
+
+.party-name {
+  text-align: center;
+  margin: 2em 0 2em 0;
+}
+
+.party-name p {
+  font-size: 2em;
+}
+
 
 /*button*/
 .button-large {
@@ -308,9 +376,6 @@ body {
 }
 
 /*line*/
-
-
-
 #line-separator {
   height: 2%;
   width: 85%;
@@ -337,7 +402,3 @@ body {
   right: 0;
   top: 50%;
 }
-
-
-
-
