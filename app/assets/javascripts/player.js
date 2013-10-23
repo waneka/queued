@@ -23,6 +23,7 @@ var RdioCallbacks = {
     checkInterval = setInterval(this.checkQueueLength,3000);
 
     $("#pause").click(function(){
+      $(this).toggleClass('color', 'red')
       Player.pause()
     })
 
