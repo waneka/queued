@@ -4,7 +4,7 @@
   <div id="rdio-player"></div>
 
   <!-- when expanded -->
-  <div class="current-track-info">
+  <div class="player-expanded-view">
     <div class="single-track expanded">
 
           <img src="http://rdio-d.cdn3.rdio.com/album/3/8/0/000000000009f083/square-400.jpg" class="front-page-art">
@@ -13,14 +13,25 @@
             <span>Artist Name</span>
           </div>
     </div>
-    <div class='queue-container '>
-        <p>es ist das queue container</p>
 
-      <table class='queue-list'></table>
+    <div class='queue-container'>
+      <ul class='queue-list'></ul>
+<!--       <ul class="queue-track-info">
+        <% 5.times do %>
+             <li>
+              <span> 8 </span>
+              <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
+              <span>Track Name</span>
+              <span>Artist Name</span>
+            </li>
+          <hr></hr>
+        <% end %> -->
+      </ul>
     </div>
   </div>
 
   <!-- player controls  -->
+
     <div id="controls">
       <i class="icon-pause icon-large" id="pause"></i>
       <i class="icon-play icon-large" id="play"></i>

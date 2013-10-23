@@ -6,4 +6,5 @@ $(document).ready(function(){
   Sync.init()
   bindAddSong()
   bindToggleSwitch()
+  bindPlayerExpander()
 })

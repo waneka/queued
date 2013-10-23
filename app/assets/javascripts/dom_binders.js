@@ -7,29 +7,25 @@ function bindAddSong () {
 
 function bindToggleSwitch() {
   // $('queue-container').hide()
-  var playerExpanded = false;
   $('#search-toggle').on('click', function(){
-
     $('.search-container').toggle();
-    $('.current-track-info').toggle();
-    if (playerExpanded) {
-      $('.player').toggleClass('expanded')
-      playerExpanded = false
-    } else {
-      $('.player').toggleClass('expanded')
-      playerExpanded = true
-    }
+    $('.queue-container.main').toggle();
+    $('.player').removeClass('expanded')
+    $('.player-expanded-view').hide()
   })
 
   $('#queue-toggle').on('click', function(){
     $('.search-container').toggle();
-    $('.current-track-info').toggle();
-    if (playerExpanded) {
-      $('.player').toggleClass('expanded')
-      playerExpanded = false
-    } else {
-      $('.player').toggleClass('expanded')
-      playerExpanded = true
-    }
+    $('.queue-container.main').toggle();
+    $('.player').removeClass('expanded')
+    $('.player-expanded-view').hide()
+  })
+}
+
+function bindPlayerExpander() {
+  $('#art').on('click', function(){
+    $('queue-container.main').toggle()
+    $('.player').toggleClass('expanded')
+    $('.player-expanded-view').toggle()
   })
 }
