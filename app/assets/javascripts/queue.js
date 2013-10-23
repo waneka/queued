@@ -7,7 +7,6 @@ var Queue = {
     })
   },
   addSongFromServer: function(data){
-    console.log(data)
     this.elem.append(this.buildQueueRow(data))
     this.sortByVote()
   },
