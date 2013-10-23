@@ -23,15 +23,21 @@ var RdioCallbacks = {
     checkInterval = setInterval(this.checkQueueLength,3000);
 
     $("#pause").click(function(){
-      $(this).toggleClass('color', 'red')
+      $('#play').removeClass('selected')
+      $(this).toggleClass('selected')
       Player.pause()
     })
 
     $('#play').click(function(){
       Player.play()
+      $('#pause').removeClass('selected')
+
+      $(this).toggleClass('selected')
     })
 
     $('#next').click(function(){
+      $('#play').removeClass('selected')
+      $('#pause').removeClass('selected')
       Player.next()
     })
   },
@@ -72,6 +78,7 @@ var RdioCallbacks = {
       $('#album').text(playingTrack['album']);
       $('#artist').text(playingTrack['artist']);
       $('#art').attr('src', playingTrack['icon']);
+      // console.log(playingTrack)
     }
   },
 

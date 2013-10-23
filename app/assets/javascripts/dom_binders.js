@@ -29,3 +29,4 @@ function bindPlayerExpander() {
     $('.player-expanded-view').toggle()
   })
 }
+
