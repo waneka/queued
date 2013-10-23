@@ -42,7 +42,8 @@ var Search = {
     return $('<div>', {class: 'pure-u-1-8 single-track result'} ).data('songkey', data.key)
     .append(
       $('<img>', {src: data.icon, class: 'front-page-art result-album-art'}),
-      $('<div>', {class: 'result-song-details'}).append(
+      $('<div>', {class: 'result-song-details'})
+      .append(
         $('<span>', {class: 'result-album'} ).text(this.limitCharacters(data.album)),
         $('<span>', {class: 'result-song'} ).text(this.limitCharacters(data.name)),
         $('<span>', {class: 'result-album'} ).html(this.limitCharacters(data.album)+icon)

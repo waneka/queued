@@ -13,7 +13,6 @@ var Queue = {
   buildQueueRow: function(data){
     var icon = "<i class='icon-thumbs-up upvote-submit'></i>"
     //TODO: add class to icon if somebody has already voted
-
     return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
@@ -41,7 +40,7 @@ var Queue = {
     $.each(rows, function(idx, itm){
       Queue.elem.append(itm)
     })
-
+    TopQueue.update()
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
@@ -51,5 +50,20 @@ var Queue = {
     var nextSongKey = this.elem.find('li').first().data('songkey')
     Sync.firebaseServer.child(nextSongKey).remove()
     return nextSongKey
+  }
+}
+
+var TopQueue = {
+  init: function(){
+    this.elem = $(document).find('.top-list')
+  },
+  update: function(){
+    var songs = Queue.elem.find('li')
+    $.each(songs, function(idx, itm){
+      if(idx <= 5){
+        console.log(itm)
+        TopQueue.elem.clone().append(itm)
+      }
+    })
   }
 }
