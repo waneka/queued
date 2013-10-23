@@ -1,26 +1,57 @@
 
 
-<div class="pure-menu pure-menu-open pure-menu-horizontal", id="player">
+<div class="player", id="player">
   <div id="rdio-player"></div>
-  <div id="controls">
-    <i class="icon-backward icon-large" id="previous"></i>
-    <i class="icon-play icon-large" id="playOrPause"></i>
-    <i class="icon-forward icon-large" id="next"></i>
+
+  <!-- when expanded -->
+  <div class="player-expanded-view">
+    <div class="single-track expanded">
+
+          <img src="http://rdio-d.cdn3.rdio.com/album/3/8/0/000000000009f083/square-400.jpg" class="front-page-art">
+          <div>
+            <span>Album Name </span>
+            <span>Artist Name</span>
+          </div>
+    </div>
+
+    <div class='queue-container'>
+      <ul class='queue-track-info top-list'></ul>
+<!--       <ul class="queue-track-info">
+        <% 5.times do %>
+             <li>
+              <span> 8 </span>
+              <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
+              <span>Track Name</span>
+              <span>Artist Name</span>
+            </li>
+          <hr></hr>
+        <% end %> -->
+      </ul>
+    </div>
   </div>
 
-  <div id="player-center">
-    <div id="song-info">
-      <span id="track"> Song </span> -- <span id="artist"> Artist</span>
+  <!-- player controls  -->
+
+    <div id="controls">
+      <i class="icon-pause icon-large" id="pause"></i>
+      <i class="icon-play icon-large" id="play"></i>
+      <i class="icon-forward icon-large" id="next"></i>
     </div>
-    <div >
-      <span id="position"> Position yo! </span>
+
+    <div id="player-center">
+      <div id="song-info">
+        <span id="track"> Song </span> -- <span id="artist"> Artist</span>
+      </div>
+      <div >
+        <span id="position"> Position yo! </span>
+      </div>
     </div>
-  </div>
-  <div id="album-art-container">
-    <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>
-  </div>
+    <div id="album-art-container">
+      <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>
+    </div>
+
+
 </div>
 
-<div class="pure-menu pure-menu-open pure-menu-horizontal", id="player-background">
-
+<div class="player background", id="player-background">
 </div>

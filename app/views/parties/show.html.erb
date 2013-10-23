@@ -1,19 +1,26 @@
 <div class='container'>
 
-  <%= @party.password %>
-
-  <% if current_user && @party.user_id == current_user.id %>
-    <%= render 'bottom_player' %>
-  <% end %>
-
-  <div class='queue-container'>
-    <table class='queue-table'></table>
+  <div class="party-name">
+    <p><%= @party.password %><p>
   </div>
 
-  <div class='search-container'>
+  <% if current_user && @party.user_id == current_user.id %>
+    <%= render 'home/player' %>
+    <% else %>
+    <div class='queue-container'>
+      <ul class='queue-list'></ul>
+    </div>
+  <% end %>
+  <%= render 'home/search_container' %>
+
+
+<!--    -->
+
+<!--   <div class='search-container'>
     <input class='search-input-term'>
     <button class='search-submit'></button>
     <table class='results-table'></table>
+  </div> -->
   </div>
 </div>
 
