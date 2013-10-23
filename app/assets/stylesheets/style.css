@@ -205,6 +205,7 @@ body {
   width: 100%;
   padding: 1em 1em;
   text-align: center;
+  margin-bottom: 2em;
 
 }
 
@@ -287,9 +288,12 @@ body {
 }
 
 .icon-thumbs-up:hover {
-  color: #c0392b;
+  color: #2c3e50;
 }
 
+.icon-thumbs-up.selected {
+  color: #2c3e50;
+}
 
 
 
@@ -378,7 +382,7 @@ hr {
 
 .party-name {
   text-align: center;
-  margin: 2em 0 2em 0;
+  margin: 2em 0 1em 0;
   color: #707077;
 }
 
@@ -391,6 +395,7 @@ hr {
   display: inline-block;
   width: 13em;
   margin-left: 1em;
+  text-align: left;
 }
 
 .queue-span-wrapper.icon {
