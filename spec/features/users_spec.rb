@@ -3,7 +3,7 @@ require 'spec_helper'
   feature "Playlist Creator signs in" do
   	let(:user) {User.create}
   	
-  	scenario "and sees Create Party button" do
+  	scenario "and sees Host Party button" do
 			stub_current_user(user)
   		visit new_party_path
 
@@ -17,15 +17,16 @@ require 'spec_helper'
   		click_button 'Create Party!'
   		expect(page).to have_selector("div[id='player']")
   	end
-	  scenario "adds a song to the queue" do
+
+	  scenario "search returns correct results", js: true do
 	  	stub_current_user(user)
 	  	visit new_party_path
 	  	click_button 'Create Party!'
 	  	within(".search-container") do
 	  		#need a label or id for fill
-	  		fill_in '.search-input-term', :with => 'Superheroes'
+	  		fill_in 'search-input-term', :with => 'Superheroes'
 	  	end
-	  	click_button '.search-submit'
+	  	click_button 'Search'
 	  	expect(page).to have_content('Superheroes')
 	  end
   end

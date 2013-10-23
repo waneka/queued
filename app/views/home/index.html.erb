@@ -1,5 +1,10 @@
 <% if current_user %>
-	<%= button_to 'Host Party', new_party_path, method: 'get' %>
+	<h2>Name and Create Your Party</h2>
+	<%#= form_for @party do |f| %>
+	<%#= f.text_field :password %>
+	<%#= f.submit 'Create Party!' %>
+	<%# end %>
+	<%= button_to 'Create Party!', parties_path %>
 <% else %>
 	<%= button_to 'Sign In', '/auth/rdio' %>
 <% end %>
