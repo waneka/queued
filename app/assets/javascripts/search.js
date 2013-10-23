@@ -7,8 +7,7 @@ var Search = {
     this.elem.on('click', '.add-to-queue-submit', Search.addSongToQueue)
   },
   addSongToQueue: function(e) {
-    Sync.addSongToQueue($(e.target).closest('tr'))
-    Search.respondToBeingAdded($(e.target))
+    Sync.addSongToQueue($(e.target).closest('div').parent())
   },
   fetchSearchResults: function(e){
     e.preventDefault()
