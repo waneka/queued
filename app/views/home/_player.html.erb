@@ -13,14 +13,26 @@
             <span>Artist Name</span>
           </div>
     </div>
+
     <div class='queue-container '>
-        <p>es ist das queue container</p>
+
+      <ul class="queue-track-info">
+    <% 10.times do %>
+         <li> <span> 8 </span>
+          <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
+          <span>Track Name</span>
+          <span>Artist Name</span>
+        </li>
+      <hr></hr>
+    <% end %>
+      </ul>
 
       <table class='queue-table'></table>
     </div>
   </div>
 
   <!-- player controls  -->
+
     <div id="controls">
       <i class="icon-pause icon-large" id="pause"></i>
       <i class="icon-play icon-large" id="play"></i>

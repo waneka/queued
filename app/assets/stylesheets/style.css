@@ -5,7 +5,7 @@ html * {
 }
 
 body {
-  background-color: #ecf0f1;
+  background-color: #e0e0e0;
 }
 #navbar {
   position: relative;
@@ -173,6 +173,7 @@ body {
 /*Search container */
 .search-container {
   width: 100%;
+  margin-bottom: 7em;
 
 }
 
@@ -245,10 +246,10 @@ body {
 }
 
 .icon-plus-sign.selected {
-  color: #27ae60;
+  color: #c0392b;
 }
 .icon-plus-sign:hover {
-  color: #27ae60;
+  color: #c0392b;
 }
 
 /*toggle switch*/
@@ -264,6 +265,10 @@ body {
 
 }
 
+.switch-candy a {
+  background-color: #c0392b;
+}
+
 .switch-light {
   cursor: pointer;
   margin: 0;
@@ -277,6 +282,29 @@ body {
   float: right;
   letter-spacing: 0;
   width: 50%;
-  margin-left: 1em;
+  margin: 1em;
   /*display: none;*/
 }
+
+.queue-track-info {
+  display: inline-block;
+  width: 45em;
+  padding-top: .3em;
+/*  border-color: #666 transparent #000 transparent;
+  border-width: 1px 0px;
+  border-style: solid;*/
+}
+
+hr {
+  border-width: 1px 0px;
+  border-color: #666 transparent #474747 transparent;
+}
+
+.queue-track-info span {
+  margin: 2em;
+}
+
+.queue-track-info img {
+  max-height: 3.5em;
+}
+
