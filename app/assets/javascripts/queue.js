@@ -1,15 +1,14 @@
 var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-list')
+    this.topList = $(document).find('.queue-top-list')
 
     this.elem.on('click', '.upvote-submit', function(e){
       Queue.upVote($(e.target).closest('li'))
     })
   },
   addSongFromServer: function(data){
-    console.log(data)
     this.elem.append(this.buildQueueRow(data))
-    this.sortByVote()
   },
   buildQueueRow: function(data){
     var icon = "<i class='icon-thumbs-up upvote-submit'></i>"
@@ -18,9 +17,9 @@ var Queue = {
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
       $('<img>', {src: data.albumURL, class: 'front-page-art queue-album-art'}),
-      $('<span>', {class: 'queue-song'}).text(data.songName),
-      $('<span>', {class: 'queue-artist'}).text(data.artistName),
-      $('<span>', {class: 'queue-upvote'}).html(icon),
+      $('<div>', {class: 'queue-song'}).text(data.songName),
+      $('<div>', {class: 'queue-artist'}).text(data.artistName),
+      $('<div>', {class: 'queue-upvote'}).html(icon),
       $('<hr>', {class: 'queue-border'})
     )
   },
@@ -42,29 +41,20 @@ var Queue = {
     $.each(rows, function(idx, itm){
       Queue.elem.append(itm)
     })
-    // TopQueue.update()
   },
   addSongFromSearch: function($row){
     this.elem.append($row.clone().find('.result-add').remove())
-    this.sortByVote()
   },
   nextSong: function(){
     var nextSongKey = this.elem.find('li').first().data('songkey')
     Sync.firebaseServer.child(nextSongKey).remove()
     return nextSongKey
+  },
+  updateTopList: function(){
+    var topListLimit = 5
+    this.topList.empty()
+    $.each(Queue.elem.find('li'), function(idx, itm){
+      if(idx < topListLimit) Queue.topList.append($(itm).clone()).find('.queue-upvote').remove()
+    })
   }
 }
-
-// var TopQueue = {
-//   init: function(){
-//     this.elem = $(document).find('.top-list')
-//   },
-//   update: function(){
-//     var songs = Queue.elem.find('li')
-//     $.each(songs, function(idx, itm){
-//       if(idx <= 5){
-//         TopQueue.elem.clone().append(itm)
-//       }
-//     })
-//   }
-// }

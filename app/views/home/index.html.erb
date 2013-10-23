@@ -1,6 +1,20 @@
+<div class="main">
+
+<br>
 <% if current_user %>
-	<%= button_to 'Host Party', new_party_path, method: 'get' %>
+  <%= button_to 'Host Party', new_party_path, method: 'get' %>
 <% else %>
-	<%= button_to 'Sign In', '/auth/rdio' %>
+  <%= link_to 'Sign-In with rdio', '/auth/rdio' %>
+  <p>to host a party</p>
 <% end %>
+
+<div id="line-separator">
+  <span id="spanne-separator-left"></span>
+  <span id="center-or">or</span>
+  <span id="spanne-separator-right"></span>
+</div>
+<br>
+
 <%= link_to 'Join a party', party_join_path %>
+
+</div>

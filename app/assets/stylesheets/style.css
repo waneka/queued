@@ -8,6 +8,12 @@ body {
   color: #CCD9DA;
   background-color: #e0e0e0;
 }
+
+.main {
+  text-align: center;
+  font-size: 2em;
+}
+
 #navbar {
   position: relative;
   height: 4em;
@@ -344,8 +350,6 @@ body {
   border-style: solid;*/
 }
 
-
-
 hr {
   border-width: 1px 0px;
   border-color: #666 transparent #474747 transparent;
@@ -363,6 +367,7 @@ hr {
 .queue-track-info img {
   max-height: 3.5em;
 }
+
 
 
 .party-name {
@@ -385,4 +390,59 @@ hr {
 .queue-span-wrapper.icon {
   width: 1em;
 
+}
+/*button*/
+.button-large {
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 5em;
+}
+
+#button-container {
+  text-align: center;
+  padding: 20px;
+}
+
+#party-list-container {
+  text-align: center;
+}
+
+#old-parties-list {
+  width: 30em;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.5em;
+  padding-top: 10px;
+}
+
+#old-parties {
+  font-size: 2em;
+}
+
+/*line*/
+#line-separator {
+  height: 2%;
+  width: 85%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 3%;
+  position: relative;
+}
+
+#spanne-separator-left {
+  background: #c0392b;
+  height: 2px;
+  width: 45%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+#spanne-separator-right {
+  background-color: #c0392b;
+  height: 2px;
+  width: 45%;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }
