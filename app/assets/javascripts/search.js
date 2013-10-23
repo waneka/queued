@@ -1,7 +1,7 @@
 var Search = {
   init: function(){
     this.elem = $(document).find('.search-container')
-    this.table = this.elem.find('.results-table')
+    this.container = this.elem.find('.results-container')
 
     this.elem.find('.search-submit').on('click', Search.fetchSearchResults)
     this.elem.on('click', '.add-to-queue-submit', Search.addSongToQueue)
@@ -10,9 +10,10 @@ var Search = {
     Sync.addSongToQueue($(e.target).closest('tr'))
     Search.respondToBeingAdded($(e.target))
   },
-  fetchSearchResults: function(){
-    var term = Search.elem.find('.search-input-term').val()
+  fetchSearchResults: function(e){
+    e.preventDefault()
 
+    var term = Search.elem.find('.search-input-term').val()
     $.ajax({
       url: '/search',
       type: 'post',
@@ -22,38 +23,27 @@ var Search = {
     .done(Search.displaySearchResults)
   },
   resetSearchResults: function(){
-    this.table.find('tr').remove()
+    this.container.find('div').remove()
   },
   displaySearchResults: function(response){
     // TODO: why the FIZUCK doesn't dataType: json above in the ajax call work?
     var data = JSON.parse(response)
     Search.resetSearchResults()
     $.each(data.result.results, function(i, result){
-      Search.table.append(Search.buildResultRow(result))
+      Search.container.append(Search.buildResultRow(result))
     })
   },
-  respondToBeingAdded: function($elem){
-    $elem.prop('disabled', true)
-  },
   buildResultRow: function(data){
-    var songDuration = this.secondsToHMS(data.duration)
-    return row = $('<tr>', { class: 'result-row'} ).data('songkey', data.key)
+    var icon = "<i class='icon-thumbs-up icon-2x add-to-queue-submit'></i>"
+
+    return $('<div>', {class: 'pure-u-1-8 single-track result'} ).data('songkey', data.key)
     .append(
-      $('<td>', { class: 'result-song'} ).text(data.name),
-      $('<td>', { class: 'result-artist'} ).text(data.artist),
-      $('<td>', { class: 'result-album'} ).text(data.album),
-      $('<td>', { class: 'result-duration'} ).text(songDuration),
-      $('<td>', { class: 'result-add'} )
-      .append($('<button>', {class: 'add-to-queue-submit'} ).text('+'))
+      $('<img>', {src: data.icon, class: 'front-page-art'}),
+      $('<div>', {class: 'result-song-details'}).append(
+        $('<span>', {class: 'result-album'} ).text(data.album),
+        $('<span>', {class: 'result-song'} ).text(data.name),
+        $('<span>', {class: 'result-album'} ).html(data.album+icon)
       )
-  },
-  secondsToHMS: function(sec){
-    var sec = parseInt(sec)
-    var h = Math.floor(sec/3600)
-    sec -= h*3600
-    var m = Math.floor(sec/60)
-    sec -= m*60
-    result = ((h > 0 ? h+":" : "") + (m < 10 && h > 0 ? '0'+m : m) + ":" + (sec < 10 ? '0'+sec : sec))
-    return result
+    )
   }
 }

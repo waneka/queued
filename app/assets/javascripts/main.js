@@ -3,4 +3,6 @@ $(document).ready(function(){
   Queue.init()
   User.init()
   Sync.init()
+  bindAddSong()
+  bindToggleSwitch()
 })

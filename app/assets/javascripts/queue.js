@@ -2,9 +2,8 @@ var Queue = {
   init: function(){
     this.elem = $(document).find('.queue-table')
 
-    var self = this
     this.elem.on('click', '.upvote-submit', function(e){
-      self.upVote($(e.target).closest('tr'))
+      Queue.upVote($(e.target).closest('tr'))
     })
   },
   addSongFromServer: function(data){
@@ -37,9 +36,8 @@ var Queue = {
       return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
     })
 
-    var self = this
     $.each(rows, function(idx, itm){
-      self.elem.append(itm)
+      Queue.elem.append(itm)
     })
 
   },

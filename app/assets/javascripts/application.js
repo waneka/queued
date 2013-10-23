@@ -18,12 +18,6 @@
 //= require queue
 //= require search
 //= require user
+//= require dom_binders
 //= require main
 //= require_tree .
-
-
-
-
-
-
-

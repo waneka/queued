@@ -5,7 +5,16 @@
     <% else %>
     <a class="pure-menu-heading" href="/", id="logo">qd.fm</a>
     <% end %>
-
+    <div class="toggle-switch">
+      <label class="switch-light switch-candy">
+        <input type="checkbox">
+        <span >
+          <span id="search-toggle"><i class="icon-search icon-large"></i></span>
+          <span id="queue-toggle"><i class="icon-reorder"></i></span>
+        </span>
+        <a></a>
+      </label>
+    </div>
     <ul >
       <% if signed_in? %>
       <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
