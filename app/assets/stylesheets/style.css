@@ -332,11 +332,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: none;
-  /*display: none;*/
-}
-
-.queue-container.main {
-  display: none;
+  font-size: inherit;
 }
 
 .queue-track-info {
@@ -349,6 +345,23 @@ body {
   border-width: 1px 0px;
   border-style: solid;*/
 }
+.queue-container.main {
+  display: none;
+  color: rgb(107, 101, 101);
+}
+
+
+.queue-track-info span {
+  margin: 2em;
+}
+
+.queue-track-info img {
+  max-height: 3.5em;
+}
+
+
+
+
 
 hr {
   border-width: 1px 0px;
@@ -360,13 +373,6 @@ hr {
 
 }
 
-.queue-track-info span {
-  margin: 2em;
-}
-
-.queue-track-info img {
-  max-height: 3.5em;
-}
 
 
 
