@@ -1,7 +1,7 @@
 Qd::Application.routes.draw do
   root to: 'home#index'
 
-  resource :search, only: [:create, :new], controller: 'search'
+  resource :search, only: [:create, :new], controller: 'search', defaults: {format: :json}
 
   resources :parties, only: [:create, :show, :new, :index]
   get '/party/join', to: 'parties#join'
