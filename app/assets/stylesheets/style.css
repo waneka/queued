@@ -124,7 +124,7 @@ body {
 }
 
 #controls i.selected {
-  color: #F5F8F8;
+  color: #F3F3F3;
 }
 
 #pause {
@@ -270,15 +270,15 @@ body {
 /*icons*/
 
 
-.icon-plus-sign {
+.icon-plus {
   margin-left: 1.5em;
 }
 
-.icon-plus-sign.selected {
-  color: #c0392b;
+.icon-plus.selected {
+  color: #2c3e50;
 }
-.icon-plus-sign:hover {
-  color: #c0392b;
+.icon-plus:hover {
+  color: #2c3e50;
 }
 
 
