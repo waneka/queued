@@ -10,9 +10,14 @@ var Queue = {
   addSongFromServer: function(data){
     this.elem.append(this.buildQueueRow(data))
   },
+  //TODO: get this html code out of the js
+  buildVoteIcon: function(data){
+    var classToAdd = ' selected'
+    if(data.votes == null) return "<i class='icon-thumbs-up upvote-submit'></i>"
+    if(data.votes[User.key] == 1) return "<i class='icon-thumbs-up upvote-submit"+classToAdd+"'></i>"
+  },
   buildQueueRow: function(data){
-    var icon = "<i class='icon-thumbs-up upvote-submit'></i>"
-    //TODO: add class to icon if somebody has already voted
+    var icon = this.buildVoteIcon(data)
     return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
