@@ -3,10 +3,11 @@ class PartiesController < ApplicationController
 
   def create
     @party = Party.new
-    @party.user_id = current_user.id
-    @party.url = SecureRandom.urlsafe_base64
-    @party.password = generatePassword
-    @party.save
+    until @party.save
+      @party.user_id = current_user.id
+      @party.url = SecureRandom.urlsafe_base64
+      @party.password = generatePassword
+    end
     redirect_to party_path(@party.url)
   end
 
@@ -33,7 +34,3 @@ class PartiesController < ApplicationController
   end
 
 end
-
-
-
-
