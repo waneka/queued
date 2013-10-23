@@ -13,7 +13,7 @@ var Queue = {
   //TODO: get this html code out of the js
   buildVoteIcon: function(data){
     var classToAdd = ' selected'
-    if(data.votes == null) return "<i class='icon-thumbs-up upvote-submit'></i>"
+    if(data.votes == null) return "<i class='icon-thumbs-up ßupvote-submit'></i>"
     if(data.votes[User.key] == 1) return "<i class='icon-thumbs-up upvote-submit"+classToAdd+"'></i>"
   },
   buildQueueRow: function(data){
@@ -22,9 +22,9 @@ var Queue = {
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
       $('<img>', {src: data.albumURL, class: 'front-page-art queue-album-art'}),
-      $('<div>', {class: 'queue-song'}).text(data.songName),
-      $('<div>', {class: 'queue-artist'}).text(data.artistName),
-      $('<div>', {class: 'queue-upvote'}).html(icon),
+      $('<div>', {class: 'queue-span-wrapper queue-song'}).text(data.songName),
+      $('<div>', {class: 'queue-span-wrapper queue-artist'}).text(data.artistName),
+      $('<div>', {class: 'queue-span-wrapper icon queue-upvote'}).html(icon),
       $('<hr>', {class: 'queue-border'})
     )
   },
@@ -59,7 +59,16 @@ var Queue = {
     var topListLimit = 5
     this.topList.empty()
     $.each(Queue.elem.find('li'), function(idx, itm){
-      if(idx < topListLimit) Queue.topList.append($(itm).clone()).find('.queue-upvote').remove()
+      if(idx < topListLimit) {
+        Queue.topList.append(Queue.modifyForTopList(itm))
+      }
     })
+  },
+  modifyForTopList: function(songItem){
+    var returnable = $(songItem).clone()
+    console.log(returnable)
+    returnable.find('.queue-upvote').remove()
+    returnable.find('hr').removeClass('queue-border')
+    return returnable
   }
 }
