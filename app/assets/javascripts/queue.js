@@ -58,7 +58,7 @@ var Queue = {
   updateTopList: function(){
     var topListLimit = 5
     this.topList.empty()
-    $.each(Queue.elem.find('li'), function(idx, itm){
+    $.each(Queue.list.find('li'), function(idx, itm){
       if(idx < topListLimit) {
         Queue.topList.append(Queue.modifyForTopList(itm))
       }
