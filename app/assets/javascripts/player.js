@@ -59,7 +59,7 @@ var RdioCallbacks = {
   },
 
   playStateChanged: function(playState) {
-    // The playback state has changed.
+    // The playback state has changed
     // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
     this.playState = playState
     if ((playState == 1) || (playState == 0 || (playState == 4))) {
@@ -74,18 +74,20 @@ var RdioCallbacks = {
     // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
     this.currentSongDuration = playingTrack.duration
     if (playingTrack != null) {
-      $('#track').text(playingTrack['name']);
-      $('#album').text(playingTrack['album']);
-      $('#artist').text(playingTrack['artist']);
+      $('.current-song-track').text(playingTrack['name']);
+      $('.current-song-album').text(playingTrack['album']);
+      $('.current-song-artist').text(playingTrack['artist']);
       $('#art').attr('src', playingTrack['icon']);
-      // console.log(playingTrack)
+      $('.current-song-album-art').attr('src', playingTrack['icon400'])
+      $('#player-background').css("background-image", "url("+playingTrack['icon']+")")
+      console.log(playingTrack)
     }
   },
 
   positionChanged: function(position) {
     //The position within the track changed to position seconds.
     // This happens both in response to a seek and during playback.
-    $('#position').text(position);
+    // $('#position').css("width", position"%");
 
     if (this.isSongAboutToEnd(position)) {
       if ( ($('.queue-item').length) > 0) {
