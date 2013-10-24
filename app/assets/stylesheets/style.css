@@ -292,6 +292,10 @@ body {
   text-align: center;
 }
 
+.single-track.expanded span {
+  color: #CCD9DA;
+}
+
 .single-track span {
   font-size: .85em;
   display: block;
@@ -416,6 +420,9 @@ body {
   max-height: 3.5em;
 }
 
+.queue-top-list {
+  font-size: .85em;
+}
 
 
 
