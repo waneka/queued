@@ -21,15 +21,15 @@ var Search = {
   resetSearchResults: function(){
     $('.search-container').find('.results-container').html('')
   },
-  displaySearchResults: function(response){
+  displaySearchResults: function(rdioResponse){
     // TODO: why the FIZUCK doesn't dataType: json above in the ajax call work?
-    var data = JSON.parse(response)
+    var rdioData = JSON.parse(rdioResponse)
     Search.resetSearchResults()
-    $.each(data.result.results, function(i, result){
-      $('.results-container').append(Search.buildResultRow(result))
+    $.each(rdioData.result.results, function(i, rdioSingleResult){
+      $('.results-container').append(Search.buildResultRow(rdioSingleResult))
     })
     bindAddSong()
-    (data.result.results.length >= 4) ? $('.result').addClass('pure-u-1-8') : $('.result').addClass('pure-u-2-4')
+    (rdioData.result.results.length >= 4) ? $('.result').addClass('pure-u-1-8') : $('.result').addClass('pure-u-2-4')
   },
   //TODO: STOP CHOPPING CHARACTERS
   limitCharacters: function(str){
