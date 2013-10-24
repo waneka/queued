@@ -13,6 +13,7 @@ function bindToggleSwitch() {
     $('.queue-container.main').toggle();
     $('.player').removeClass('expanded')
     $('.player-expanded-view').hide()
+    $('.container').removeClass('fixed')
   })
 
   $(document).on('click', '#queue-toggle', function(){
@@ -20,11 +21,13 @@ function bindToggleSwitch() {
     $('.queue-container.main').toggle();
     $('.player').removeClass('expanded')
     $('.player-expanded-view').hide()
+    $('.container').removeClass('fixed')
   })
 }
 
 function bindPlayerExpander() {
   $(document).on('click', '#art', function(){
+    $('.container').toggleClass('fixed')
     $('queue-container.main').toggle()
     $('.player').toggleClass('expanded')
     $('.player-expanded-view').toggle()
