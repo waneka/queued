@@ -13,9 +13,12 @@ var Queue = {
     var classToAdd = ' selected'
     if(data.votes == null) return "<i class='icon-thumbs-up upvote-submit'></i>"
     if(data.votes[User.key] == 1) return "<i class='icon-thumbs-up upvote-submit"+classToAdd+"'></i>"
+    return "<i class='icon-thumbs-up upvote-submit'></i>"
   },
   buildQueueRow: function(data){
     var icon = this.buildVoteIcon(data)
+    console.log(data)
+    console.log(icon)
     return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),
@@ -29,10 +32,10 @@ var Queue = {
   upVote: function(e){
     var songItem = $(e.target).closest('li')
     var songID = songItem.data('songkey')
-    if(!Sync.checkIfUserVoted(songID)){
+    if (Sync.checkIfUserVoted(songID)) {
+      Sync.storeUserVote(songID)
       var newVoteCount = (parseInt(songItem.find('.queue-vote-count').html()) + 1)
       Sync.firebaseServer.child(songID).child('voteCount').set(newVoteCount)
-      Sync.storeUserVote(songID)
     }
   },
   sortByVote: function(){
