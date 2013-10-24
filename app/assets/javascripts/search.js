@@ -7,6 +7,7 @@ var Search = {
     Sync.addSongToQueue($(e.target).closest('div').parent())
   },
   fetchSearchResults: function(e){
+    console.log('searching')
     e.preventDefault()
 
     var term = $(this).closest('form').find('.search-input-term').val()
