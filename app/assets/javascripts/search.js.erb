@@ -41,7 +41,7 @@ var Search = {
     .append(
       $('<div>', {class: 'album-art-container add-to-queue-submit'})
       .append(
-        $('<img>', {src: '/assets/overlay-click-200.png', class: 'overlay'}),
+        $('<img>', {src: "<%= asset_path('overlay-click-200.png') %>", class: 'overlay'}),
         $('<img>', {src: rdioSingleResult.icon, class: 'front-page-art result-album-art'})
       ),
       $('<div>', {class: 'result-song-details'})
