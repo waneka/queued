@@ -40,6 +40,7 @@ require 'spec_helper'
       click_button 'Create Party!'
       fill_in('search-input-term', :with => 'californication')
       click_button('Search')
+      sleep 2
       first('.add-to-queue-submit').click
       first('.add-to-queue-submit').click
       find('#queue-toggle').click
