@@ -38,7 +38,6 @@ var Search = {
   },
   buildResultRow: function(data){
     var icon = "<i class='icon-plus icon-2x add-to-queue-submit'></i>"
-
     return $('<div>', {class: 'single-track result'} ).data('songkey', data.key)
     .append(
       $('<img>', {src: data.icon, class: 'front-page-art result-album-art'}),
