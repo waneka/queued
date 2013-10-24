@@ -13,7 +13,7 @@ body {
 /*lading page background */
 
 .landing-page-background {
-  background-image: url('/assets/landing_page_blue2.jpg'); 
+  /*background-image: url('/assets/landing_page_blue2.jpg');*/
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -501,6 +501,10 @@ hr {
   color: #bdc3c7;
 }
 
+.button-large.new-party {
+  width: 14em;
+  /*background-color: #c0392b;*/
+}
 
 .landing-page-logo-container {
   text-align: center;
@@ -516,6 +520,76 @@ hr {
 }
 
 
+/*join party partial*/
+
+.join-party-form-container {
+  margin: 0 auto;
+  margin-top: 20%;
+
+
+  width: 16em;
+  height: 10em;
+  padding: 2.5em;
+  text-align: center;
+  background-color: #182A3C;
+
+
+}
+
+.join-party-form-container div {
+  margin-top: 1em;
+
+}
+
+
+.join-party-form-container label {
+  margin-top: 1em;
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+
+.join-party-form-container input {
+  width: 98%;
+  height: 2em;
+  border-width: 0px;
+  background-color: rgb(209, 209, 209);
+}
+
+.pure-button.join-party {
+  width: 8em;
+  height: 2.3em;
+  float: right;
+  background-color: rgb(210, 210, 213);
+}
+
+
+/*new party partial */
+
+.pure-button.new-party {
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 3em;
+ /* background-color: rgb(192, 192, 196);
+  color: #F0F2F3;*/
+}
+
+.home-buttons-container hr {
+  width: 60%;
+}
+
+
+
+/*parties list partial*/
+
+
+.old-parties-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.old-parties-container span {
+  font-size:
+}
 #party-list-container {
   text-align: center;
 }
@@ -531,39 +605,6 @@ hr {
 #old-parties {
   font-size: 2em;
 }
-
-
-/*line*/
-#line-separator {
-  height: 2%;
-  width: 85%;
-  margin: 0 auto;
-  display: block;
-  margin-top: 3%;
-  position: relative;
-}
-
-#spanne-separator-left {
-  background: #c0392b;
-  height: 2px;
-  width: 45%;
-  position: absolute;
-  left: 0;
-  top: 50%;
-}
-
-#spanne-separator-right {
-  background-color: #c0392b;
-  height: 2px;
-  width: 45%;
-  position: absolute;
-  right: 0;
-  top: 50%;
-}
-
-
-
-
 
 
 

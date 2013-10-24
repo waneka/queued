@@ -1,9 +1,12 @@
-<div id="button-container">
+<div class="container">
+  <div class="home-buttons-container">
 
-<%= button_to 'Create New Party!', parties_path, class: 'button-large', method: :post %>
-</div>
+    <%= button_to 'Create New Party!', parties_path, class: 'pure-button button-large new-party', method: :post %>
+    <hr class="queue-border"></hr>
+  </div>
 
 
-<div id="party-list-container">
-<%= render 'parties_list' %>
+  <div id="party-list-container">
+    <%= render 'parties_list' %>
+  </div>
 </div>
