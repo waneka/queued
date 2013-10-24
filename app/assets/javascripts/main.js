@@ -1,9 +1,13 @@
-$(document).ready(function(){
-  Search.init()
+$(document).on('page:load', function(){
   Queue.init()
-  // TopQueue.init()
-  User.init()
   Sync.init()
+})
+
+$(document).ready(function(){
+  Sync.init()
+  Queue.init()
+  Search.init()
+  User.init()
   bindAddSong()
   bindToggleSwitch()
   bindPlayerExpander()

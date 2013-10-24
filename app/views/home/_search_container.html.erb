@@ -1,17 +1,62 @@
 <div class='pure-g-r'>
 
+    <!-- main queue placeholder -->
+
+    <!-- mock main queue -->
+<!--     <div class='queue-container main'>
+      <ul class="queue-track-info queue-list">
+        <% 5.times do %>
+            <li>
+
+              <span> 8 </span>
+              <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
+              <div class ="queue-span-wrapper">Track Name</div>
+              <div class ="queue-span-wrapper">Artist Name</div>
+              <div class ="queue-span-wrapper icon"><i class="icon-thumbs-up icon-large"></i></div>
+            </li>
+          <hr class="queue-border"></hr>
+        <% end %>
+      </ul>
+    </div> -->
+
+
+    <!-- actual main queue  -->
    <div class='queue-container main'>
       <ul class='queue-track-info queue-list'></ul>
    </div>
 
 
+  <!-- search results  -->
   <div class="search-container pure-g-r">
     <form class='search-form'>
-        <input class='search-input-term'>
+        <input class='search-input-term' placeholder="Search for a song">
         <button class='pure-button search-submit' >Search</button>
     </form>
 
-    <div class='results-container'></div>
+    <!-- actual search -->
+    <div class='results-container pure-g-r'></div>
+
+
+
+
+    <!-- new search look mock -->
+    <!-- <div class='results-container pure-g-r'>
+      <% 10.times do %>
+      <div class="pure-u-1-8 single-track result">
+        <div class="album-art-container">
+
+          <img src="/assets/overlay-click-200.png" class="overlay">
+          <img src="http://rdio-d.cdn3.rdio.com/album/f/9/8/000000000001f89f/square-200.jpg" class="front-page-art result-album-art">
+        </div>
+        <div class="result-song-details">
+          <span class="result-artist">The Beatlessdfsdfsd</span>
+          <span class="result-song">Twist And Shoutfdsfsdfsd</span>
+          <span class="result-album">20 Mejores Canciones de Briti</span>
+        </div>
+      </div>
+      <% end %>
+    </div> -->
+
   </div>
 
 
