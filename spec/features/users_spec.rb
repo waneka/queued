@@ -5,48 +5,48 @@ crazyAssThing = <<-wat
 
 require 'spec_helper'
 
-  # feature "Playlist Creator signs in and" do
-  #   let(:user) {User.create}
+  feature "Playlist Creator signs in and" do
+    let(:user) {User.create}
     
-  #   scenario "sees Create Party button" do
-  #     stub_current_user(user)
-  #     visit new_party_path
+    scenario "sees Create Party button" do
+      stub_current_user(user)
+      visit new_party_path
 
-  #     expect(page).to have_selector("input[value='Create Party!']")
-  #   end   
+      expect(page).to have_selector("input[value='Create Party!']")
+    end   
     
-  #   scenario "creates a playlist" do
-  #     stub_current_user(user)
-  #     visit new_party_path
+    scenario "creates a playlist" do
+      stub_current_user(user)
+      visit new_party_path
 
-  #     click_button 'Create Party!'
-  #     expect(page).to have_selector("div[id='player']")
-  #   end
+      click_button 'Create Party!'
+      expect(page).to have_selector("div[id='player']")
+    end
 
-  #   scenario "search returns correct results", js: true do
-  #     Rdio.stub(:query).and_return(crazyAssThing)
-  #     stub_current_user(user)
-  #     visit new_party_path
-  #     click_button 'Create Party!'
-  #     fill_in('search-input-term', :with => 'californication')
-  #     click_button('Search')
-  #     expect(page).to have_content('Californication')
-  #   end
+    scenario "search returns correct results", js: true do
+      Rdio.stub(:query).and_return(crazyAssThing)
+      stub_current_user(user)
+      visit new_party_path
+      click_button 'Create Party!'
+      fill_in('search-input-term', :with => 'californication')
+      click_button('Search')
+      expect(page).to have_content('Californication')
+    end
     
-  #   scenario "can vote on a song", js: true do
-  #     Rdio.stub(:query).and_return(crazyAssThing)
-  #     stub_current_user(user)
-  #     visit new_party_path
-  #     click_button 'Create Party!'
-  #     fill_in('search-input-term', :with => 'californication')
-  #     click_button('Search')
-  #     first('.add-to-queue-submit').click
-  #     first('.add-to-queue-submit').click
-  #     find('#queue-toggle').click
-  #     first('.icon-thumbs-up').click
-  #     expect(page).to have_content(1)
-  #   end
-  # end
+    scenario "can vote on a song", js: true do
+      Rdio.stub(:query).and_return(crazyAssThing)
+      stub_current_user(user)
+      visit new_party_path
+      click_button 'Create Party!'
+      fill_in('search-input-term', :with => 'californication')
+      click_button('Search')
+      first('.add-to-queue-submit').click
+      first('.add-to-queue-submit').click
+      find('#queue-toggle').click
+      first('.icon-thumbs-up').click
+      expect(page).to have_content(1)
+    end
+  end
 
 	FactoryGirl.define do
 		factory :party do 
