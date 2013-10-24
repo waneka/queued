@@ -5,7 +5,7 @@
 <div class="container">
   <div class="home-buttons-container">
     <% if current_user %>
-      <%= button_to 'Host Party', new_party_path, method: 'get' %>
+      <%= link_to 'Host Party', new_party_path, method: 'get', class: "pure-button button-large" %>
     <% else %>
       <%= link_to 'Sign-In with rdio', '/auth/rdio', class: "pure-button button-large" %>
     <% end %>
