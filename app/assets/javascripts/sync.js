@@ -25,7 +25,7 @@ var Sync = {
     }
   },
   loadQueue: function(songList){
-    Queue.elem.empty()
+    Queue.list.empty()
     if(songList == null) return
     $.each(songList, function(i, song){
       console.log('loading: '+song)

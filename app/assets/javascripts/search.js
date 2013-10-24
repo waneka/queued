@@ -37,15 +37,18 @@ var Search = {
     return str.substring(0,limit-1)
   },
   buildResultRow: function(rdioSingleResult){
-    var icon = "<i class='icon-plus icon-2x add-to-queue-submit'></i>"
     return $('<div>', {class: 'single-track result'} ).data('songkey', rdioSingleResult.key)
     .append(
-      $('<img>', {src: rdioSingleResult.icon, class: 'front-page-art result-album-art'}),
+      $('<div>', {class: 'album-art-container add-to-queue-submit'})
+      .append(
+        $('<img>', {src: '/assets/overlay-click-200.png', class: 'overlay'}),
+        $('<img>', {src: rdioSingleResult.icon, class: 'front-page-art result-album-art'})
+      ),
       $('<div>', {class: 'result-song-details'})
       .append(
         $('<span>', {class: 'result-artist'} ).text(this.limitCharacters(rdioSingleResult.artist)),
         $('<span>', {class: 'result-song'} ).text(this.limitCharacters(rdioSingleResult.name)),
-        $('<span>', {class: 'result-album'} ).html(this.limitCharacters(rdioSingleResult.album)+icon)
+        $('<span>', {class: 'result-album'} ).html(this.limitCharacters(rdioSingleResult.album))
       )
     )
   }
