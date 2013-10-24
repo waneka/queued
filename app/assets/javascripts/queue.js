@@ -66,7 +66,6 @@ var Queue = {
   },
   modifyForTopList: function(songItem){
     var returnable = $(songItem).clone()
-    console.log(returnable)
     returnable.find('.queue-upvote').remove()
     returnable.find('hr').removeClass('queue-border')
     return returnable

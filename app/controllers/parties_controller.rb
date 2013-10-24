@@ -13,8 +13,6 @@ class PartiesController < ApplicationController
 
   def show
     @party = Party.find_by_url(params[:id])
-    puts @party
-    @alert_fire = true
   end
 
   def new
