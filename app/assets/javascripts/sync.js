@@ -25,7 +25,7 @@ var Sync = {
     }
   },
   loadQueue: function(songList){
-    Queue.elem.empty()
+    Queue.list.empty()
     if(songList == null) return
     $.each(songList, function(i, song){
       console.log('loading: '+song)
@@ -38,15 +38,10 @@ var Sync = {
   },
   checkIfUserVoted: function(songkey){
     var songRef = new Firebase(this.partyAddress + songkey + '/votes/')
-    var returnValue
+    var userVotedBool
     songRef.child(User.key).once('value', function(snapshot){
-      if(snapshot.val() == 1){
-        returnValue = true
-      }
-      else{
-        returnValue = false
-      }
+      (snapshot.val() == 1) ? userVotedBool = true : userVotedBool = false
     })
-    return returnValue
+    return userVotedBool
   }
 }
