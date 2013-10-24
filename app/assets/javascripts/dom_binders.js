@@ -1,10 +1,11 @@
 function bindAddSong() {
-  $('.icon-plus').click(function(){
+  $('.overlay').click(function(){
     console.log("click")
     $(this).addClass('selected')
-    $(this).closest('.single-track').find('img').eq(0).addClass('disabled')
   })
 }
+
+
 
 function bindToggleSwitch() {
   // $('queue-container').hide()
