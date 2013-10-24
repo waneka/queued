@@ -1,7 +1,7 @@
 var Sync = {
   init: function(){
     var party = $(location).attr('pathname')
-    this.partyAddress = 'https://queued.firebaseIO.com/' + party + '/'
+    this.partyAddress = 'https://queued.firebaseIO.com' + party + '/'
     this.firebaseServer = new Firebase(this.partyAddress)
 
     this.firebaseServer.on('value', function(snapshot){
@@ -28,7 +28,6 @@ var Sync = {
     Queue.list.empty()
     if(songList == null) return
     $.each(songList, function(i, song){
-      console.log('loading: '+song)
       Queue.addSongFromServer(song)
     })
   },
@@ -37,11 +36,11 @@ var Sync = {
     songRef.set(1)
   },
   checkIfUserVoted: function(songkey){
-    var songRef = new Firebase(this.partyAddress + songkey + '/votes/')
-    var userVotedBool
-    songRef.child(User.key).once('value', function(snapshot){
-      (snapshot.val() == 1) ? userVotedBool = true : userVotedBool = false
+    var voteRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
+    var returnable = false
+    voteRef.once('value', function(snapshot){
+      if (snapshot.val() == null) returnable = true
     })
-    return userVotedBool
+    return returnable
   }
 }
