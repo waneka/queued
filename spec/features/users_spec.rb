@@ -5,60 +5,86 @@ crazyAssThing = <<-wat
 
 require 'spec_helper'
 
-  feature "Playlist Creator signs in and" do
-    let(:user) {User.create}
+  # feature "Playlist Creator signs in and" do
+  #   let(:user) {User.create}
     
-    scenario "sees Create Party button" do
-      stub_current_user(user)
-      visit new_party_path
+  #   scenario "sees Create Party button" do
+  #     stub_current_user(user)
+  #     visit new_party_path
 
-      expect(page).to have_selector("input[value='Create Party!']")
-    end   
+  #     expect(page).to have_selector("input[value='Create Party!']")
+  #   end   
     
-    scenario "creates a playlist" do
-      stub_current_user(user)
-      visit new_party_path
+  #   scenario "creates a playlist" do
+  #     stub_current_user(user)
+  #     visit new_party_path
 
-      click_button 'Create Party!'
-      expect(page).to have_selector("div[id='player']")
-    end
+  #     click_button 'Create Party!'
+  #     expect(page).to have_selector("div[id='player']")
+  #   end
 
-    scenario "search returns correct results", js: true do
-      Rdio.stub(:query).and_return(crazyAssThing)
-      stub_current_user(user)
-      visit new_party_path
-      click_button 'Create Party!'
-      fill_in('search-input-term', :with => 'californication')
-      click_button('Search')
-      expect(page).to have_content('Californication')
-    end
+  #   scenario "search returns correct results", js: true do
+  #     Rdio.stub(:query).and_return(crazyAssThing)
+  #     stub_current_user(user)
+  #     visit new_party_path
+  #     click_button 'Create Party!'
+  #     fill_in('search-input-term', :with => 'californication')
+  #     click_button('Search')
+  #     expect(page).to have_content('Californication')
+  #   end
     
-    scenario "can vote on a song", js: true do
-      Rdio.stub(:query).and_return(crazyAssThing)
-      stub_current_user(user)
-      visit new_party_path
-      click_button 'Create Party!'
-      fill_in('search-input-term', :with => 'californication')
-      click_button('Search')
-      first('.add-to-queue-submit').click
-      first('.add-to-queue-submit').click
-      find('#queue-toggle').click
-      first('.icon-thumbs-up').click
-      expect(page).to have_content(1)
-    end
-  end
+  #   scenario "can vote on a song", js: true do
+  #     Rdio.stub(:query).and_return(crazyAssThing)
+  #     stub_current_user(user)
+  #     visit new_party_path
+  #     click_button 'Create Party!'
+  #     fill_in('search-input-term', :with => 'californication')
+  #     click_button('Search')
+  #     first('.add-to-queue-submit').click
+  #     first('.add-to-queue-submit').click
+  #     find('#queue-toggle').click
+  #     first('.icon-thumbs-up').click
+  #     expect(page).to have_content(1)
+  #   end
+  # end
+
+	FactoryGirl.define do
+		factory :party do 
+			password 'password'
+			user_id '1'
+			url 'test'
+		end
+
+		factory :user do
+			first_name 'Batman'
+		end
+	end
 
   feature "Visitor" do
-    scenario "joins a playlist" do 
-      
-    end
-    feature "Visitor adds a song to the queue"
-    feature "Visitor can vote on a song"
+	  scenario "can joins a playlist" do
+	  	p Party.all
+
+	  	party = FactoryGirl.create(:party)
+	  	user = FactoryGirl.create(:user)
+	  	p Party.all
+	  	p User.all
+
+	  	visit party_join_path
+	  	fill_in("password", :with => 'password')
+	  	sleep 2
+	  	click_button("Let's Do This!")
+	  	p current_path
+	  	p party.url
+	  	current_path.should == party_path(party.url)
+	  	# expect(page).to have_selector('.party-name')
+	  end 
   end
   
 
   
 
+  feature "Visitor adds a song to the queue"
+  feature "Visitor can vote on a song"
   feature "Playlist persists on reload"
   feature "Playlist song autoplays when added to empty playlist"
 
