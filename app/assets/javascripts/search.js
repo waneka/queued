@@ -7,7 +7,6 @@ var Search = {
     Sync.addSongToQueue($(e.target).closest('div').parent())
   },
   fetchSearchResults: function(e){
-    console.log('searching')
     e.preventDefault()
 
     var term = $(this).closest('form').find('.search-input-term').val()
@@ -27,9 +26,10 @@ var Search = {
     var data = JSON.parse(response)
     Search.resetSearchResults()
     $.each(data.result.results, function(i, result){
-      $('.search-container').append(Search.buildResultRow(result))
+      $('.results-container').append(Search.buildResultRow(result))
     })
     bindAddSong()
+    (data.result.results.length >= 4) ? $('.result').addClass('pure-u-1-8') : $('.result').addClass('pure-u-2-4')
   },
   //TODO: STOP CHOPPING CHARACTERS
   limitCharacters: function(str){
@@ -39,7 +39,7 @@ var Search = {
   buildResultRow: function(data){
     var icon = "<i class='icon-plus icon-2x add-to-queue-submit'></i>"
 
-    return $('<div>', {class: 'pure-u-1-8 single-track result'} ).data('songkey', data.key)
+    return $('<div>', {class: 'single-track result'} ).data('songkey', data.key)
     .append(
       $('<img>', {src: data.icon, class: 'front-page-art result-album-art'}),
       $('<div>', {class: 'result-song-details'})
