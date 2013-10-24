@@ -2,6 +2,8 @@ html * {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: lighter;
   font-size: .99em;
+  letter-spacing: 0;
+
 }
 
 body {
