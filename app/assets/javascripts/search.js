@@ -39,7 +39,7 @@ var Search = {
   buildResultRow: function(rdioSingleResult){
     return $('<div>', {class: 'single-track result'} ).data('songkey', rdioSingleResult.key)
     .append(
-      $('<div>', {class: 'album-art-container'})
+      $('<div>', {class: 'album-art-container add-to-queue-submit'})
       .append(
         $('<img>', {src: '/assets/overlay-click-200.png', class: 'overlay'}),
         $('<img>', {src: rdioSingleResult.icon, class: 'front-page-art result-album-art'})

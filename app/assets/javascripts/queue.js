@@ -40,7 +40,7 @@ var Queue = {
     rows.sort(function(a,b){
       return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
     })
-    $.each(rows, function(idx, itm){ Queue.elem.append(itm) })
+    $.each(rows, function(idx, itm){ Queue.list.append(itm) })
   },
   addSongFromSearch: function($row){
     this.list.append($row.clone().find('.result-add').remove())
