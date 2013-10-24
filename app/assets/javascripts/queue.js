@@ -17,8 +17,6 @@ var Queue = {
   },
   buildQueueRow: function(data){
     var icon = this.buildVoteIcon(data)
-    console.log(data)
-    console.log(icon)
     return $('<li>', {class: 'queue-item'}).data('songkey', data.songKey)
     .append(
       $('<span>', {class: 'queue-vote-count'}).text(data.voteCount),

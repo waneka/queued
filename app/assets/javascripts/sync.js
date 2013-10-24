@@ -36,7 +36,6 @@ var Sync = {
     songRef.set(1)
   },
   checkIfUserVoted: function(songkey){
-
     var voteRef = new Firebase(this.partyAddress + songkey + '/votes/' + User.key)
     var returnable = false
     voteRef.once('value', function(snapshot){
