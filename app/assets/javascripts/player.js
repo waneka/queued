@@ -59,7 +59,7 @@ var RdioCallbacks = {
   },
 
   playStateChanged: function(playState) {
-    // The playback state has changed.
+    // The playback state has changed
     // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
     this.playState = playState
     if ((playState == 1) || (playState == 0 || (playState == 4))) {
@@ -78,7 +78,9 @@ var RdioCallbacks = {
       $('#album').text(playingTrack['album']);
       $('#artist').text(playingTrack['artist']);
       $('#art').attr('src', playingTrack['icon']);
-      // console.log(playingTrack)
+      $('.current-song-album-art').attr('src', playingTrack['icon400'])
+      $('#player-background').css("background-image", "url("+playingTrack['icon']+")")
+      console.log(playingTrack)
     }
   },
 

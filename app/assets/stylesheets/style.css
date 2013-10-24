@@ -83,6 +83,7 @@ body {
 
   overflow: hidden;
   height: 5.75em;
+  background-position: center;
   background-image: url("http://rdio-b.cdn3.rdio.com/album/3/8/0/000000000009f083/square-200.jpg");
   z-index: 1;
   background-size: cover;
