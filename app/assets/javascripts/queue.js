@@ -1,14 +1,12 @@
 var Queue = {
   init: function(){
-    this.elem = $(document).find('.queue-list')
+    this.list = $(document).find('.queue-list')
     this.topList = $(document).find('.queue-top-list')
 
-    this.elem.on('click', '.upvote-submit', function(e){
-      Queue.upVote($(e.target).closest('li'))
-    })
+    $(document).on('click', '.upvote-submit', Queue.upVote)
   },
   addSongFromServer: function(data){
-    this.elem.append(this.buildQueueRow(data))
+    this.list.append(this.buildQueueRow(data))
   },
   //TODO: get this html code out of the js
   buildVoteIcon: function(data){
@@ -28,47 +26,43 @@ var Queue = {
       $('<hr>', {class: 'queue-border'})
     )
   },
-  upVote: function($song){
-    var newVote = (parseInt($song.find('.queue-vote-count').html()) + 1)
-    var voteSong = $song.data('songkey')
-    if(!Sync.checkIfUserVoted(voteSong)){
-      Sync.firebaseServer.child(voteSong).child('voteCount').set(newVote)
-      Sync.storeUserVote(voteSong)
+  upVote: function(e){
+    var songItem = $(e.target).closest('li')
+    var songID = songItem.data('songkey')
+    if(!Sync.checkIfUserVoted(songID)){
+      var newVoteCount = (parseInt(songItem.find('.queue-vote-count').html()) + 1)
+      Sync.firebaseServer.child(songID).child('voteCount').set(newVoteCount)
+      Sync.storeUserVote(songID)
     }
   },
   sortByVote: function(){
-    var rows = this.elem.find('li')
-
+    var rows = this.list.find('li')
     rows.sort(function(a,b){
       return (parseInt($(b).find('.queue-vote-count').text())) > (parseInt($(a).find('.queue-vote-count').text())) ? 1 : -1
     })
-
-    $.each(rows, function(idx, itm){
-      Queue.elem.append(itm)
-    })
+    $.each(rows, function(idx, itm){ Queue.list.append(itm) })
   },
   addSongFromSearch: function($row){
-    this.elem.append($row.clone().find('.result-add').remove())
+    this.list.append($row.clone().find('.result-add').remove())
   },
   nextSong: function(){
-    var nextSongKey = this.elem.find('li').first().data('songkey')
+    var nextSongKey = this.list.find('li').first().data('songkey')
     Sync.firebaseServer.child(nextSongKey).remove()
     return nextSongKey
   },
   updateTopList: function(){
     var topListLimit = 5
     this.topList.empty()
-    $.each(Queue.elem.find('li'), function(idx, itm){
+    $.each(Queue.list.find('li'), function(idx, itm){
       if(idx < topListLimit) {
         Queue.topList.append(Queue.modifyForTopList(itm))
       }
     })
   },
   modifyForTopList: function(songItem){
-    var returnable = $(songItem).clone()
-    console.log(returnable)
-    returnable.find('.queue-upvote').remove()
-    returnable.find('hr').removeClass('queue-border')
-    return returnable
+    var songItemReformat = $(songItem).clone()
+    songItemReformat.find('.queue-upvote').remove()
+    songItemReformat.find('hr').removeClass('queue-border')
+    return songItemReformat
   }
 }
