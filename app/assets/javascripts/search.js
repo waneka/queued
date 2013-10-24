@@ -28,6 +28,7 @@ var Search = {
     $.each(data.result.results, function(i, result){
       $('.search-container').append(Search.buildResultRow(result))
     })
+    bindAddSong()
   },
   //TODO: STOP CHOPPING CHARACTERS
   limitCharacters: function(str){

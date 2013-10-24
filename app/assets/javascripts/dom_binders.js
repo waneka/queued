@@ -1,5 +1,5 @@
 function bindAddSong () {
-  $(document).on('click', '.icon-plus-sign', function(){
+  $(document).on('click', '.icon-plus', function(){
     $(this).addClass('selected')
     $(this).closest('.single-track').find('img').eq(0).addClass('disabled')
   })
