@@ -41,9 +41,15 @@
     <div id="song-info">
       <span id="track"> Song </span> -- <span id="artist"> Artist</span>
     </div>
-    <div >
-      <span id="position"> Position yo! </span>
+
+    <div class="meter">
+      <span class="player-position" style="width: 25%"></span>
     </div>
+
+    <!-- old position tracker -->
+    <!-- <div >
+      <span id="position"> Position yo! </span>
+    </div> -->
   </div>
   <div id="album-art-container">
     <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>

@@ -1,6 +1,9 @@
 $(document).on('page:load', function(){
   Queue.init()
   Sync.init()
+  bindAddSong()
+  bindToggleSwitch()
+  bindPlayerExpander()
 })
 
 $(document).ready(function(){
