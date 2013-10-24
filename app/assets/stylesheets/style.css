@@ -26,7 +26,7 @@ body {
 
 #navbar {
   width: 100%;
-  height: 6em;
+  height: 4em;
   line-height: 2.5em;
   z-index: 5;
   background-color: #2c3e50;
@@ -37,23 +37,21 @@ body {
 
 #logo{
   position: absolute;
-  margin-top: 1.2em;
+  margin-top: -0.3em;
   left: 1em;
   max-width: 11em;
   max-height: 3.7em;
 }
 
+ /*logout and picture container*/
 .pure-menu ul {
   float: right;
-  margin-top: .2em;
-  margin-top: -3em;
+  margin-top: -2.5em;
 
 }
-
 .pure-menu li {
   line-height: 3em;
 }
-
 
 #profile-image {
   height: 3em;
@@ -251,7 +249,7 @@ body {
   height:100%;
 }
 
-.overlay:hover{
+.overlay:hover, .overlay:focus {
   opacity: 1;
   /*z-index: 100;*/
 }
@@ -351,10 +349,12 @@ body {
 
 .icon-thumbs-up {
   color: rgb(156, 156, 156);
+  cursor: pointer;
 }
 
-.icon-thumbs-up:hover {
+.icon-thumbs-up:hover, .icon-thumbs-up:focus {
   color: #2c3e50;
+  cursor: pointer;
 }
 
 .icon-thumbs-up.selected {
@@ -367,7 +367,7 @@ body {
 
 
 .toggle-switch {
-  margin-top: 2.2em !important;
+  margin-top: .2em !important;
   margin-left: 45%;
 
 }
@@ -560,11 +560,11 @@ hr {
     float: left;
     width: 20%;
     margin-left: -0.8em;
-    margin-top: 2em;
+    margin-top: .3em;
   }
 
   .toggle-switch {
-    margin-top: 2.1em !important;
+    margin-top: .3em !important;
     float: right;
     width: 60%;
 
@@ -600,7 +600,8 @@ hr {
   }
 
   .overlay {
-    display: none;
+    /*display: none;*/
+    background-colo: rgba(0,0,0,0.6);
   }
 
   /*main queue*/
@@ -632,12 +633,28 @@ hr {
   width: 30%;
 }
 /*player */
+/*
+.player {
+  height: 3.5em;
+}
+
+#player-background {
+  height: 3.7em;
+}
+*/
+
 #controls {
   display: none;
 }
 
 #player-center {
+  text-align: left;
+  float: left;
+  position: static
+}
 
+#song-info {
+  position: static;
 }
 
 .icon-thumbs-up {
