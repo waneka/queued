@@ -1,6 +1,5 @@
-function bindAddSong() {
-  $('.icon-plus').click(function(){
-    console.log("click")
+function bindAddSong () {
+  $(document).on('click', '.icon-plus', function(){
     $(this).addClass('selected')
     $(this).closest('.single-track').find('img').eq(0).addClass('disabled')
   })
@@ -8,14 +7,14 @@ function bindAddSong() {
 
 function bindToggleSwitch() {
   // $('queue-container').hide()
-  $('#search-toggle').on('click', function(){
+  $(document).on('click', '#search-toggle', function(){
     $('.search-container').toggle();
     $('.queue-container.main').toggle();
     $('.player').removeClass('expanded')
     $('.player-expanded-view').hide()
   })
 
-  $('#queue-toggle').on('click', function(){
+  $(document).on('click', '#queue-toggle', function(){
     $('.search-container').toggle();
     $('.queue-container.main').toggle();
     $('.player').removeClass('expanded')
@@ -24,7 +23,7 @@ function bindToggleSwitch() {
 }
 
 function bindPlayerExpander() {
-  $('#art').on('click', function(){
+  $(document).on('click', '#art', function(){
     $('queue-container.main').toggle()
     $('.player').toggleClass('expanded')
     $('.player-expanded-view').toggle()

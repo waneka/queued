@@ -1,7 +1,7 @@
-$(document).ready(function(){
+$(document).on('page:load', function(){
   Search.init()
-  Queue.init()
   User.init()
+  Queue.init()
   Sync.init()
   bindAddSong()
   bindToggleSwitch()

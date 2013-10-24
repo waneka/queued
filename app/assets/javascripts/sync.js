@@ -28,6 +28,7 @@ var Sync = {
     Queue.elem.empty()
     if(songList == null) return
     $.each(songList, function(i, song){
+      console.log('loading: '+song)
       Queue.addSongFromServer(song)
     })
   },
