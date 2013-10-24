@@ -11,6 +11,9 @@ body {
   background-color: #e0e0e0;
 }
 
+.container.fixed {
+  position: fixed;
+}
 .main {
   text-align: center;
   font-size: 2em;
