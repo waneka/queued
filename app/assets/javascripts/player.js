@@ -74,9 +74,9 @@ var RdioCallbacks = {
     // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
     this.currentSongDuration = playingTrack.duration
     if (playingTrack != null) {
-      $('#track').text(playingTrack['name']);
-      $('#album').text(playingTrack['album']);
-      $('#artist').text(playingTrack['artist']);
+      $('.current-song-track').text(playingTrack['name']);
+      $('.current-song-album').text(playingTrack['album']);
+      $('.current-song-artist').text(playingTrack['artist']);
       $('#art').attr('src', playingTrack['icon']);
       $('.current-song-album-art').attr('src', playingTrack['icon400'])
       $('#player-background').css("background-image", "url("+playingTrack['icon']+")")
@@ -87,7 +87,7 @@ var RdioCallbacks = {
   positionChanged: function(position) {
     //The position within the track changed to position seconds.
     // This happens both in response to a seek and during playback.
-    $('#position').text(position);
+    // $('#position').css("width", position"%");
 
     if (this.isSongAboutToEnd(position)) {
       if ( ($('.queue-item').length) > 0) {

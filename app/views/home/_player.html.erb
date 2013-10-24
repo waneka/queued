@@ -6,9 +6,9 @@
     <div class="single-track expanded">
       <img class="current-song-album-art">
       <div class="current-song-info">
-        <span class="current-song-song-title"></span>
-        <span class="current-song-album-name"></span>
-        <span class="current-song-artist-name"></span>
+        <span class="current-song-track"></span>
+        <span class="current-song-album"></span>
+        <span class="current-song-artist"></span>
         </div>
     </div>
 
@@ -39,17 +39,11 @@
   </div>
   <div id="player-center">
     <div id="song-info">
-      <span id="track"> Song </span> -- <span id="artist"> Artist</span>
+      <span class="current-song-track">Song </span> -- <span class="current-song-artist"> Artist</span>
     </div>
-
-    <div class="meter">
-      <span class="player-position" style="width: 25%"></span>
-    </div>
-
-    <!-- old position tracker -->
-    <!-- <div >
+    <div >
       <span id="position"> Position yo! </span>
-    </div> -->
+    </div>
   </div>
   <div id="album-art-container">
     <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>
