@@ -1,7 +1,9 @@
-<div class="join-party-form-container">
-<%= form_tag('/party/search/', :method => :get) do %>
-  <div><%= label_tag(:password, "Enter Room Name") %></div>
-  <div><%= text_field_tag(:password) %></div>
-  <div><%= submit_tag("Let's Do This!", class: "pure-button join-party") %></div>
-<% end %>
+<div class="container">
+  <div class="join-party-form-container">
+  <%= form_tag('/party/search/', :method => :get) do %>
+    <div><%= label_tag(:password, "Enter Room Name") %></div>
+    <div><%= text_field_tag(:password) %></div>
+    <div><%= submit_tag("Let's Do This!", class: "pure-button join-party") %></div>
+  <% end %>
+  </div>
 </div>

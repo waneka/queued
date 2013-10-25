@@ -28,9 +28,11 @@
   </script>
 
 </head>
-<body class="landing-page-background">
+<body class="<%= body_class %>">
 
-  <%= render 'layouts/header' %>
+
+<%= render 'layouts/header' %>
+
 
   <%= yield %>
 </body>
