@@ -1,4 +1,24 @@
 var Player = {
+  init: function(){
+     $("#pause").click(function(){
+      $('#play').removeClass('selected')
+      $(this).toggleClass('selected')
+      Player.pause()
+    })
+
+    $('#play').click(function(){
+      Player.play()
+      $('#pause').removeClass('selected')
+
+      $(this).toggleClass('selected')
+    })
+
+    $('#next').click(function(){
+      $('#play').removeClass('selected')
+      $('#pause').removeClass('selected')
+      Player.next()
+    })
+  },
   playing: false,
   pause: function(){
     rdioPlayerElement.rdio_pause();
@@ -22,25 +42,6 @@ var RdioCallbacks = {
 
     // interval function to check if queue has songs, runs every 3 seconds.
     checkInterval = setInterval(this.checkQueueLength,3000);
-
-    $("#pause").click(function(){
-      $('#play').removeClass('selected')
-      $(this).toggleClass('selected')
-      Player.pause()
-    })
-
-    $('#play').click(function(){
-      Player.play()
-      $('#pause').removeClass('selected')
-
-      $(this).toggleClass('selected')
-    })
-
-    $('#next').click(function(){
-      $('#play').removeClass('selected')
-      $('#pause').removeClass('selected')
-      Player.next()
-    })
   },
 
   checkQueueLength: function() {
@@ -81,7 +82,6 @@ var RdioCallbacks = {
       $('#art').attr('src', playingTrack['icon']);
       $('.current-song-album-art').attr('src', playingTrack['icon400'])
       $('#player-background').css("background-image", "url("+playingTrack['icon']+")")
-      console.log(playingTrack)
     }
   },
 
@@ -111,7 +111,9 @@ var RdioCallbacks = {
 }
 
 
-$(document).ready(function() {
+$(document).on("page:load", function() {
+  Player.init()
+
   RdioCallbacks.rdioPlayerElementId = 'rdio-player';
 
   swfobject.embedSWF(
