@@ -167,39 +167,37 @@ body {
 
 }
 
-#song-info{
-  position: fixed;
-  bottom: 4em;
-  left: 38%;
-  right: 30%;
-  letter-spacing: 0;
-}
 
 #player-center{
   display: inline-block;
-  position: fixed;
-  height: 100%;
+  position: relative;
+  /*height: 100%;*/
   width: 60%;
   text-align: center;
   font-size: .85em;
 }
 
+#song-info{
+  position: absolute;
+  bottom: 3.7em;
+  left: 25%;
+  width: 50%;
+  letter-spacing: 0;
+}
 #position {
-  position: fixed;
-  bottom: 1em;
-  right: 30%;
-  left: 38%;
+  position: absolute;
+  bottom: 0.5em;
+  left: 25%;
+  width: 50%;
   letter-spacing: 0;
 }
 
-.progress-bar-wrapper {
-  width: 0 auto;
-}
+
 #progress-bar {
-  position: fixed;
-  bottom: 3em;
-  right: 30%;
-  left: 38%;
+ position: absolute;
+  bottom: 1.9em;
+  left: 25%;
+  width: 50%;
   letter-spacing: 0;
   width: 400px;
   height: 1.5px;
@@ -414,8 +412,7 @@ body {
 
 .toggle-switch {
   margin-top: .2em !important;
-  margin-left: 42%;
-
+  margin-left: 0;
 }
 
 .switch-candy a {
@@ -430,7 +427,7 @@ body {
 
 .switch-light {
   cursor: pointer;
-  margin: 0;
+  margin: 0 auto;
   width: 12em;
 }
 

@@ -15,19 +15,6 @@
     <div class='queue-container'>
       <!-- actual top container -->
       <ul class='queue-track-info queue-top-list'></ul>
-      <!-- mock queue track info -->
-      <!-- <ul class="queue-track-info queue-top-list">
-        <% 5.times do %>
-             <li>
-
-              <span> 8 </span>
-              <img src="http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg" class="front-page-art">
-              <div class ="queue-span-wrapper">Track Name</div>
-              <div class ="queue-span-wrapper">Artist Name</div>
-            </li>
-          <hr></hr>
-        <% end %>
-      </ul> -->
     </div>
   </div>
 
@@ -41,10 +28,10 @@
     <div id="song-info">
       <span class="current-song-track">Song </span> -- <span class="current-song-artist"> Artist</span>
     </div>
-    <div class="progress-par-wrapper">
+
       <div id="progress-bar"><div></div></div>
       <span id="position"> Position yo! </span>
-    </div>
+
   </div>
   <div id="album-art-container">
     <%= image_tag("http://rdio-b.cdn3.rdio.com/album/8/2/5/0000000000019528/2/square-200.jpg", id: 'art') %>
