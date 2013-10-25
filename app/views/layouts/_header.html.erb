@@ -1,6 +1,6 @@
 <div class="header">
   <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
-     <a href="/"><img src="/assets/qd-small-logo.png" class="pure-menu-heading" id="logo"></a>
+     <a href="/"><img src="<%= asset_path('qd-small-logo.png') %>" class="pure-menu-heading" id="logo"></a>
      <% if render_toggle %>
         <div class="toggle-switch">
           <label class="switch-light switch-candy">
@@ -15,7 +15,7 @@
     <% end %>
 
       <% if signed_in? %>
-
+        <!-- render toggle with no margin when signed in  -->
         <% if render_toggle %>
           <ul >
         <% else %>

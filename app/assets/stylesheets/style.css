@@ -755,6 +755,7 @@ hr {
   /*main search results*/
   .single-track {
     margin: 0 auto;
+    margin-right: 3em;
   }
 
   .album-art-container {

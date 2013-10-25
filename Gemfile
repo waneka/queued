@@ -8,10 +8,22 @@ gem 'pg'
 gem 'faker'
 gem "random-word", "~> 1.3.0"
 gem 'nokogiri'
+gem "pry-rails"
 
 # Use sqlite3 as the database for Active Record
 group :development do
 
+end
+
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'selenium-webdriver'
+	gem 'shoulda-matchers'
+	gem 'launchy'
+	gem 'puffing-billy'
+	gem 'factory_girl_rails'
+	gem 'database_cleaner'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

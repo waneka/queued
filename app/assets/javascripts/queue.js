@@ -29,8 +29,10 @@ var Queue = {
   },
   upVote: function(e){
     var songItem = $(e.target).closest('li')
+    console.log('songitem:'+songItem)
     var songID = songItem.data('songkey')
-    if (Sync.checkIfUserVoted(songID)) {
+    console.log('songID:'+songID)
+    if (Sync.checkIfUserVoted(songID) && songItem.data('songkey') != null) {
       Sync.storeUserVote(songID)
       var newVoteCount = (parseInt(songItem.find('.queue-vote-count').html()) + 1)
       Sync.firebaseServer.child(songID).child('voteCount').set(newVoteCount)
