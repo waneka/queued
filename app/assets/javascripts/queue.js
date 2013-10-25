@@ -32,7 +32,7 @@ var Queue = {
     console.log('songitem:'+songItem)
     var songID = songItem.data('songkey')
     console.log('songID:'+songID)
-    if (Sync.checkIfUserVoted(songID)) {
+    if (Sync.checkIfUserVoted(songID) && songItem.data('songkey') != null) {
       Sync.storeUserVote(songID)
       var newVoteCount = (parseInt(songItem.find('.queue-vote-count').html()) + 1)
       Sync.firebaseServer.child(songID).child('voteCount').set(newVoteCount)
