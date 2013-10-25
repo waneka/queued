@@ -46,10 +46,10 @@ var RdioCallbacks = {
     // this.rdioPlayerElement == this.rdioPlayerElement || $('#' + rdioPlayerElementId).get(0)
   // console.log(Player.playing)
 
-    if ((($('.queue-item').length) > 0) && !Player.playing)  {
-      rdioPlayerElement.rdio_play(Queue.nextSong())
+  if ((($('.queue-item').length) > 0) && !Player.playing)  {
+    rdioPlayerElement.rdio_play(Queue.nextSong())
 
-    } else {
+  } else {
       // console.log("waiting for songs to be added or player has song")
     }
   },
@@ -84,10 +84,19 @@ var RdioCallbacks = {
     }
   },
 
+  songProgressBar: function(percent, $element) {
+    var progressBarWidth = percent * $element.width() / 100;
+    $element.find('div').animate({ width: progressBarWidth }, 500);
+  },
+
   positionChanged: function(position) {
     //The position within the track changed to position seconds.
     // This happens both in response to a seek and during playback.
-    // $('#position').css("width", position"%");
+    $('#position').text(parseInt(position));
+    $element = $('#progress-bar')
+    percent = ((position/RdioCallbacks.currentSongDuration)*100)
+
+    this.songProgressBar(percent, $element)
 
     if (this.isSongAboutToEnd(position)) {
       if ( ($('.queue-item').length) > 0) {
@@ -117,6 +126,6 @@ $(document).ready(function() {
     },
     // allow the player to access js variables
     { 'allowScriptAccess': 'always' }
-  );
+    );
 
 });
