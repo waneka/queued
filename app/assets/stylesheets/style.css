@@ -126,6 +126,7 @@ body.home {
 .player-expanded-view {
   display: none;
   margin: .5em;
+  padding: 3em;
 }
 
 .player-expanded-view div {
@@ -133,6 +134,9 @@ body.home {
   /*width: 40%;*/
 }
 
+.current-song-album-art {
+  max-width: 60%;
+}
 
 #controls{
   display: inline-block;
