@@ -29,7 +29,10 @@ var Search = {
       $('.results-container').append(Search.buildResultRow(rdioSingleResult))
     })
     bindAddSong()
-    (rdioData.result.results.length >= 4) ? $('.result').addClass('pure-u-1-8') : $('.result').addClass('pure-u-2-4')
+    if($('.result').length > 0) Search.setResultClass($('.result').length)
+  },
+  setResultClass: function(numResults){
+    (numResults >= 4) ? $('.result').addClass('pure-u-1-8') : $('.result').addClass('pure-u-2-4')
   },
   //TODO: STOP CHOPPING CHARACTERS
   limitCharacters: function(str){
