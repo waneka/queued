@@ -29,7 +29,9 @@ var Queue = {
   },
   upVote: function(e){
     var songItem = $(e.target).closest('li')
+    console.log('songitem:'+songItem)
     var songID = songItem.data('songkey')
+    console.log('songID:'+songID)
     if (Sync.checkIfUserVoted(songID)) {
       Sync.storeUserVote(songID)
       var newVoteCount = (parseInt(songItem.find('.queue-vote-count').html()) + 1)

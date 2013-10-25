@@ -7,6 +7,7 @@ var User = {
       this.key = this.makeKey()
       $.cookie('key', this.key)
     }
+    this.ready = true
   },
   makeKey: function(){
     return Math.random().toString(36).substring(7)

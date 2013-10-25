@@ -111,9 +111,7 @@ var RdioCallbacks = {
 }
 
 
-$(document).on("page:load", function() {
-  Player.init()
-
+function initRdio(){
   RdioCallbacks.rdioPlayerElementId = 'rdio-player';
 
   swfobject.embedSWF(
@@ -131,4 +129,4 @@ $(document).on("page:load", function() {
     { 'allowScriptAccess': 'always' }
     );
 
-});
+}
