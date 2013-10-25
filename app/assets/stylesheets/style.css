@@ -48,8 +48,8 @@ body {
   position: absolute;
   margin-top: -0.3em;
   left: 1em;
-  max-width: 11em;
-  max-height: 3.7em;
+  max-width: 7em;
+  max-height: 3.5em;
 }
 
  /*logout and picture container*/
@@ -131,6 +131,7 @@ body {
   /*width: 40%;*/
 }
 
+
 #controls{
   display: inline-block;
   width: 20%;
@@ -180,6 +181,7 @@ body {
   height: 100%;
   width: 60%;
   text-align: center;
+  font-size: .85em;
 }
 
 #position {
@@ -190,31 +192,32 @@ body {
   letter-spacing: 0;
 }
 
+.progress-bar-wrapper {
+  width: 0 auto;
+}
 #progress-bar {
   position: fixed;
-  bottom: 2.5em;
+  bottom: 3em;
   right: 30%;
   left: 38%;
   letter-spacing: 0;
-}
-
-#progress-bar {
   width: 400px;
-  height: 8px;
-  border: 1px solid #111;
+  height: 1.5px;
+  /*border: 1px solid #111;*/
   background-color: #292929;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 #progress-bar div {
+  position: absolute;
   height: 100%;
-  color: #fff;
   text-align: right;
   line-height: 22px; /* same as #progress-bar height if we want text middle aligned */
   width: 0;
-  background-color: #c0392b;
+  background-color: #D1D1D1;
   border-radius: 8px;
 }
+
 
 #album-art-container{
   display: inline-block;
@@ -225,13 +228,16 @@ body {
 }
 
 #art {
-  width: 2em;
+  width: 3em;
   position: fixed;
-  bottom: 1.7em;
+  bottom: 1.3em;
   right: 2em;
 }
 
+#art:hover {
+  opacity: 0.6;
 
+}
 
 
 /*Search container */
@@ -243,6 +249,9 @@ body {
 .pure-g-r {
   z-index: 0;
   margin-bottom: 7em;
+  text-align: center;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .search-form {
   width: 100%;
@@ -261,7 +270,7 @@ body {
   background-color: rgb(241, 241, 241);
 }
 .search-submit {
-  height: 2em;
+  height: 2.3em;
   line-height: .6em;
   background-color: #D5D5D8;
 
@@ -311,6 +320,9 @@ body {
 
 .single-track.expanded img {
   width: 80%;
+}
+.single-track.expanded span:nth-child(1) {
+  font-size: .9em;
 }
 
 .image {
@@ -402,7 +414,7 @@ body {
 
 .toggle-switch {
   margin-top: .2em !important;
-  margin-left: 45%;
+  margin-left: 42%;
 
 }
 
@@ -468,7 +480,7 @@ body {
 
 hr {
   border-width: 1px 0px;
-  border-color: #666 transparent #474747 transparent;
+  border-color: #302C2C transparent #837D7D transparent;
 }
 .queue-border {
   border-width: 1px 0px;
@@ -580,26 +592,20 @@ hr {
   background-color: rgb(209, 209, 209);
 }
 
-.pure-button.join-party {
-  width: 8em;
-  height: 2.3em;
-  float: right;
-  background-color: rgb(210, 210, 213);
-}
-
 
 /*new party partial */
 
 .pure-button.new-party {
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 5em;
   margin-bottom: 3em;
  /* background-color: rgb(192, 192, 196);
   color: #F0F2F3;*/
 }
 
-.home-buttons-container hr {
-  width: 60%;
+.old-parties-container hr {
+  width: 55%;
+  margin-bottom: 1.5em;
 }
 
 
@@ -609,28 +615,35 @@ hr {
 
 .old-parties-container {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5em;
 }
 
 .old-parties-container span {
-  font-size:
-}
-#party-list-container {
-  text-align: center;
-}
-
-#old-parties-list {
-  width: 30em;
-  margin: 0 auto;
-  text-align: left;
   font-size: 1.5em;
-  padding-top: 10px;
+  color: rgb(144, 145, 155);
 }
 
-#old-parties {
-  font-size: 2em;
+.old-parties-container ul {
+  list-style: none;
+  text-align: center !important;
+  margin-top: 2em;
+
 }
 
+.old-parties-container li {
+  margin: .4em;
+}
+.old-parties-container a {
+  text-decoration: none;
+  color: rgb(99, 98, 104);
+  font-size: .97em;
+}
+
+.old-parties-container a:hover {
+  color: #c0392b;
+}
 
 
 
