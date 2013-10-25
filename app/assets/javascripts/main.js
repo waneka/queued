@@ -6,6 +6,10 @@ $(document).on('page:load', function(){
 })
 
 $(document).ready(function(){
+  Queue.init()
+  Sync.init()
+  Search.init()
+  User.init()
   bindAddSong()
   bindToggleSwitch()
   bindPlayerExpander()
