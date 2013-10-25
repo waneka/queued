@@ -166,21 +166,20 @@ body {
 
 }
 
+#song-info{
+  position: fixed;
+  bottom: 4em;
+  left: 38%;
+  right: 30%;
+  letter-spacing: 0;
+}
+
 #player-center{
   display: inline-block;
   position: fixed;
   height: 100%;
   width: 60%;
   text-align: center;
-
-}
-
-#song-info{
-  position: fixed;
-  bottom: 3em;
-  left: 38%;
-  right: 30%;
-  letter-spacing: 0;
 }
 
 #position {
@@ -189,9 +188,34 @@ body {
   right: 30%;
   left: 38%;
   letter-spacing: 0;
-
-
 }
+
+#progress-bar {
+  position: fixed;
+  bottom: 2.5em;
+  right: 30%;
+  left: 38%;
+  letter-spacing: 0;
+}
+
+#progress-bar {
+  width: 400px;
+  height: 8px;
+  border: 1px solid #111;
+  background-color: #292929;
+  border-radius: 8px;
+}
+
+#progress-bar div {
+  height: 100%;
+  color: #fff;
+  text-align: right;
+  line-height: 22px; /* same as #progress-bar height if we want text middle aligned */
+  width: 0;
+  background-color: #c0392b;
+  border-radius: 8px;
+}
+
 #album-art-container{
   display: inline-block;
   float: right;
