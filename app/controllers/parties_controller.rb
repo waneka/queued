@@ -23,7 +23,7 @@ class PartiesController < ApplicationController
   end
 
   def search
-    @party = Party.find_by_password(params[:password])
+    @party = Party.find_by_password(params[:password].split(' ').map { |word| word.capitalize }.join(' '))
     if @party
       redirect_to party_path(@party.url)
     else
