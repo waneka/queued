@@ -272,6 +272,7 @@ body.home {
   margin-top: 2em;
   border-width: 0;
   background-color: rgb(241, 241, 241);
+  text-indent: 10px;
 }
 .search-submit {
   height: 2.3em;
