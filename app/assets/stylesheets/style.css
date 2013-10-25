@@ -13,7 +13,7 @@ body {
 /*lading page background */
 
 .landing-page-background {
-  /*background-image: url('/assets/landing_page_blue2.jpg');*/
+  background-image: url('/assets/landing_page_blue2.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -48,8 +48,8 @@ body {
   position: absolute;
   margin-top: -0.3em;
   left: 1em;
-  max-width: 11em;
-  max-height: 3.7em;
+  max-width: 7em;
+  max-height: 3.5em;
 }
 
  /*logout and picture container*/
@@ -218,6 +218,9 @@ body {
 .pure-g-r {
   z-index: 0;
   margin-bottom: 7em;
+  text-align: center;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .search-form {
   width: 100%;
@@ -236,7 +239,7 @@ body {
   background-color: rgb(241, 241, 241);
 }
 .search-submit {
-  height: 2em;
+  height: 2.3em;
   line-height: .6em;
   background-color: #D5D5D8;
 
@@ -377,7 +380,7 @@ body {
 
 .toggle-switch {
   margin-top: .2em !important;
-  margin-left: 45%;
+  margin-left: 42%;
 
 }
 
@@ -555,26 +558,20 @@ hr {
   background-color: rgb(209, 209, 209);
 }
 
-.pure-button.join-party {
-  width: 8em;
-  height: 2.3em;
-  float: right;
-  background-color: rgb(210, 210, 213);
-}
-
 
 /*new party partial */
 
 .pure-button.new-party {
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 5em;
   margin-bottom: 3em;
  /* background-color: rgb(192, 192, 196);
   color: #F0F2F3;*/
 }
 
-.home-buttons-container hr {
-  width: 60%;
+.old-parties-container hr {
+  width: 55%;
+  margin-bottom: 1.5em;
 }
 
 
@@ -584,28 +581,35 @@ hr {
 
 .old-parties-container {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5em;
 }
 
 .old-parties-container span {
-  font-size:
-}
-#party-list-container {
-  text-align: center;
-}
-
-#old-parties-list {
-  width: 30em;
-  margin: 0 auto;
-  text-align: left;
   font-size: 1.5em;
-  padding-top: 10px;
+  color: rgb(144, 145, 155);
 }
 
-#old-parties {
-  font-size: 2em;
+.old-parties-container ul {
+  list-style: none;
+  text-align: center !important;
+  margin-top: 2em;
+
 }
 
+.old-parties-container li {
+  margin: .4em;
+}
+.old-parties-container a {
+  text-decoration: none;
+  color: rgb(99, 98, 104);
+  font-size: .97em;
+}
+
+.old-parties-container a:hover {
+  color: #c0392b;
+}
 
 
 

@@ -1,8 +1,10 @@
 
 <% if !@parties.empty? %>
+
   <div class='old-parties-container'>
-    <span id="old-parties">...or shake the dust off of one of these old parties:</span>
-    <ul id="old-parties-list">
+  <hr class="queue-border"></hr>
+    <span >...or shake the dust off of one of these old parties:</span>
+    <ul>
       <% @parties.each do |party| %>
         <li class="old-parties"><%= link_to party.password, party_path(party.url), action: 'get' %></li>
       <% end %>
