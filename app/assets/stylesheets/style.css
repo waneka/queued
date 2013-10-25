@@ -11,9 +11,8 @@ body {
 }
 
 /*lading page background */
-
-.landing-page-background {
-  /*background-image: url('/assets/landing_page_blue2.jpg');*/
+body.home {
+  background-image: url('/assets/landing_page_blue2.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -38,7 +37,7 @@ body {
   height: 4em;
   line-height: 2.5em;
   z-index: 5;
-  background-color: #2c3e50;
+  background-color: #253444;
   border-width: 0;
 
 }
@@ -56,7 +55,10 @@ body {
 .pure-menu ul {
   float: right;
   margin-top: -2.5em;
+}
 
+.pure-menu ul.no-margin {
+  margin-top: 0;
 }
 .pure-menu li {
   line-height: 3em;
@@ -589,13 +591,18 @@ hr {
   background-color: rgb(209, 209, 209);
 }
 
+.pure-button.join-party {
+  width: 8em;
+  float: right;
+  background-color: rgb(189, 189, 189);
+}
 
 /*new party partial */
 
 .pure-button.new-party {
   margin: 0 auto;
   margin-top: 5em;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
  /* background-color: rgb(192, 192, 196);
   color: #F0F2F3;*/
 }

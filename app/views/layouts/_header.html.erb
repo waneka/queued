@@ -1,21 +1,29 @@
 <div class="header">
   <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal", id="navbar">
      <a href="/"><img src="/assets/qd-small-logo.png" class="pure-menu-heading" id="logo"></a>
-    <div class="toggle-switch">
-      <label class="switch-light switch-candy">
-        <input type="checkbox">
-        <span >
-          <span id="search-toggle"><i class="icon-search icon-large"></i></span>
-          <span id="queue-toggle"><i class="icon-reorder"></i></span>
-        </span>
-        <a class="pos"></a>
-      </label>
-    </div>
-    <ul >
+     <% if render_toggle %>
+        <div class="toggle-switch">
+          <label class="switch-light switch-candy">
+            <input type="checkbox">
+            <span >
+              <span id="search-toggle"><i class="icon-search icon-large"></i></span>
+              <span id="queue-toggle"><i class="icon-reorder"></i></span>
+            </span>
+            <a class="pos"></a>
+          </label>
+        </div>
+    <% end %>
+
       <% if signed_in? %>
-      <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
-      <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
+
+        <% if render_toggle %>
+          <ul >
+        <% else %>
+          <ul class="no-margin">
+        <% end %>
+            <li><%= image_tag(current_user.profile_pic_url, id: 'profile-image') %></li>
+            <li> <%= link_to 'Log out', logout_path, method: :get, class: 'pure-button',  id: 'logout-button' %></li>
+          </ul>
       <% end %>
-    </ul>
   </div>
 </div>
